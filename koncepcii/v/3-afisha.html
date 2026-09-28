@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Шостакович — Афиша</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;500;700&family=Playfair+Display:ital,wght@0,500;1,400;1,600&family=Onest:wght@400;500;600&display=swap">
+<style>
+:root{
+  color-scheme:dark;
+  --bg:#0F090C; --panel:#180F14; --line:#34202A; --text:#F3E9ED; --mute:#A18C96;
+  --rose:#C8185A; --rose-hi:#EC4A86; --paper:#F1E3E8; --ink:#1A0C12;
+  --poster:"Oswald","Arial Narrow",sans-serif; --serif:"Playfair Display",Georgia,serif; --body:"Onest",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.55 var(--body)}
+a{color:inherit;text-decoration:none}
+a:focus-visible{outline:2px solid var(--rose-hi);outline-offset:3px}
+.wrap{max-width:1180px;margin:0 auto;padding-inline:clamp(16px,4vw,40px)}
+nav{display:flex;align-items:center;gap:22px;padding-block:18px;font-size:14px;color:var(--mute)}
+nav .logo{font:500 15px/1 var(--poster);letter-spacing:.4em;color:var(--text)}
+nav .links{display:flex;gap:22px;margin-left:auto}
+nav .links a:hover{color:var(--text)}
+@media(max-width:700px){nav .links a:not(:last-child){display:none}}
+nav .links a:last-child{color:var(--rose-hi);font-weight:600}
+
+/* Афиша */
+.poster{position:relative;border:1px solid var(--line);border-radius:6px;overflow:hidden;
+  background:radial-gradient(50% 70% at 70% 45%,#5b1231 0%,transparent 70%),radial-gradient(40% 60% at 10% 90%,#40102a,transparent 70%),var(--panel);
+  display:grid;grid-template-columns:1fr minmax(0,.8fr);min-height:0}
+@media(max-width:860px){.poster{grid-template-columns:1fr}}
+.poster .txt{padding:clamp(22px,4vw,48px);display:flex;flex-direction:column;gap:18px;position:relative;z-index:2}
+.meta{display:flex;flex-wrap:wrap;gap:8px 22px;font:500 12px/1 var(--poster);letter-spacing:.32em;text-transform:uppercase;color:var(--rose-hi)}
+.poster h1{font:700 clamp(52px,9vw,124px)/.86 var(--poster);text-transform:uppercase;letter-spacing:.01em;margin:0}
+.poster h1 small{display:block;font:italic 400 clamp(22px,3vw,36px)/1.2 var(--serif);text-transform:none;color:#E8BCCD;margin-top:14px;letter-spacing:0}
+.poster .sub{max-width:40ch;color:#CDB5C0;margin:0}
+.poster .img{min-height:320px;background:linear-gradient(90deg,var(--panel),transparent 30%),radial-gradient(60% 60% at 55% 45%,#7a1540,#1a0c12 75%);display:grid;place-items:center;color:#c89ab0;font-size:12px;letter-spacing:.18em;text-transform:uppercase;text-align:center;padding:20px}
+.stagebar{display:flex;flex-wrap:wrap;border-top:1px solid var(--line);grid-column:1/-1}
+.stagebar div{flex:1 1 200px;padding:16px clamp(18px,3vw,28px);border-right:1px solid var(--line);font-size:14px;color:var(--mute)}
+.stagebar div:last-child{border-right:0}
+.stagebar b{display:block;font:500 13px/1.2 var(--poster);letter-spacing:.24em;text-transform:uppercase;color:var(--text);margin-bottom:4px}
+
+/* Билет */
+.ticket{display:grid;grid-template-columns:1fr auto;margin-top:22px;max-width:620px;color:var(--ink);filter:drop-shadow(0 12px 30px rgba(200,24,90,.25))}
+.ticket .main{background:var(--paper);border-radius:10px 0 0 10px;padding:18px 22px;
+  -webkit-mask:radial-gradient(circle 10px at 100% 50%,transparent 98%,#000);mask:radial-gradient(circle 10px at 100% 50%,transparent 98%,#000)}
+.ticket .stub{background:var(--rose);color:#fff;border-radius:0 10px 10px 0;padding:18px 22px;border-left:2px dashed rgba(255,255,255,.55);display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;
+  -webkit-mask:radial-gradient(circle 10px at 0 50%,transparent 98%,#000);mask:radial-gradient(circle 10px at 0 50%,transparent 98%,#000)}
+.ticket small{font:500 11px/1 var(--poster);letter-spacing:.3em;text-transform:uppercase;opacity:.7}
+.ticket strong{display:block;font:italic 600 26px/1.15 var(--serif);margin:6px 0 4px}
+.ticket .stub strong{font:700 34px/1 var(--poster);font-style:normal}
+.ticket p{margin:0;font-size:13.5px;color:#5a4450}
+@media(max-width:520px){.ticket{grid-template-columns:1fr}.ticket .main,.ticket .stub{border-radius:10px;-webkit-mask:none;mask:none}.ticket .stub{border-left:0;border-top:2px dashed rgba(255,255,255,.55)}}
+
+section{padding-block:64px}
+.h{display:flex;align-items:baseline;gap:18px;flex-wrap:wrap;border-bottom:1px solid var(--line);padding-bottom:14px;margin-bottom:6px}
+.h h2{font:700 clamp(30px,4vw,48px)/1 var(--poster);text-transform:uppercase;margin:0}
+.h span{font:italic 400 18px/1 var(--serif);color:var(--mute)}
+
+/* Программа */
+.prog{list-style:none;margin:0;padding:0;counter-reset:n}
+.prog li{counter-increment:n;display:grid;grid-template-columns:56px minmax(0,1fr) auto;gap:18px;align-items:baseline;padding-block:18px;border-bottom:1px solid var(--line)}
+.prog li::before{content:counter(n,upper-roman);font:italic 400 22px/1 var(--serif);color:var(--rose-hi)}
+.prog b{font:500 clamp(22px,2.6vw,30px)/1.1 var(--poster);text-transform:uppercase;letter-spacing:.02em}
+.prog i{display:block;font:italic 400 16px/1.4 var(--serif);color:var(--mute);margin-top:4px}
+.prog .dots{font-size:13px;color:var(--mute);white-space:nowrap}
+.prog a{color:var(--rose-hi);font-weight:600;margin-left:14px}
+@media(max-width:600px){.prog li{grid-template-columns:40px 1fr}.prog .dots{grid-column:2}}
+
+/* Репертуар */
+.rep{overflow-x:auto;margin-top:18px}
+table{border-collapse:collapse;width:100%;min-width:720px;font-size:14px}
+th,td{border:1px solid var(--line);padding:10px 12px;text-align:left;vertical-align:top}
+thead th{font:500 12px/1 var(--poster);letter-spacing:.24em;text-transform:uppercase;color:var(--mute);background:var(--panel)}
+tbody th{font:500 13px/1.2 var(--poster);letter-spacing:.14em;text-transform:uppercase;white-space:nowrap}
+td span{display:block;font-variant-numeric:tabular-nums;color:var(--rose-hi);font-weight:600}
+.ex{font-size:12px;color:#7a6570;margin-top:10px}
+
+/* Абонементы */
+.subs{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:22px}
+@media(max-width:760px){.subs{grid-template-columns:1fr}}
+.sub{border:1px solid var(--line);padding:22px;border-radius:6px;background:var(--panel)}
+.sub small{font:500 12px/1 var(--poster);letter-spacing:.28em;text-transform:uppercase;color:var(--mute)}
+.sub b{display:block;font:700 44px/1 var(--poster);margin:14px 0 6px;font-variant-numeric:tabular-nums}
+.sub i{font:italic 400 16px/1 var(--serif);color:var(--mute)}
+footer{border-top:1px solid var(--line);padding-block:32px;display:flex;flex-wrap:wrap;gap:12px 36px;color:var(--mute);font-size:14px}
+footer b{color:var(--text);font-weight:500}
+.note{font-size:12px;color:#6f5a64;padding-block:0 28px}
+</style>
+
+<div class="wrap">
+  <nav>
+    <div class="logo">ШОСТАКОВИЧ</div>
+    <div class="links"><a href="#prog">Программа</a><a href="#rep">Репертуар</a><a href="#subs">Абонементы</a><a href="#ticket">Билет на пробное</a></div>
+  </nav>
+
+  <header class="poster">
+    <div class="txt">
+      <div class="meta"><span>Пенза</span><span>Сезон 2026/27</span><span>3 сцены</span></div>
+      <h1>Шостакович<small>Вечер, в котором главная роль ваша</small></h1>
+      <p class="sub">Пилон, танцы и фитнес для женщин. Восемь номеров в программе, три зала в городе, первый выход за 400 ₽.</p>
+      <div class="ticket" id="ticket">
+        <div class="main"><small>Входной билет</small><strong>Пробное занятие</strong><p>Любое направление · любой филиал · любой день из расписания</p></div>
+        <a class="stub" href="#"><small>цена</small><strong>400 ₽</strong><small>взять</small></a>
+      </div>
+    </div>
+    <div class="img">фото: солистка на пилоне<br>в малиновом свете</div>
+    <div class="stagebar">
+      <div><b>Сцена «Слава»</b>ул. Славы, 2 · 8-927-093-98-98</div>
+      <div><b>Сцена «Суворовский»</b>ул. Суворова, 144а · 8-927-091-98-98</div>
+      <div><b>Сцена «Олимп»</b>пр. Строителей, 9 · 8-927-092-98-98</div>
+    </div>
+  </header>
+</div>
+
+<section id="prog"><div class="wrap">
+  <div class="h"><h2>Программа</h2><span>восемь номеров</span></div>
+  <ol class="prog">
+    <li><div><b>Pole Dance</b><i>силовые элементы, работают все мышцы</i></div><span class="dots">сила<a href="#">Записаться</a></span></li>
+    <li><div><b>Exotic Pole</b><i>для смелых и тех, кто хочет ими стать</i></div><span class="dots">сила · танец<a href="#">Записаться</a></span></li>
+    <li><div><b>Стрип-пластика</b><i>чувственность и красота движения</i></div><span class="dots">танец<a href="#">Записаться</a></span></li>
+    <li><div><b>Растяжка</b><i>гибкость, осанка, путь к шпагату</i></div><span class="dots">гибкость<a href="#">Записаться</a></span></li>
+    <li><div><b>Скульптор тела</b><i>ягодицы и живот в главной роли</i></div><span class="dots">сила<a href="#">Записаться</a></span></li>
+    <li><div><b>Джампинг</b><i>кардио для тех, кому не подходит бег</i></div><span class="dots">кардио<a href="#">Записаться</a></span></li>
+    <li><div><b>Банджи</b><i>полёт на тросах и крепкие мышцы</i></div><span class="dots">кардио<a href="#">Записаться</a></span></li>
+    <li><div><b>Йога в гамаках</b><i>мягкий номер для бодрости</i></div><span class="dots">баланс<a href="#">Записаться</a></span></li>
+  </ol>
+</div></section>
+
+<section id="rep" style="padding-top:0"><div class="wrap">
+  <div class="h"><h2>Репертуар недели</h2><span>вечерние сеансы</span></div>
+  <div class="rep">
+    <table>
+      <thead><tr><th>Сцена</th><th>Пн</th><th>Вт</th><th>Ср</th><th>Чт</th><th>Пт</th><th>Сб</th></tr></thead>
+      <tbody>
+        <tr><th>Слава</th><td><span>19:00</span>Pole Dance</td><td><span>18:30</span>Растяжка</td><td><span>19:00</span>Exotic Pole</td><td><span>20:00</span>Стрип-пластика</td><td><span>19:00</span>Pole Dance</td><td><span>11:00</span>Гамаки</td></tr>
+        <tr><th>Суворовский</th><td><span>18:00</span>Джампинг</td><td><span>19:30</span>Скульптор</td><td><span>18:00</span>Банджи</td><td><span>19:30</span>Джампинг</td><td><span>18:30</span>Растяжка</td><td><span>12:00</span>Банджи</td></tr>
+        <tr><th>Олимп</th><td><span>20:00</span>Стрип-пластика</td><td><span>19:00</span>Pole Dance</td><td><span>20:00</span>Растяжка</td><td><span>19:00</span>Exotic Pole</td><td><span>20:00</span>Скульптор</td><td><span>10:30</span>Растяжка</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="ex">Сеансы для примера. В работе подключим настоящее расписание из приложения студии.</p>
+</div></section>
+
+<section id="subs" style="padding-top:0"><div class="wrap">
+  <div class="h"><h2>Абонементы</h2><span>на любую сцену города</span></div>
+  <div class="subs">
+    <div class="sub"><small>4 выхода в месяц</small><b>2 900 ₽</b><i>для знакомства</i></div>
+    <div class="sub"><small>8 выходов в месяц</small><b>4 500 ₽</b><i>дважды в неделю</i></div>
+    <div class="sub"><small>12 выходов в месяц</small><b>5 500 ₽</b><i>для постоянных солисток</i></div>
+  </div>
+</div></section>
+
+<div class="wrap">
+  <footer>
+    <span><b>Слава</b> · ул. Славы, 2 · +7 (927) 093-98-98</span>
+    <span><b>Суворовский</b> · ул. Суворова, 144А · +7 (927) 091-98-98</span>
+    <span><b>Олимп</b> · пр. Строителей, 9 · +7 (927) 092-98-98</span>
+  </footer>
+  <p class="note">Прототип 3 «Афиша». Фото — заглушки.</p>
+</div>
+

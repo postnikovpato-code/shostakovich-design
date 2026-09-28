@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Шостакович — Ноты</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;500;600&family=Nunito+Sans:wght@400;600&display=swap">
+<style>
+:root{
+  color-scheme:dark;
+  --bg:#1A1819; --tile:#232022; --line:#363134; --text:#EDE8EA; --mute:#9A9095;
+  --accent:#9E3A58; --soft:#D8A7B6; --champ:#E3CBA8;
+  --display:"Montserrat",system-ui,sans-serif; --body:"Nunito Sans",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 var(--body)}
+a{color:inherit;text-decoration:none}
+a:focus-visible,button:focus-visible{outline:1px solid var(--soft);outline-offset:3px}
+.wrap{max-width:1180px;margin:0 auto;padding-inline:clamp(16px,4vw,40px)}
+.btn{display:inline-block;padding:13px 22px;border-radius:6px;background:var(--accent);color:#fff;font:600 14px/1.2 var(--display);letter-spacing:.04em;border:0;cursor:pointer}
+.btn:hover{background:#b44669}
+.btn.ghost{background:none;border:1px solid #5a5055;color:var(--text)}
+nav{display:flex;align-items:center;gap:20px;padding-block:18px}
+.logo{font:300 13px/1 var(--display);letter-spacing:.6em}
+nav .btn{margin-left:auto}
+
+.hero{padding-block:36px 64px;text-align:center}
+.hint{font:500 11px/1 var(--display);letter-spacing:.4em;text-transform:uppercase;color:var(--soft);margin:0 0 22px}
+.keys{display:flex;justify-content:center;gap:clamp(2px,1vw,10px);flex-wrap:nowrap;margin:0 auto 10px;padding:0;list-style:none;user-select:none}
+.key{position:relative;background:none;border:0;padding:0 clamp(2px,.6vw,8px);color:var(--text);font:200 clamp(28px,8.6vw,112px)/1.1 var(--display);cursor:pointer;transition:transform .12s,color .12s}
+.key::after{content:"";position:absolute;left:50%;top:55%;width:10px;height:10px;margin:-5px 0 0 -5px;border-radius:50%;border:1.5px solid var(--champ);opacity:0;pointer-events:none}
+.key.hit{transform:translateY(-10px) scaleY(1.06);color:var(--champ)}
+.key.hit::after{animation:ring .9s ease-out forwards}
+@keyframes ring{from{opacity:.9;transform:scale(1)}to{opacity:0;transform:scale(22)}}
+.key small{display:block;font:500 10px/1 var(--display);letter-spacing:.2em;color:var(--mute);margin-top:6px;opacity:0;transition:opacity .2s}
+.keys:hover .key small,.keys.on .key small{opacity:1}
+.staff{height:2px;background:linear-gradient(90deg,transparent,var(--line) 15%,var(--line) 85%,transparent);margin:6px auto 26px;max-width:900px}
+.lead{max-width:48ch;margin:0 auto 22px;color:var(--mute);font-size:17px}
+.lead b{color:var(--text)}
+.actions{display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
+.dsch{margin-top:34px;display:inline-flex;align-items:center;gap:14px;border:1px solid var(--line);border-radius:12px;padding:12px 18px;font-size:14px;color:var(--mute);text-align:left}
+.dsch b{display:block;font:600 13px/1.3 var(--display);letter-spacing:.14em;color:var(--champ)}
+.sound{font-size:12px;color:#7a7175;margin-top:12px}
+
+section{padding-block:64px;border-top:1px solid var(--line)}
+h2{font:300 clamp(26px,3.2vw,40px)/1.15 var(--display);margin:0 0 28px}
+.dirs{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+@media(max-width:860px){.dirs{grid-template-columns:repeat(2,1fr)}}
+.d{background:var(--tile);border-radius:18px;padding:22px}
+.d h3{font:500 18px/1.2 var(--display);margin:0 0 4px}
+.d p{margin:0;color:var(--mute);font-size:14px}
+.prices{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+@media(max-width:860px){.prices{grid-template-columns:repeat(2,1fr)}}
+.pr{background:var(--tile);border-radius:16px;padding:20px}
+.pr.first{background:var(--accent)}
+.pr span{font-size:14px;color:var(--mute)}
+.pr.first span{color:#f3d4de}
+.pr b{display:block;font:300 30px/1 var(--display);margin-top:14px;font-variant-numeric:tabular-nums}
+footer{border-top:1px solid var(--line);padding-block:26px;display:flex;flex-wrap:wrap;gap:10px 30px;font-size:14px;color:var(--mute)}
+footer b{color:var(--text)}
+.note{font-size:12px;color:#6d6468;padding-block:0 28px}
+@media(prefers-reduced-motion:reduce){.key{transition:none}.key.hit::after{animation:none}}
+</style>
+
+<div class="wrap">
+  <nav><div class="logo">ШОСТАКОВИЧ</div><a class="btn" href="#price">Пробное — 400 ₽</a></nav>
+  <header class="hero">
+    <p class="hint">Нажмите на букву, у каждой своя нота</p>
+    <h1 style="margin:0"><ul class="keys" id="keys" aria-label="Шостакович"></ul></h1>
+    <div class="staff"></div>
+    <p class="lead"><b>Пилон, фитнес и танцы</b> в трёх студиях Пензы. Тело тоже инструмент, на нём можно научиться играть.</p>
+    <div class="actions"><a class="btn" href="#price">Записаться на пробное</a><button class="btn ghost" id="play">Сыграть подпись композитора</button></div>
+    <div class="dsch"><span><b>D · Es · C · H</b>Четыре ноты, которыми Дмитрий Шостакович подписывал свою музыку. Здесь это буквы С · Т · О · Ш.</span></div>
+    <p class="sound">Включите звук на устройстве</p>
+  </header>
+</div>
+
+<section id="dirs"><div class="wrap">
+  <h2>Восемь направлений</h2>
+  <div class="dirs">
+    <div class="d"><h3>Pole Dance</h3><p>Сила и все группы мышц</p></div>
+    <div class="d"><h3>Exotic Pole</h3><p>Хореография и трюки</p></div>
+    <div class="d"><h3>Стрип-пластика</h3><p>Женственность в движении</p></div>
+    <div class="d"><h3>Растяжка</h3><p>Гибкость и шпагат</p></div>
+    <div class="d"><h3>Скульптор тела</h3><p>Ягодицы и живот</p></div>
+    <div class="d"><h3>Джампинг</h3><p>Кардио без бега</p></div>
+    <div class="d"><h3>Банджи</h3><p>Мышцы и полёт</p></div>
+    <div class="d"><h3>Йога в гамаках</h3><p>Бодрость на весь день</p></div>
+  </div>
+</div></section>
+
+<section id="price"><div class="wrap">
+  <h2>Один абонемент на три студии</h2>
+  <div class="prices">
+    <div class="pr first"><span>Первое занятие</span><b>400 ₽</b></div>
+    <div class="pr"><span>4 в месяц</span><b>2 900 ₽</b></div>
+    <div class="pr"><span>8 в месяц</span><b>4 500 ₽</b></div>
+    <div class="pr"><span>12 в месяц</span><b>5 500 ₽</b></div>
+  </div>
+</div></section>
+
+<div class="wrap">
+  <footer>
+    <span><b>Слава</b> · ул. Славы, 2 · +7 (927) 093-98-98</span>
+    <span><b>Суворовский</b> · ул. Суворова, 144А · +7 (927) 091-98-98</span>
+    <span><b>Олимп</b> · пр. Строителей, 9 · +7 (927) 092-98-98</span>
+  </footer>
+  <p class="note">Прототип «Ноты». Звук синтезируется в браузере, файлы не нужны.</p>
+</div>
+
+<script>
+// Буквы названия = ступени до минора: си, до, ре, ми♭, фа, соль, ля♭, си♭, до, ре.
+const LETTERS = [..."ШОСТАКОВИЧ"];
+const NOTES = [
+  ["H", 246.94], ["C", 261.63], ["D", 293.66], ["Es", 311.13], ["F", 349.23],
+  ["G", 392.00], ["As", 415.30], ["B", 466.16], ["C", 523.25], ["D", 587.33]
+];
+const DSCH = [2, 3, 1, 0]; // С Т О Ш → D Es C H
+const NOTE_LEN = 1.6, STEP_MS = 420;
+let ac, master, unlocked = false;
+
+function ensureAudio(){
+  if (!ac) {
+    ac = new (window.AudioContext || window.webkitAudioContext)();
+    master = ac.createGain(); master.gain.value = .5;
+    const delay = ac.createDelay(); delay.delayTime.value = .27;
+    const fb = ac.createGain(); fb.gain.value = .28;
+    delay.connect(fb); fb.connect(delay);
+    master.connect(ac.destination); master.connect(delay); delay.connect(ac.destination);
+  }
+  if (ac.state === "suspended") ac.resume();
+}
+function play(i){
+  ensureAudio();
+  const t = ac.currentTime, f = NOTES[i][1];
+  const g = ac.createGain();
+  g.gain.setValueAtTime(0, t);
+  g.gain.linearRampToValueAtTime(.32, t + .02);
+  g.gain.exponentialRampToValueAtTime(.001, t + NOTE_LEN);
+  const filter = ac.createBiquadFilter(); filter.type = "lowpass"; filter.frequency.value = 1900;
+  const o1 = ac.createOscillator(); o1.type = "sine"; o1.frequency.value = f;
+  const o2 = ac.createOscillator(); o2.type = "triangle"; o2.frequency.value = f * 2;
+  const g2 = ac.createGain(); g2.gain.value = .12;
+  o1.connect(g); o2.connect(g2); g2.connect(g); g.connect(filter); filter.connect(master);
+  o1.start(t); o2.start(t); o1.stop(t + NOTE_LEN); o2.stop(t + NOTE_LEN);
+  flash(i);
+}
+function flash(i){
+  const k = keys.children[i].firstElementChild;
+  k.classList.remove("hit"); void k.offsetWidth; k.classList.add("hit");
+  setTimeout(() => k.classList.remove("hit"), 900);
+}
+const keys = document.getElementById("keys");
+keys.innerHTML = LETTERS.map((ch, i) => `<li><button class="key" data-i="${i}" aria-label="${ch}, нота ${NOTES[i][0]}">${ch}<small>${NOTES[i][0]}</small></button></li>`).join("");
+keys.addEventListener("pointerdown", e => {
+  const b = e.target.closest(".key"); if (!b) return;
+  unlocked = true; keys.classList.add("on"); play(Number(b.dataset.i));
+});
+// после первого клика по буквам можно «скользить», как по клавишам
+keys.addEventListener("pointerover", e => {
+  const b = e.target.closest(".key"); if (!b || !unlocked || e.buttons === 0) return;
+  play(Number(b.dataset.i));
+});
+document.getElementById("play").addEventListener("click", () => {
+  unlocked = true; keys.classList.add("on");
+  DSCH.forEach((i, k) => setTimeout(() => play(i), k * STEP_MS));
+});
+</script>
+

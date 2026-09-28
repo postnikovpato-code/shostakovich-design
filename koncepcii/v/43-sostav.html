@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Шостакович — Состав</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  color-scheme:dark;
+  --bg:#0B0A0A; --line:#2B2728; --text:#EDE8E9; --dim:#8A8284; --acc:#E0567E; --wine:#8B2039;
+  --mono:"JetBrains Mono",ui-monospace,monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font:400 11.5px/1.55 var(--mono);text-transform:uppercase;letter-spacing:.02em}
+a{color:inherit;text-decoration:none}
+button,input,select{font:inherit;color:inherit;text-transform:inherit;letter-spacing:inherit}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:1px solid var(--acc);outline-offset:3px}
+.pad{padding-inline:clamp(12px,1.4vw,22px)}
+.sq{display:inline-block;width:7px;height:7px;background:var(--text);vertical-align:1px}
+.sq.o{background:none;border:1px solid var(--text)}
+.dim{color:var(--dim)}
+
+/* Прелоадер */
+.pre{position:fixed;inset:0;z-index:100;background:var(--bg);display:flex;flex-direction:column;justify-content:space-between;padding:16px 20px;transition:clip-path .9s cubic-bezier(.7,0,.2,1);clip-path:inset(0 0 0 0)}
+.pre.done{clip-path:inset(0 0 100% 0)}
+.pre .num{font-size:clamp(60px,12vw,180px);line-height:1;font-weight:400;letter-spacing:-.04em;text-align:right}
+
+header.top{position:fixed;top:env(safe-area-inset-top,0px);left:0;right:0;z-index:50;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding-block:14px;mix-blend-mode:difference;color:#fff}
+header.top .mid{display:flex;gap:4px}
+header.top .burger{justify-self:end;display:grid;gap:4px;width:22px}
+header.top .burger i{height:1px;background:#fff}
+
+/* Первый экран: три вертикальных кадра */
+.hero{position:relative;height:100vh;min-height:560px;display:flex;overflow:hidden}
+.panel{position:relative;flex:1;overflow:hidden;transition:flex-grow .8s cubic-bezier(.6,0,.2,1)}
+.panel:hover{flex-grow:1.7}
+.panel .img{position:absolute;inset:-8% 0;background:#1a1214 url("photos/hero.jpg") no-repeat;background-size:auto 116%;background-position:var(--x) calc(40% + var(--py,0px));will-change:background-position}
+.p1 .img{--x:47%;filter:grayscale(1) contrast(1.1)}
+.p2 .img{--x:66%}
+.p2::after{content:"";position:absolute;inset:0;background:var(--wine);mix-blend-mode:multiply;opacity:.55;pointer-events:none}
+.p3 .img{--x:92%;filter:grayscale(1) contrast(1.3) brightness(.9)}
+.panel .tag{position:absolute;left:12px;bottom:12px;z-index:2}
+@media(max-width:700px){.hero{flex-direction:column}.panel:hover{flex-grow:1}}
+
+.rule{position:absolute;left:0;right:0;top:56%;z-index:5;pointer-events:none}
+.rule .ln{height:1px;background:rgba(255,255,255,.65)}
+.rule .dot{position:absolute;top:-3px;left:calc(var(--sp,0) * 100%);width:7px;height:7px;background:var(--acc);transition:left .1s linear}
+.rule .ticks{display:flex;justify-content:space-around;margin-top:0}
+.rule .ticks span{position:relative;padding-top:12px;color:#fff;text-shadow:0 0 8px rgba(0,0,0,.6)}
+.rule .ticks span::before{content:"";position:absolute;left:50%;top:0;height:8px;width:1px;background:#fff}
+.rule .pct{position:absolute;left:12px;top:-22px;color:#fff}
+.hero .lt{position:absolute;left:12px;bottom:14px;z-index:6;max-width:32ch;color:#fff}
+.hero .rt{position:absolute;right:12px;bottom:14px;z-index:6;width:min(300px,60vw);color:#fff}
+.hero .rt div{display:flex;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,.35);padding-block:3px}
+.hero .rt a{display:flex;justify-content:space-between;margin-top:14px}
+
+/* Секции */
+section{padding-block:clamp(60px,9vw,140px)}
+.shead{display:flex;justify-content:space-between;align-items:center;gap:14px;margin-bottom:34px}
+.shead::before{content:"";order:1;flex:1;height:1px;background:var(--line)}
+.shead span:last-child{order:2}
+.cols{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px}
+@media(max-width:820px){.cols{grid-template-columns:1fr}}
+.cols ol{list-style:none;padding:0;margin:26px 0 0}
+.cols li{display:flex;gap:14px}
+.big{font-size:clamp(22px,2.6vw,38px);line-height:1.1;letter-spacing:-.02em}
+
+/* Состав: список с превью за курсором */
+.list{border-top:1px solid var(--line)}
+.row{display:grid;grid-template-columns:48px 1fr 1fr 120px;gap:16px;align-items:baseline;padding-block:14px;border-bottom:1px solid var(--line);transition:padding-left .35s,color .35s;cursor:pointer}
+.row .nm{font-size:clamp(18px,2.2vw,32px);letter-spacing:-.02em}
+.row:hover{padding-left:16px;color:var(--acc)}
+.list:hover .row:not(:hover){color:#5a5456}
+.row em{font-style:normal;text-align:right}
+@media(max-width:700px){.row{grid-template-columns:36px 1fr}.row .dim,.row em{display:none}}
+.peek{position:fixed;left:0;top:0;z-index:40;width:220px;aspect-ratio:3/4;pointer-events:none;background:#1a1214 url("photos/hero.jpg") no-repeat;background-size:auto 150%;transform:translate(-50%,-50%) scale(.6);opacity:0;transition:opacity .25s,transform .35s cubic-bezier(.3,1.4,.5,1)}
+.peek.on{opacity:1;transform:translate(-50%,-50%) scale(1)}
+
+/* Горизонтальная лента */
+.strip{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding-bottom:4px}
+.strip::-webkit-scrollbar{display:none}
+.frame{flex:0 0 clamp(240px,30vw,420px);aspect-ratio:3/4;scroll-snap-align:start;position:relative;background:#1a1214 url("photos/hero.jpg") no-repeat;background-size:auto var(--z);background-position:var(--p)}
+.frame span{position:absolute;left:10px;bottom:10px;color:#fff}
+.bar{display:flex;align-items:center;gap:12px;margin-top:16px}
+.bar .track{flex:1;height:1px;background:var(--line);position:relative}
+.bar .track i{position:absolute;left:0;top:-1px;height:3px;background:var(--acc);width:20%}
+
+/* Цены и контакт */
+.price{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;border-top:1px solid var(--line)}
+@media(max-width:820px){.price{grid-template-columns:1fr 1fr}}
+.price div{padding:16px 14px 20px 0;border-bottom:1px solid var(--line)}
+.price b{display:block;font-weight:400;font-size:clamp(26px,3vw,44px);letter-spacing:-.03em;margin-top:10px}
+.price .first b{color:var(--acc)}
+form{display:grid;grid-template-columns:1fr 1fr 1fr auto;gap:18px;align-items:end;margin-top:30px}
+@media(max-width:820px){form{grid-template-columns:1fr}}
+label{display:grid;gap:6px}
+input,select{background:none;border:0;border-bottom:1px solid var(--line);padding:8px 0;border-radius:0}
+select option{background:#111}
+.send{background:var(--text);color:var(--bg);border:0;padding:12px 18px;cursor:pointer}
+.send:hover{background:var(--acc);color:#fff}
+.ok{margin-top:14px;color:var(--acc)}
+footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;padding-block:18px;border-top:1px solid var(--line)}
+@media(prefers-reduced-motion:reduce){.pre{display:none}.panel,.row,.peek{transition:none}html{scroll-behavior:auto}}
+</style>
+
+<div class="pre" id="pre" aria-hidden="true"><span>Шостакович — студия движения</span><span class="num" id="num">0%</span></div>
+<div class="peek" id="peek" aria-hidden="true"></div>
+
+<header class="top pad"><span>Шостакович</span><span class="mid"><i class="sq o"></i><i class="sq"></i></span><span class="burger" aria-label="Меню"><i></i><i></i><i></i></span></header>
+
+<section class="hero" style="padding:0" aria-label="Студия Шостакович">
+  <div class="panel p1"><div class="img"></div><span class="tag">01 — Пилон</span></div>
+  <div class="panel p2"><div class="img"></div><span class="tag">02 — Танцы</span></div>
+  <div class="panel p3"><div class="img"></div><span class="tag">03 — Фитнес</span></div>
+  <div class="rule"><span class="pct" id="pct">0%</span><div class="ln"></div><i class="dot"></i>
+    <div class="ticks"><span>Пилон</span><span>Exotic</span><span>Пластика</span><span>Растяжка</span><span>Джампинг</span><span>Банджи</span></div></div>
+  <p class="lt">Три студии, восемь направлений и один характер. Пенза.</p>
+  <div class="rt">
+    <div><span>01</span><span>Слава</span></div>
+    <div><span>02</span><span>Суворовский</span></div>
+    <div><span>03</span><span>Олимп</span></div>
+    <a href="#contact"><span>Записаться на пробное</span><i class="sq"></i></a>
+  </div>
+</section>
+
+<section class="pad" id="about">
+  <div class="shead"><span>О студии</span><span>Шостакович <i class="sq"></i></span></div>
+  <div class="cols">
+    <p>Независимая студия пилона, фитнеса и танцев для женщин.</p>
+    <div>
+      <p class="big">Будим в женщинах черты и состояния, которые много лет спали.</p>
+      <ol><li><span class="dim">01</span>Пилон</li><li><span class="dim">02</span>Танцы</li><li><span class="dim">03</span>Фитнес и растяжка</li></ol>
+    </div>
+    <p class="dim">Слава<br>Суворовский<br>Олимп<br><br>Первое занятие 400 ₽</p>
+  </div>
+</section>
+
+<section class="pad" id="roster" style="padding-top:0">
+  <div class="shead"><span>Текущий состав</span><span>Направления · 08</span></div>
+  <div class="list" id="list"></div>
+</section>
+
+<section class="pad" style="padding-top:0">
+  <div class="shead"><span>Избранные кадры</span><span>Сезон 2026</span></div>
+  <div class="strip" id="strip">
+    <div class="frame" style="--z:150%;--p:48% 20%"><span>01 — Первый вис</span></div>
+    <div class="frame" style="--z:170%;--p:66% 25%"><span>02 — Взгляд</span></div>
+    <div class="frame" style="--z:160%;--p:92% 30%"><span>03 — Линия</span></div>
+    <div class="frame" style="--z:220%;--p:66% 80%"><span>04 — Тонус</span></div>
+    <div class="frame" style="--z:200%;--p:50% 10%"><span>05 — Рука</span></div>
+  </div>
+  <div class="bar"><span id="bn">0.1</span><span class="track"><i id="bi"></i></span><span>0.5</span></div>
+</section>
+
+<section class="pad" style="padding-top:0">
+  <div class="shead"><span>Тарифы</span><span>Любая студия <i class="sq"></i></span></div>
+  <div class="price">
+    <div class="first"><span>Пробное /</span><b>400 ₽</b></div>
+    <div><span>04 в месяц /</span><b>2 900 ₽</b></div>
+    <div><span>08 в месяц /</span><b>4 500 ₽</b></div>
+    <div><span>12 в месяц /</span><b>5 500 ₽</b></div>
+  </div>
+</section>
+
+<section class="pad" id="contact" style="padding-top:0">
+  <div class="shead"><span>Контакт</span><span>Давай начнём <i class="sq"></i></span></div>
+  <p class="big">Хочешь на пробное занятие?<br>Оставь заявку, мы перезвоним.</p>
+  <form id="form">
+    <label for="nm">Имя<input id="nm" autocomplete="off"></label>
+    <label for="ph">Телефон<input id="ph" autocomplete="off"></label>
+    <label for="st">Студия<select id="st"><option>Слава</option><option>Суворовский</option><option>Олимп</option></select></label>
+    <button class="send" type="submit">Отправить заявку ■</button>
+  </form>
+  <p class="ok" id="ok" hidden>Это прототип: заявка никуда не отправляется.</p>
+</section>
+
+<footer class="pad dim"><span>Слава · +7 (927) 093-98-98</span><span>Суворовский · +7 (927) 091-98-98</span><span>Олимп · +7 (927) 092-98-98</span><span>Прототип «Состав»</span></footer>
+
+<script>
+const ROSTER = [
+  ["Pole Dance","Сила · все мышцы","Интенсивно","48% 15%"],["Exotic Pole","Хореография и трюки","Интенсивно","66% 20%"],
+  ["Стрип-пластика","Линия тела","Средне","92% 25%"],["Растяжка","Гибкость · шпагат","Мягко","66% 75%"],
+  ["Скульптор тела","Ягодицы и пресс","Средне","62% 95%"],["Джампинг","Кардио без бега","Интенсивно","50% 45%"],
+  ["Банджи","Полёт на тросах","Средне","96% 50%"],["Йога в гамаках","Спина и покой","Мягко","40% 5%"]
+];
+const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+// Прелоадер 0 → 100%
+const pre = document.getElementById("pre"), num = document.getElementById("num");
+const PRE_MS = 1100;
+if (reduce) pre.remove();
+else {
+  const t0 = performance.now();
+  (function count(now){
+    const k = Math.min(1, (now - t0) / PRE_MS);
+    num.textContent = Math.round(k * 100) + "%";
+    if (k < 1) requestAnimationFrame(count); else pre.classList.add("done");
+  })(t0);
+}
+
+// Состав
+const list = document.getElementById("list"), peek = document.getElementById("peek");
+list.innerHTML = ROSTER.map(([n, d, l, p], i) => `<a class="row" href="#contact" data-p="${p}"><span class="dim">${String(i + 1).padStart(2, "0")}</span><span class="nm">${n}</span><span class="dim">${d}</span><em>${l}</em></a>`).join("");
+if (matchMedia("(hover: hover)").matches) {
+  list.addEventListener("pointermove", e => {
+    const r = e.target.closest(".row");
+    peek.style.left = e.clientX + "px"; peek.style.top = e.clientY + "px";
+    if (r) { peek.style.backgroundPosition = r.dataset.p; peek.classList.add("on"); } else peek.classList.remove("on");
+  });
+  list.addEventListener("pointerleave", () => peek.classList.remove("on"));
+}
+
+// Прокрутка: точка на шкале, проценты и параллакс кадров
+const hero = document.querySelector(".hero"), imgs = [...document.querySelectorAll(".panel .img")], pct = document.getElementById("pct");
+const SPEEDS = [.25, .45, .15];
+let lastY = -1;
+(function loop(){
+  const y = document.scrollingElement.scrollTop;
+  if (y !== lastY) {
+    lastY = y;
+    const max = document.scrollingElement.scrollHeight - innerHeight;
+    const sp = max > 0 ? y / max : 0;
+    hero.style.setProperty("--sp", sp.toFixed(4));
+    pct.textContent = Math.round(sp * 100) + "%";
+    if (!reduce) imgs.forEach((im, i) => im.style.setProperty("--py", (y * SPEEDS[i]) + "px"));
+  }
+  requestAnimationFrame(loop);
+})();
+
+// Лента: прогресс 0.1 → 0.5
+const strip = document.getElementById("strip"), bi = document.getElementById("bi"), bn = document.getElementById("bn");
+strip.addEventListener("scroll", () => {
+  const k = strip.scrollLeft / Math.max(1, strip.scrollWidth - strip.clientWidth);
+  bi.style.width = (20 + k * 80) + "%";
+  bn.textContent = "0." + Math.min(5, 1 + Math.round(k * 4));
+}, {passive:true});
+
+document.getElementById("form").addEventListener("submit", e => { e.preventDefault(); document.getElementById("ok").hidden = false; });
+</script>
+

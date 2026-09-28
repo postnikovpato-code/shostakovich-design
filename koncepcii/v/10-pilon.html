@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Шостакович — Пилон</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;500;600&family=Nunito+Sans:wght@400;600&display=swap">
+<style>
+:root{
+  color-scheme:dark;
+  --bg:#1A1819; --tile:#232022; --line:#363134; --text:#EDE8EA; --mute:#9A9095;
+  --accent:#9E3A58; --soft:#D8A7B6; --champ:#E3CBA8;
+  --display:"Montserrat",system-ui,sans-serif; --body:"Nunito Sans",system-ui,sans-serif;
+  --p:0;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 var(--body)}
+a{color:inherit;text-decoration:none}
+a:focus-visible{outline:1px solid var(--soft);outline-offset:3px}
+.wrap{max-width:1100px;margin:0 auto;padding-inline:clamp(16px,4vw,40px)}
+.btn{display:inline-block;padding:13px 22px;border-radius:6px;background:var(--accent);color:#fff;font:600 14px/1.2 var(--display);letter-spacing:.04em}
+.btn:hover{background:#b44669}
+nav{display:flex;align-items:center;gap:20px;padding-block:18px}
+.logo{font:300 13px/1 var(--display);letter-spacing:.6em}
+nav .btn{margin-left:auto}
+
+.hero{text-align:center;padding-block:56px 40px}
+.hero h1{font:200 clamp(32px,8vw,100px)/1 var(--display);letter-spacing:.3em;padding-left:.3em;margin:0 0 18px}
+.hero p{color:var(--mute);max-width:44ch;margin:0 auto 26px;font-size:17px}
+.hero small{display:block;margin-top:40px;font:500 11px/1 var(--display);letter-spacing:.4em;text-transform:uppercase;color:var(--soft)}
+
+/* Пилон */
+.track{position:relative;padding-block:40px 80px}
+.pole{position:absolute;top:0;bottom:0;left:50%;width:14px;margin-left:-7px;border-radius:7px;
+  background:linear-gradient(90deg,#3a3437,#8c8387 35%,#d8d0d3 50%,#6f676b 70%,#2c272a)}
+.pole::after{content:"";position:absolute;left:0;right:0;top:0;height:calc(var(--p) * 100%);border-radius:7px;
+  background:linear-gradient(90deg,#5a1f33,#d8a7b6 45%,#fff0e6 50%,#b86a84 70%,#4a1a2b);box-shadow:0 0 28px rgba(216,167,182,.55)}
+.ring{position:absolute;left:50%;width:34px;height:34px;margin-left:-17px;top:calc(var(--p) * 100% - 17px);border-radius:50%;border:2px solid var(--champ);box-shadow:0 0 22px rgba(227,203,168,.6);background:var(--bg)}
+.scale{position:absolute;left:50%;top:0;transform:translate(24px,0);font:500 11px/1 var(--display);letter-spacing:.3em;text-transform:uppercase;color:var(--mute)}
+.scale.bot{top:auto;bottom:40px}
+.stop{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;margin-block:48px}
+.stop::before{content:"";position:absolute;left:50%;top:50%;width:40px;height:2px;background:var(--line)}
+.stop.r::before{margin-left:7px}
+.stop.l::before{margin-left:-47px}
+.card{background:var(--tile);border-radius:18px;padding:22px;display:grid;grid-template-columns:110px 1fr;gap:18px;align-items:center;opacity:.5;transform:translateY(16px);transition:opacity .5s,transform .5s}
+.card.on{opacity:1;transform:none}
+.card .ph{aspect-ratio:1;border-radius:12px;background:var(--g)}
+.card small{font:500 11px/1 var(--display);letter-spacing:.24em;text-transform:uppercase;color:var(--soft)}
+.card h3{font:500 22px/1.15 var(--display);margin:6px 0 4px}
+.card p{margin:0;color:var(--mute);font-size:14px}
+.stop.l .card{grid-column:1}
+.stop.r .card{grid-column:2}
+@media(max-width:760px){
+  .pole,.ring,.scale{left:22px}
+  .stop{grid-template-columns:1fr;padding-left:56px;gap:0}
+  .stop::before{left:22px;margin-left:7px!important;width:26px}
+  .stop.l .card,.stop.r .card{grid-column:1}
+  .card{grid-template-columns:80px 1fr}
+}
+
+.top{text-align:center;padding-block:40px 80px}
+.top h2{font:300 clamp(26px,3.2vw,40px)/1.2 var(--display);margin:0 0 12px}
+.top p{color:var(--mute);margin:0 0 26px}
+.prices{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;text-align:left;margin-bottom:32px}
+@media(max-width:860px){.prices{grid-template-columns:repeat(2,1fr)}}
+.pr{background:var(--tile);border-radius:16px;padding:20px}
+.pr.first{background:var(--accent)}
+.pr span{font-size:14px;color:var(--mute)}
+.pr.first span{color:#f3d4de}
+.pr b{display:block;font:300 30px/1 var(--display);margin-top:14px;font-variant-numeric:tabular-nums}
+footer{border-top:1px solid var(--line);padding-block:26px;display:flex;flex-wrap:wrap;gap:10px 30px;font-size:14px;color:var(--mute)}
+footer b{color:var(--text)}
+.note{font-size:12px;color:#6d6468;padding-block:0 28px}
+@media(prefers-reduced-motion:reduce){.card{opacity:1;transform:none;transition:none}}
+</style>
+
+<div class="wrap">
+  <nav><div class="logo">ШОСТАКОВИЧ</div><a class="btn" href="#top">Пробное — 400 ₽</a></nav>
+  <header class="hero">
+    <h1>ШОСТАКОВИЧ</h1>
+    <p>Пилон, фитнес и танцы в Пензе. Прокрутите вниз: каждое направление на своей высоте.</p>
+    <a class="btn" href="#top">Записаться на пробное</a>
+    <small>нагрузка растёт вниз по пилону</small>
+  </header>
+
+  <div class="track" id="track">
+    <div class="pole"></div><div class="ring"></div>
+    <span class="scale">мягко</span><span class="scale bot">интенсивно</span>
+
+    <div class="stop l"><div class="card"><div class="ph" style="--g:linear-gradient(160deg,#4a3b4a,#232022)"></div><div><small>Мягко</small><h3>Йога в гамаках</h3><p>Бодрость и лёгкость на весь день</p></div></div></div>
+    <div class="stop r"><div class="card"><div class="ph" style="--g:linear-gradient(160deg,#4f3a48,#232022)"></div><div><small>Мягко</small><h3>Растяжка</h3><p>Гибкость, осанка и путь к шпагату</p></div></div></div>
+    <div class="stop l"><div class="card"><div class="ph" style="--g:linear-gradient(160deg,#5d3847,#232022)"></div><div><small>Средне</small><h3>Стрип-пластика</h3><p>Женственность и красота движения</p></div></div></div>
+    <div class="stop r"><div class="card"><div class="ph" style="--g:linear-gradient(160deg,#5a3a3c,#232022)"></div><div><small>Средне</small><h3>Скульптор тела</h3><p>Ягодицы и подтянутый живот</p></div></div></div>
+    <div class="stop l"><div class="card"><div class="ph" style="--g:linear-gradient(160deg,#6a4040,#232022)"></div><div><small>Средне</small><h3>Банджи</h3><p>Мышцы и ощущение полёта</p></div></div></div>
+    <div class="stop r"><div class="card"><div class="ph" style="--g:linear-gradient(160deg,#744252,#232022)"></div><div><small>Интенсивно</small><h3>Джампинг</h3><p>Кардио для тех, кому не подходит бег</p></div></div></div>
+    <div class="stop l"><div class="card"><div class="ph" style="--g:linear-gradient(160deg,#6b3446,#232022)"></div><div><small>Интенсивно</small><h3>Pole Dance</h3><p>Силовые элементы, все группы мышц</p></div></div></div>
+    <div class="stop r"><div class="card"><div class="ph" style="--g:linear-gradient(160deg,#7a3a4c,#232022)"></div><div><small>Интенсивно</small><h3>Exotic Pole</h3><p>Для смелых и тех, кто хочет ими стать</p></div></div></div>
+  </div>
+
+  <div class="top" id="top">
+    <h2>Начните с любой высоты</h2>
+    <p>Первое занятие по любому направлению, абонемент действует во всех трёх студиях.</p>
+    <div class="prices">
+      <div class="pr first"><span>Первое занятие</span><b>400 ₽</b></div>
+      <div class="pr"><span>4 в месяц</span><b>2 900 ₽</b></div>
+      <div class="pr"><span>8 в месяц</span><b>4 500 ₽</b></div>
+      <div class="pr"><span>12 в месяц</span><b>5 500 ₽</b></div>
+    </div>
+    <a class="btn" href="#">Записаться на пробное</a>
+  </div>
+
+  <footer>
+    <span><b>Слава</b> · ул. Славы, 2 · +7 (927) 093-98-98</span>
+    <span><b>Суворовский</b> · ул. Суворова, 144А · +7 (927) 091-98-98</span>
+    <span><b>Олимп</b> · пр. Строителей, 9 · +7 (927) 092-98-98</span>
+  </footer>
+  <p class="note">Прототип «Пилон». Фото — заглушки.</p>
+</div>
+
+<script>
+const track = document.getElementById("track");
+const cards = [...document.querySelectorAll(".card")];
+function update(){
+  const r = track.getBoundingClientRect();
+  const mid = innerHeight * .6;
+  const p = Math.min(1, Math.max(0, (mid - r.top) / r.height));
+  track.style.setProperty("--p", p.toFixed(4));
+  cards.forEach(c => {
+    const cr = c.getBoundingClientRect();
+    if (cr.top < innerHeight * .85) c.classList.add("on");
+  });
+}
+let lastY = -1;
+(function loop(){
+  const y = document.scrollingElement.scrollTop;
+  if (y !== lastY) { lastY = y; update(); }
+  requestAnimationFrame(loop);
+})();
+addEventListener("resize", update);
+</script>
+

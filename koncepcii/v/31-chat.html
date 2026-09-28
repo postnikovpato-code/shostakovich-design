@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Шостакович — Чат</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+Display:ital,wght@0,400;1,300&family=Montserrat:wght@400;500;600&display=swap">
+<style>
+:root{
+  color-scheme:dark;
+  --bg:#141012; --panel:#1C1619; --bubble:#2A2025; --line:#3A2E33; --text:#F6EFEF; --dim:#B3A2A8;
+  --wine:#8B2039; --wine-hi:#A12A47; --pink:#E6B9C6;
+  --serif:"Noto Serif Display",Georgia,serif; --sans:"Montserrat",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:15px/1.5 var(--sans)}
+button,input{font:inherit;color:inherit}
+a{color:inherit;text-decoration:none}
+button:focus-visible,input:focus-visible{outline:2px solid var(--pink);outline-offset:2px}
+
+.layout{min-height:100%;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,560px)}
+@media(max-width:900px){.layout{grid-template-columns:1fr}.side{display:none}}
+.side{position:relative;background:#120c0f url("photos/hero.jpg") 70% center/cover;display:flex;flex-direction:column;justify-content:space-between;padding:clamp(24px,4vw,56px)}
+.side::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(20,16,18,.85),rgba(20,16,18,.25) 70%)}
+.side > *{position:relative}
+.side .logo{font:300 26px/1 var(--serif);letter-spacing:.2em}
+.side h1{font:400 clamp(40px,4.4vw,68px)/.95 var(--serif);letter-spacing:-.02em;margin:0 0 16px;max-width:10ch}
+.side h1 i{font-weight:300;color:var(--pink)}
+.side p{color:#E3D6DA;max-width:34ch;margin:0}
+.side .addr{font-size:13px;color:var(--dim);display:grid;gap:2px}
+
+.chat{display:flex;flex-direction:column;height:100vh;background:var(--panel);border-left:1px solid var(--line)}
+@media(max-width:900px){.chat{height:100%;min-height:100vh}}
+.head{display:flex;align-items:center;gap:12px;padding:16px 20px;border-bottom:1px solid var(--line)}
+.ava{position:relative;width:44px;height:44px;border-radius:50%;background:#2a1018 url("photos/hero.jpg") 66% 12%/auto 380%}
+.ava::after{content:"";position:absolute;right:0;bottom:1px;width:11px;height:11px;border-radius:50%;background:#5FD19A;border:2px solid var(--panel)}
+.head b{display:block;font-weight:600}
+.head span{font-size:12px;color:#5FD19A}
+.head .ph{margin-left:auto;font-size:12px;color:var(--dim);text-align:right}
+
+.feed{flex:1;overflow-y:auto;padding:22px 18px;display:flex;flex-direction:column;gap:10px;scroll-behavior:smooth}
+.feed > *{flex-shrink:0}
+.msg{max-width:82%;padding:11px 15px;border-radius:18px;background:var(--bubble);animation:pop .3s ease-out}
+.msg.me{align-self:flex-end;background:var(--wine);border-bottom-right-radius:6px}
+.msg.bot{border-bottom-left-radius:6px}
+.msg small{display:block;font-size:11px;color:var(--dim);margin-top:4px;text-align:right}
+.msg.me small{color:#F2CFD9}
+@keyframes pop{from{opacity:0;transform:translateY(8px)}}
+.card{max-width:88%;border-radius:18px;overflow:hidden;background:var(--bubble);animation:pop .3s ease-out}
+.card .pic{height:130px;background:#2a1018 url("photos/hero.jpg") var(--p,66% 30%)/auto 170%}
+.card .in{padding:14px 16px}
+.card h3{font:400 22px/1.1 var(--serif);margin:0 0 6px}
+.card ul{margin:0;padding-left:18px;color:#E3D6DA}
+.card .price{display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid var(--line);margin-top:12px;padding-top:10px}
+.card .price b{font:400 26px/1 var(--serif);color:var(--pink)}
+.typing{align-self:flex-start;display:flex;gap:4px;padding:14px 16px;border-radius:18px;background:var(--bubble)}
+.typing i{width:7px;height:7px;border-radius:50%;background:var(--dim);animation:dot 1s infinite}
+.typing i:nth-child(2){animation-delay:.15s}.typing i:nth-child(3){animation-delay:.3s}
+@keyframes dot{50%{transform:translateY(-4px);opacity:.4}}
+
+.answers{display:flex;flex-wrap:wrap;gap:8px;padding:14px 16px;border-top:1px solid var(--line);min-height:74px}
+.answers button{background:none;border:1px solid var(--pink);color:var(--pink);border-radius:999px;padding:10px 16px;cursor:pointer;font-size:14px}
+.answers button:hover{background:rgba(230,185,198,.1)}
+.answers form{display:flex;gap:8px;width:100%;flex-wrap:wrap}
+.answers input{flex:1 1 160px;background:var(--bg);border:1px solid var(--line);border-radius:999px;padding:11px 16px}
+.answers .send{background:var(--wine);border:0;color:#fff;border-radius:999px;padding:0 20px;cursor:pointer}
+.answers .hint{font-size:12px;color:var(--dim);align-self:center}
+@media(prefers-reduced-motion:reduce){.msg,.card,.typing i{animation:none}.feed{scroll-behavior:auto}}
+</style>
+
+<div class="layout">
+  <aside class="side">
+    <div class="logo">SHOSTAKOVICH</div>
+    <div>
+      <h1>Давай <i>подберём</i> занятие</h1>
+      <p>Ответь на три вопроса в чате, и администратор студии сразу предложит направление, студию и время.</p>
+    </div>
+    <div class="addr"><span>Слава · ул. Славы, 2</span><span>Суворовский · ул. Суворова, 144А</span><span>Олимп · пр. Строителей, 9</span></div>
+  </aside>
+
+  <main class="chat" aria-label="Чат с администратором">
+    <div class="head"><span class="ava"></span><div><b>Администратор студии</b><span>онлайн</span></div><div class="ph">Пилон · Фитнес · Танцы<br>Пенза</div></div>
+    <div class="feed" id="feed" aria-live="polite"></div>
+    <div class="answers" id="answers"></div>
+  </main>
+</div>
+
+<script>
+const TYPE_MS = 700;
+const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+const feed = document.getElementById("feed"), answers = document.getElementById("answers");
+const REC = {
+  slim:{t:"Похудеть и подтянуться", n:"Джампинг и скульптор тела", l:["Джампинг: кардио вместо бега","Скульптор тела: ягодицы и пресс","Банджи: мышцы и немного полёта"], p:"60% 90%"},
+  dance:{t:"Научиться танцевать", n:"Пилон и стрип-пластика", l:["Pole Dance: сила и первые трюки","Стрип-пластика: пластика и женственность","Exotic Pole: для смелых"], p:"48% 20%"},
+  flex:{t:"Растянуться, убрать боль в спине", n:"Растяжка и гамаки", l:["Растяжка: гибкость и шпагат","Йога в гамаках: спина говорит спасибо"], p:"66% 70%"},
+  new:{t:"Попробовать что-то новое", n:"Начни с пилона", l:["Pole Dance: самое необычное из привычного","Банджи: полёт на тросах","Стрип-пластика: новое ощущение тела"], p:"88% 30%"}
+};
+const state = {};
+const now = () => new Date().toLocaleTimeString("ru-RU", {hour:"2-digit", minute:"2-digit"});
+
+function add(html, cls){
+  const el = document.createElement("div");
+  el.className = cls; el.innerHTML = html;
+  feed.appendChild(el); feed.scrollTop = feed.scrollHeight;
+  return el;
+}
+function bot(text, instant){
+  return new Promise(res => {
+    if (instant || reduce) { add(`${text}<small>${now()}</small>`, "msg bot"); return res(); }
+    const t = add("<i></i><i></i><i></i>", "typing");
+    setTimeout(() => { t.remove(); add(`${text}<small>${now()}</small>`, "msg bot"); res(); }, TYPE_MS);
+  });
+}
+function me(text){ add(`${text}<small>${now()}</small>`, "msg me"); }
+function ask(options, onPick){
+  answers.innerHTML = options.map(([k, v]) => `<button data-k="${k}">${v}</button>`).join("");
+  answers.onclick = e => {
+    const b = e.target.closest("button"); if (!b) return;
+    answers.innerHTML = ""; me(b.textContent); onPick(b.dataset.k);
+  };
+}
+
+async function step1(){
+  await bot("Привет! Я администратор студии Шостакович 💫", true);
+  await bot("Помогу выбрать первое занятие. Какая у тебя главная цель?", true);
+  ask(Object.entries(REC).map(([k, v]) => [k, v.t]), async k => { state.goal = k; await step2(); });
+}
+async function step2(){
+  const r = REC[state.goal];
+  await bot(`Отличная цель! Тебе подойдёт: <b>${r.n}</b>`);
+  add(`<div class="pic" style="--p:${r.p}"></div><div class="in"><h3>${r.n}</h3><ul>${r.l.map(x => `<li>${x}</li>`).join("")}</ul></div>`, "card");
+  await bot("Какая студия тебе удобнее?");
+  ask([["Слава","Слава · центр"],["Суворовский","Суворовский · центр"],["Олимп","Олимп · Арбеково"]], async k => { state.studio = k; await step3(); });
+}
+async function step3(){
+  await bot(`${state.studio}, записала. В какое время удобно приходить?`);
+  ask([["утро","Утром"],["день","Днём"],["вечер","Вечером"]], async k => { state.time = k; await step4(); });
+}
+async function step4(){
+  const r = REC[state.goal];
+  await bot("Вот что я предлагаю:");
+  add(`<div class="in"><h3>Пробное занятие</h3><ul><li>${r.n}</li><li>Студия ${state.studio}</li><li>${state.time[0].toUpperCase() + state.time.slice(1)}, время уточню в звонке</li></ul><div class="price"><span>Любое занятие</span><b>400 ₽</b></div></div>`, "card");
+  await bot("Оставь имя и телефон, я перезвоню и подберу точное время 🙌");
+  answers.onclick = null;
+  answers.innerHTML = `<form id="f"><input id="nm" placeholder="Имя" autocomplete="off" aria-label="Имя"><input id="tl" placeholder="Телефон" autocomplete="off" aria-label="Телефон"><button class="send" type="submit">Отправить</button></form>`;
+  document.getElementById("f").addEventListener("submit", async e => {
+    e.preventDefault();
+    const n = document.getElementById("nm").value.trim() || "Гостья";
+    answers.innerHTML = `<span class="hint">Это прототип: заявка никуда не отправляется.</span>`;
+    me(`${n}, ${document.getElementById("tl").value.trim() || "телефон"}`);
+    await bot(`Спасибо, ${n}! Скоро перезвоню. До встречи в зале 💃`);
+  });
+}
+step1();
+</script>
+

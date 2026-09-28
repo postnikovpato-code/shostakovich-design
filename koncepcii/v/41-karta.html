@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Шостакович — Карта</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+Display:ital,wght@0,400;1,300&family=Montserrat:wght@400;500;600&display=swap">
+<style>
+:root{
+  color-scheme:dark;
+  --bg:#110D0F; --panel:#1C1619; --line:#3A2E33; --text:#F6EFEF; --dim:#B3A2A8; --wine:#8B2039; --glow:#E0567E; --pink:#E6B9C6;
+  --serif:"Noto Serif Display",Georgia,serif; --sans:"Montserrat",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:15px/1.6 var(--sans)}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit}
+a:focus-visible,button:focus-visible{outline:2px solid var(--pink);outline-offset:3px}
+.wrap{max-width:1320px;margin:0 auto;padding-inline:clamp(16px,4vw,48px)}
+.btn{display:inline-flex;align-items:center;height:48px;padding:0 24px;border-radius:10px;background:var(--wine);color:#fff;font-weight:600}
+nav{display:flex;align-items:center;gap:18px;padding-block:18px}
+.logo{font:400 20px/1 var(--serif);letter-spacing:.24em}
+nav .btn{margin-left:auto;height:40px}
+
+.main{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:18px;padding-bottom:40px}
+@media(max-width:900px){.main{grid-template-columns:1fr}}
+.map{position:relative;aspect-ratio:4/3;max-width:100%;border-radius:22px;overflow:hidden;background:radial-gradient(70% 70% at 50% 50%,#1e1519,#0c0a0b);border:1px solid var(--line)}
+.map svg{position:absolute;inset:0;width:100%;height:100%}
+.map .street{stroke:#2e2428;stroke-width:1.2;fill:none}
+.map .avenue{stroke:#443339;stroke-width:3;fill:none}
+.map .river{stroke:#3a1a26;stroke-width:14;fill:none;stroke-linecap:round}
+.map .park{fill:#1a1e1a;opacity:.6}
+.map .dist{fill:#6f5e65;font:600 11px var(--sans);letter-spacing:.3em;text-transform:uppercase}
+.pin{position:absolute;transform:translate(-50%,-100%);background:none;border:0;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:6px}
+.pin i{width:18px;height:18px;border-radius:50%;background:var(--glow);box-shadow:0 0 0 6px rgba(224,86,126,.25),0 0 30px 8px rgba(224,86,126,.6);animation:beat 2s ease-in-out infinite}
+.pin span{background:var(--panel);border:1px solid var(--line);border-radius:999px;padding:5px 12px;font-size:13px;font-weight:600;white-space:nowrap}
+.pin[aria-pressed="true"] span{background:var(--wine);border-color:var(--glow)}
+.pin[aria-pressed="true"] i{background:#fff}
+@keyframes beat{50%{box-shadow:0 0 0 12px rgba(224,86,126,.08),0 0 40px 12px rgba(224,86,126,.35)}}
+.legend{position:absolute;left:16px;bottom:14px;font-size:11px;color:#7a6a70}
+.hint{position:absolute;left:16px;top:14px;font:400 26px/1.1 var(--serif);max-width:12ch}
+.hint i{font-weight:300;color:var(--pink)}
+
+.card{background:var(--panel);border:1px solid var(--line);border-radius:22px;overflow:hidden;display:flex;flex-direction:column}
+.card .img{height:180px;background:#2a1018 url("photos/hero.jpg") var(--p,66% 30%)/cover}
+.card .in{padding:22px;display:flex;flex-direction:column;gap:10px;flex:1}
+.card h2{font:400 34px/1 var(--serif);margin:0}
+.card .addr{color:var(--dim)}
+.card .tel{font-weight:600;font-variant-numeric:tabular-nums}
+.slot{display:grid;grid-template-columns:64px 1fr;gap:10px;padding-block:8px;border-bottom:1px solid var(--line)}
+.slot time{font:400 20px/1 var(--serif);color:var(--pink);font-variant-numeric:tabular-nums}
+.ex{font-size:12px;color:#7a6a70}
+.card .btn{align-self:flex-start;margin-top:auto}
+.prices{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;padding-block:10px 50px}
+@media(max-width:800px){.prices{grid-template-columns:repeat(2,1fr)}}
+.pr{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px}
+.pr.first{background:var(--wine)}
+.pr b{display:block;font:400 28px/1 var(--serif);margin-top:8px}
+@media(prefers-reduced-motion:reduce){.pin i{animation:none}}
+</style>
+
+<div class="wrap">
+  <nav><span class="logo">SHOSTAKOVICH</span><a class="btn" href="#">Пробное · 400 ₽</a></nav>
+  <div class="main">
+    <div class="map">
+      <svg viewBox="0 0 800 600" aria-hidden="true">
+        <rect class="park" x="520" y="120" width="120" height="80" rx="20"/>
+        <rect class="park" x="120" y="380" width="90" height="70" rx="18"/>
+        <path class="river" d="M820,120 C700,160 640,260 620,360 C600,460 520,520 420,620"/>
+        <path class="avenue" d="M0,330 C200,320 400,300 800,280"/>
+        <path class="avenue" d="M380,0 C390,200 400,400 420,600"/>
+        <path class="avenue" d="M60,40 C180,160 280,240 390,300"/>
+        <g id="grid"></g>
+        <text class="dist" x="70" y="80">Арбеково</text>
+        <text class="dist" x="430" y="350">Центр</text>
+        <text class="dist" x="640" y="470">р. Сура</text>
+      </svg>
+      <div class="hint">Выбери <i>свою</i> студию</div>
+      <button class="pin" style="left:23%;top:26%" data-s="2" aria-pressed="false"><span>Олимп</span><i></i></button>
+      <button class="pin" style="left:53%;top:52%" data-s="0" aria-pressed="true"><span>Слава</span><i></i></button>
+      <button class="pin" style="left:60%;top:40%" data-s="1" aria-pressed="false"><span>Суворовский</span><i></i></button>
+      <span class="legend">Схема, не в масштабе</span>
+    </div>
+    <aside class="card" id="card"></aside>
+  </div>
+  <div class="prices">
+    <div class="pr first"><span>Первое занятие</span><b>400 ₽</b></div>
+    <div class="pr"><span>4 в месяц</span><b>2 900 ₽</b></div>
+    <div class="pr"><span>8 в месяц</span><b>4 500 ₽</b></div>
+    <div class="pr"><span>12 в месяц</span><b>5 500 ₽</b></div>
+  </div>
+</div>
+
+<script>
+const STUDIOS = [
+  {n:"Слава", a:"ул. Славы, 2, напротив площади Ленина", t:"+7 (927) 093-98-98", p:"66% 30%", s:[["18:30","Растяжка"],["19:30","Pole Dance"],["20:30","Стрип-пластика"]]},
+  {n:"Суворовский", a:"ТЦ Суворовский, ул. Суворова, 144А", t:"+7 (927) 091-98-98", p:"88% 30%", s:[["18:00","Джампинг"],["19:00","Скульптор тела"],["20:00","Банджи"]]},
+  {n:"Олимп", a:"ТЦ Олимп, пр. Строителей, 9, Арбеково", t:"+7 (927) 092-98-98", p:"48% 25%", s:[["10:30","Йога в гамаках"],["19:00","Exotic Pole"],["20:00","Растяжка"]]}
+];
+// сетка улиц: несколько кварталов вокруг центра
+const g = document.getElementById("grid");
+let paths = "";
+for (let i = 0; i < 18; i++) {
+  const y = 40 + i * 32, x = 30 + i * 44;
+  paths += `<path class="street" d="M0,${y} C260,${y - 10} 520,${y + 12} 800,${y - 6}"/><path class="street" d="M${x},0 C${x + 8},200 ${x - 10},400 ${x + 6},600"/>`;
+}
+g.innerHTML = paths;
+function show(i){
+  const st = STUDIOS[i];
+  document.getElementById("card").innerHTML = `
+    <div class="img" style="--p:${st.p}" role="img" aria-label="Студия ${st.n}"></div>
+    <div class="in"><h2>${st.n}</h2><div class="addr">${st.a}</div><div class="tel">${st.t}</div>
+    <div>${st.s.map(([t, n]) => `<div class="slot"><time>${t}</time><span>${n}</span></div>`).join("")}</div>
+    <p class="ex">Время на сегодня для примера. Фото студии — заглушка.</p>
+    <a class="btn" href="#">Записаться в «${st.n}»</a></div>`;
+  document.querySelectorAll(".pin").forEach(p => p.setAttribute("aria-pressed", String(Number(p.dataset.s) === i)));
+}
+document.querySelector(".map").addEventListener("click", e => { const p = e.target.closest(".pin"); if (p) show(Number(p.dataset.s)); });
+show(0);
+</script>
+

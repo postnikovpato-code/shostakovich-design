@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Шостакович — Модерн</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kurale&family=Montserrat:wght@400;500&display=swap">
+<style>
+:root{
+  --bg:#1A1014; --bg2:#22151B; --line:#C9A0AE; --gold:#D9B98A; --text:#F3E8EB; --dim:#B9A2AB; --wine:#8B2039;
+  --nouveau:"Kurale",Georgia,serif; --sans:"Montserrat",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.7 var(--sans)}
+a{color:inherit;text-decoration:none}
+a:focus-visible{outline:1px solid var(--gold);outline-offset:4px}
+.wrap{max-width:1200px;margin:0 auto;padding-inline:clamp(16px,5vw,64px)}
+.btn{display:inline-flex;align-items:center;height:52px;padding:0 32px;border-radius:26px 4px 26px 4px;background:var(--wine);color:#fff;font:400 18px/1 var(--nouveau);border:1px solid var(--gold)}
+.btn:hover{border-radius:4px 26px 4px 26px}
+nav{display:flex;align-items:center;justify-content:center;gap:40px;padding-block:26px;font:400 17px/1 var(--nouveau);color:var(--dim)}
+nav .logo{font-size:30px;color:var(--gold);letter-spacing:.08em}
+@media(max-width:700px){nav a{display:none}}
+
+.hero{display:grid;grid-template-columns:1fr minmax(0,460px) 1fr;gap:30px;align-items:center;padding-block:20px 70px}
+@media(max-width:960px){.hero{grid-template-columns:1fr}}
+.hero .l{text-align:right}
+.hero h1{font:400 clamp(40px,5vw,70px)/1.05 var(--nouveau);margin:0 0 16px;color:var(--text)}
+.hero h1 em{font-style:normal;color:var(--gold)}
+.hero p{color:var(--dim);margin:0}
+@media(max-width:960px){.hero .l,.hero .r{text-align:center}}
+.frame{position:relative;aspect-ratio:3/4.2;max-width:100%}
+.frame .img{position:absolute;inset:8% 10% 6%;background:#2a1018 url("photos/hero.jpg") 66% 20%/auto 120% no-repeat;clip-path:path("M0,120 C0,40 60,0 170,0 C280,0 340,40 340,120 L340,520 L0,520 Z")}
+.frame svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.frame path{fill:none;stroke:var(--gold);stroke-width:1.4}
+.frame .leaf{fill:var(--line);opacity:.5;stroke:none}
+.hero .r .price{font:400 64px/1 var(--nouveau);color:var(--gold)}
+.hero .r p{margin:4px 0 22px}
+
+.orn{display:block;margin:0 auto 26px;width:220px;height:30px}
+.orn path{fill:none;stroke:var(--gold);stroke-width:1.2}
+section{padding-block:60px}
+h2{font:400 clamp(34px,4vw,54px)/1.1 var(--nouveau);text-align:center;margin:0 0 10px;color:var(--gold)}
+.dirs{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+@media(max-width:900px){.dirs{grid-template-columns:repeat(2,1fr)}}
+.d{background:var(--bg2);padding:26px 20px;text-align:center;border-radius:80px 80px 12px 12px;border:1px solid rgba(217,185,138,.35)}
+.d h3{font:400 23px/1.15 var(--nouveau);margin:0 0 6px}
+.d p{margin:0;font-size:14px;color:var(--dim)}
+.d svg{width:40px;height:40px;margin-bottom:8px}
+.d svg path{fill:none;stroke:var(--gold);stroke-width:1.3}
+.prices{max-width:720px;margin:0 auto}
+.row{display:flex;align-items:baseline;gap:10px;padding-block:12px;font-variant-numeric:tabular-nums}
+.row span{white-space:nowrap}
+.row i{flex:1;border-bottom:1px dotted rgba(217,185,138,.5)}
+.row b{font:400 26px/1 var(--nouveau);color:var(--gold)}
+footer{border-top:1px solid rgba(217,185,138,.3);padding-block:30px;text-align:center;font-size:14px;color:var(--dim)}
+footer span{display:inline-block;margin:4px 14px}
+footer b{color:var(--gold);font-weight:500}
+</style>
+
+<nav><a href="#dirs">Направления</a><span class="logo">Шостакович</span><a href="#prices">Абонементы</a></nav>
+
+<div class="wrap">
+  <header class="hero">
+    <div class="l">
+      <h1>Грация <em>живёт</em> в каждой</h1>
+      <p>Пилон, танцы и фитнес в трёх студиях Пензы. Раскрываем женственность плавно и бережно.</p>
+    </div>
+    <div class="frame" role="img" aria-label="Танцовщица в резной раме">
+      <div class="img"></div>
+      <svg viewBox="0 0 400 560" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M40,560 L40,150 C40,60 110,20 200,20 C290,20 360,60 360,150 L360,560"/>
+        <path d="M22,560 L22,150 C22,40 100,4 200,4 C300,4 378,40 378,150 L378,560"/>
+        <path d="M200,4 C185,30 170,34 150,30 C130,26 118,40 126,56 M200,4 C215,30 230,34 250,30 C270,26 282,40 274,56"/>
+        <path d="M22,300 C-10,280 -20,240 8,220 C30,204 44,226 30,240 M378,300 C410,280 420,240 392,220 C370,204 356,226 370,240"/>
+        <path d="M22,470 C-6,470 -18,500 2,520 C20,536 40,520 30,505 M378,470 C406,470 418,500 398,520 C380,536 360,520 370,505"/>
+        <ellipse class="leaf" cx="126" cy="60" rx="8" ry="4" transform="rotate(-30 126 60)"/>
+        <ellipse class="leaf" cx="274" cy="60" rx="8" ry="4" transform="rotate(30 274 60)"/>
+      </svg>
+    </div>
+    <div class="r">
+      <span style="font:400 18px/1 var(--nouveau);color:var(--dim)">Первое занятие</span>
+      <div class="price">400 ₽</div>
+      <p>любое направление, любая студия</p>
+      <a class="btn" href="#prices">Записаться</a>
+    </div>
+  </header>
+</div>
+
+<section id="dirs"><div class="wrap">
+  <h2>Направления</h2>
+  <svg class="orn" viewBox="0 0 220 30" aria-hidden="true"><path d="M0,15 C40,15 60,2 90,8 C100,10 104,15 110,15 C116,15 120,10 130,8 C160,2 180,15 220,15 M110,15 C104,24 116,24 110,15"/></svg>
+  <div class="dirs">
+    <div class="d"><svg viewBox="0 0 40 40"><path d="M20,2 L20,38 M20,12 C10,10 8,20 14,24"/></svg><h3>Pole Dance</h3><p>Сила и все мышцы</p></div>
+    <div class="d"><svg viewBox="0 0 40 40"><path d="M20,2 L20,38 M20,20 C30,14 34,24 26,28"/></svg><h3>Exotic Pole</h3><p>Смелость и трюки</p></div>
+    <div class="d"><svg viewBox="0 0 40 40"><path d="M6,34 C10,10 30,30 34,6"/></svg><h3>Стрип-пластика</h3><p>Линия тела</p></div>
+    <div class="d"><svg viewBox="0 0 40 40"><path d="M2,30 C12,22 28,22 38,30"/></svg><h3>Растяжка</h3><p>Гибкость и шпагат</p></div>
+    <div class="d"><svg viewBox="0 0 40 40"><path d="M10,34 C6,20 14,6 20,6 C26,6 34,20 30,34"/></svg><h3>Скульптор тела</h3><p>Рельеф и тонус</p></div>
+    <div class="d"><svg viewBox="0 0 40 40"><path d="M4,32 C14,38 26,38 36,32 M20,26 L20,6"/></svg><h3>Джампинг</h3><p>Кардио с лёгкостью</p></div>
+    <div class="d"><svg viewBox="0 0 40 40"><path d="M8,2 L18,22 M32,2 L22,22 M20,22 C12,30 20,38 28,32"/></svg><h3>Банджи</h3><p>Полёт на тросах</p></div>
+    <div class="d"><svg viewBox="0 0 40 40"><path d="M2,6 C10,30 30,30 38,6"/></svg><h3>Йога в гамаках</h3><p>Покой и бодрость</p></div>
+  </div>
+</div></section>
+
+<section id="prices" style="padding-top:0"><div class="wrap">
+  <h2>Абонементы</h2>
+  <svg class="orn" viewBox="0 0 220 30" aria-hidden="true"><path d="M0,15 C40,15 60,2 90,8 C100,10 104,15 110,15 C116,15 120,10 130,8 C160,2 180,15 220,15"/></svg>
+  <div class="prices">
+    <div class="row"><span>Первое занятие</span><i></i><b>400 ₽</b></div>
+    <div class="row"><span>4 занятия в месяц</span><i></i><b>2 900 ₽</b></div>
+    <div class="row"><span>8 занятий в месяц</span><i></i><b>4 500 ₽</b></div>
+    <div class="row"><span>12 занятий в месяц</span><i></i><b>5 500 ₽</b></div>
+  </div>
+</div></section>
+
+<footer>
+  <span><b>Слава</b> · ул. Славы, 2 · +7 (927) 093-98-98</span>
+  <span><b>Суворовский</b> · ул. Суворова, 144А · +7 (927) 091-98-98</span>
+  <span><b>Олимп</b> · пр. Строителей, 9 · +7 (927) 092-98-98</span><br>
+  <span style="font-size:12px">Прототип «Модерн» (ар-нуво).</span>
+</footer>
+

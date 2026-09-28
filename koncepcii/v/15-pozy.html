@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Шостакович — Позы</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tenor+Sans&family=Raleway:wght@400;500;600&display=swap">
+<style>
+:root{
+  color-scheme:dark;
+  --bg:#1C1317; --bg2:#261a20; --line:#3a2a31; --text:#F1E6E8; --mute:#A8949C;
+  --rose:#C98A9B; --champ:#E3CBA8;
+  --display:"Tenor Sans",Georgia,serif; --body:"Raleway",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.65 var(--body)}
+a{color:inherit;text-decoration:none}
+a:focus-visible,button:focus-visible{outline:1px solid var(--champ);outline-offset:4px}
+.wrap{max-width:1160px;margin:0 auto;padding-inline:clamp(16px,4vw,40px)}
+.btn{display:inline-block;padding:14px 26px;border-radius:999px;background:var(--rose);color:#231419;font-weight:600;font-size:15px;border:0;cursor:pointer}
+.btn:hover{background:#d8a0b0}
+nav{display:flex;align-items:center;gap:24px;padding-block:22px;font-size:14px;color:var(--mute)}
+.logo{font:400 15px/1 var(--display);letter-spacing:.42em;color:var(--text)}
+nav .btn{margin-left:auto;padding:10px 18px;font-size:14px}
+
+.hero{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,5vw,64px);align-items:center;padding-block:16px 72px}
+@media(max-width:860px){.hero{grid-template-columns:1fr}}
+.k{font-size:12px;letter-spacing:.34em;text-transform:uppercase;color:var(--champ);margin:0 0 18px}
+h1{font:400 clamp(32px,4.4vw,54px)/1.1 var(--display);margin:0 0 14px;text-wrap:balance}
+.lead{color:var(--mute);max-width:42ch;margin:0 0 24px;font-size:17px}
+.list{display:flex;flex-direction:column;border-top:1px solid var(--line)}
+.list button{display:flex;justify-content:space-between;align-items:baseline;gap:16px;width:100%;text-align:left;background:none;border:0;border-bottom:1px solid var(--line);color:var(--mute);padding:13px 4px;font:400 20px/1.2 var(--display);cursor:pointer;transition:color .2s,padding-left .2s}
+.list button small{font:500 12px/1 var(--body);letter-spacing:.16em;text-transform:uppercase;opacity:.6}
+.list button:hover{color:var(--text)}
+.list button[aria-pressed="true"]{color:var(--champ);padding-left:14px}
+.figure{position:relative;aspect-ratio:4/5;max-width:520px;width:100%;justify-self:center;border-radius:28px;overflow:hidden;background:radial-gradient(60% 50% at 50% 60%,#3a2230,#1c1317 80%);border:1px solid var(--line)}
+.figure canvas{position:absolute;inset:0;width:100%;height:100%}
+.figure .cap{position:absolute;left:0;right:0;bottom:16px;text-align:center;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--mute)}
+.figure .cap b{display:block;font:400 22px/1.2 var(--display);letter-spacing:.02em;text-transform:none;color:var(--text);margin-bottom:4px}
+
+section{padding-block:72px;border-top:1px solid var(--line)}
+h2{font:400 clamp(26px,3.2vw,40px)/1.15 var(--display);margin:0 0 30px}
+.prices{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+@media(max-width:860px){.prices{grid-template-columns:repeat(2,1fr)}}
+.pr{background:var(--bg2);border-radius:20px;padding:22px}
+.pr span{color:var(--mute);font-size:14px}
+.pr b{display:block;font:400 30px/1 var(--display);margin-top:14px;font-variant-numeric:tabular-nums}
+.pr.first b{color:var(--rose)}
+footer{border-top:1px solid var(--line);padding-block:28px;display:flex;flex-wrap:wrap;gap:10px 30px;font-size:14px;color:var(--mute)}
+footer b{color:var(--text)}
+.note{font-size:12px;color:#7d6a71;padding-block:0 28px}
+@media(prefers-reduced-motion:reduce){.list button{transition:none}}
+</style>
+
+<div class="wrap">
+  <nav><div class="logo">ШОСТАКОВИЧ</div><a class="btn" href="#price">Пробное — 400 ₽</a></nav>
+  <header class="hero">
+    <div>
+      <p class="k">Пилон · Фитнес · Танцы · Пенза</p>
+      <h1>Какой вы себя увидите?</h1>
+      <p class="lead">Наведите на направление, и фигура примет его позу. Восемь направлений в трёх студиях города.</p>
+      <div class="list" id="list"></div>
+    </div>
+    <div class="figure">
+      <canvas id="cv" aria-hidden="true"></canvas>
+      <div class="cap"><b id="capName">Растяжка</b><span id="capNote">гибкость, осанка, шпагат</span></div>
+    </div>
+  </header>
+</div>
+
+<section id="price"><div class="wrap">
+  <h2>Один абонемент на три студии</h2>
+  <div class="prices">
+    <div class="pr first"><span>Первое занятие</span><b>400 ₽</b></div>
+    <div class="pr"><span>4 в месяц</span><b>2 900 ₽</b></div>
+    <div class="pr"><span>8 в месяц</span><b>4 500 ₽</b></div>
+    <div class="pr"><span>12 в месяц</span><b>5 500 ₽</b></div>
+  </div>
+</div></section>
+
+<div class="wrap">
+  <footer>
+    <span><b>Слава</b> · ул. Славы, 2 · +7 (927) 093-98-98</span>
+    <span><b>Суворовский</b> · ул. Суворова, 144А · +7 (927) 091-98-98</span>
+    <span><b>Олимп</b> · пр. Строителей, 9 · +7 (927) 092-98-98</span>
+  </footer>
+  <p class="note">Прототип «Позы». Фигура рисуется кодом, фото не нужно.</p>
+</div>
+
+<script>
+// Суставы: голова, шея, плечи Л/П, локти Л/П, кисти Л/П, таз, колени Л/П, стопы Л/П. Координаты в долях холста.
+const J = ["head","neck","shL","shR","elL","elR","haL","haR","hip","knL","knR","ftL","ftR"];
+const POSES = [
+  {n:"Растяжка", d:"гибкость, осанка, шпагат", tag:"мягко", p:{head:[.5,.36],neck:[.5,.45],shL:[.44,.47],shR:[.56,.47],elL:[.36,.6],elR:[.64,.6],haL:[.3,.73],haR:[.7,.73],hip:[.5,.72],knL:[.3,.74],knR:[.7,.74],ftL:[.1,.76],ftR:[.9,.76]}},
+  {n:"Йога в гамаках", d:"переворот в гамаке", tag:"мягко", prop:"hammock", p:{head:[.5,.82],neck:[.5,.74],shL:[.44,.72],shR:[.56,.72],elL:[.38,.6],elR:[.62,.6],haL:[.34,.48],haR:[.66,.48],hip:[.5,.42],knL:[.42,.3],knR:[.58,.3],ftL:[.36,.2],ftR:[.64,.2]}},
+  {n:"Стрип-пластика", d:"пластика и линия тела", tag:"средне", p:{head:[.38,.24],neck:[.42,.32],shL:[.38,.34],shR:[.47,.32],elL:[.3,.22],elR:[.55,.42],haL:[.36,.1],haR:[.6,.55],hip:[.5,.55],knL:[.46,.72],knR:[.58,.7],ftL:[.44,.9],ftR:[.66,.88]}},
+  {n:"Скульптор тела", d:"присед, ягодицы и живот", tag:"средне", p:{head:[.5,.26],neck:[.5,.35],shL:[.44,.37],shR:[.56,.37],elL:[.38,.46],elR:[.62,.46],haL:[.42,.38],haR:[.58,.38],hip:[.5,.62],knL:[.4,.72],knR:[.6,.72],ftL:[.38,.9],ftR:[.62,.9]}},
+  {n:"Банджи", d:"полёт на тросах", tag:"средне", prop:"bungee", p:{head:[.66,.22],neck:[.62,.3],shL:[.6,.32],shR:[.62,.34],elL:[.7,.4],elR:[.5,.38],haL:[.78,.34],haR:[.44,.3],hip:[.5,.5],knL:[.36,.6],knR:[.6,.66],ftL:[.24,.72],ftR:[.62,.84]}},
+  {n:"Джампинг", d:"прыжок на батуте", tag:"интенсивно", prop:"tramp", p:{head:[.5,.13],neck:[.5,.22],shL:[.43,.24],shR:[.57,.24],elL:[.36,.14],elR:[.64,.14],haL:[.4,.04],haR:[.6,.04],hip:[.5,.42],knL:[.44,.55],knR:[.56,.55],ftL:[.42,.62],ftR:[.58,.62]}},
+  {n:"Pole Dance", d:"флаг на пилоне", tag:"интенсивно", prop:"pole", p:{head:[.58,.21],neck:[.56,.3],shL:[.53,.3],shR:[.6,.32],elL:[.5,.28],elR:[.54,.4],haL:[.5,.25],haR:[.5,.45],hip:[.66,.5],knL:[.8,.42],knR:[.78,.62],ftL:[.92,.36],ftR:[.9,.72]}},
+  {n:"Exotic Pole", d:"переворот на пилоне", tag:"интенсивно", prop:"pole", p:{head:[.5,.79],neck:[.5,.7],shL:[.47,.68],shR:[.53,.68],elL:[.44,.6],elR:[.56,.66],haL:[.5,.5],haR:[.5,.6],hip:[.5,.4],knL:[.38,.28],knR:[.62,.3],ftL:[.3,.14],ftR:[.72,.16]}}
+];
+const BONES = [["neck","shL"],["neck","shR"],["shL","elL"],["elL","haL"],["shR","elR"],["elR","haR"],["neck","hip"],["hip","knL"],["knL","ftL"],["hip","knR"],["knR","ftR"]];
+const HOLD_MS = 3200, EASE = .08;
+const cv = document.getElementById("cv"), ctx = cv.getContext("2d");
+const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+let w = 0, h = 0, cur = 0, manual = false, timer;
+const state = {}; J.forEach(k => state[k] = [...POSES[0].p[k]]);
+const props = {pole:0, hammock:0, tramp:0, bungee:0};
+
+function setPose(i, byUser){
+  cur = i; manual = manual || byUser;
+  document.getElementById("capName").textContent = POSES[i].n;
+  document.getElementById("capNote").textContent = POSES[i].d;
+  document.querySelectorAll("#list button").forEach((b, k) => b.setAttribute("aria-pressed", String(k === i)));
+  clearTimeout(timer);
+  if (!manual && !reduce) timer = setTimeout(() => setPose((cur + 1) % POSES.length), HOLD_MS);
+}
+function resize(){
+  const dpr = Math.min(devicePixelRatio || 1, 2);
+  w = cv.clientWidth; h = cv.clientHeight;
+  cv.width = w * dpr; cv.height = h * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+}
+function P(k){ return [state[k][0] * w, state[k][1] * h]; }
+function line(a, b, width, color){ ctx.beginPath(); ctx.moveTo(...a); ctx.lineTo(...b); ctx.lineWidth = width; ctx.strokeStyle = color; ctx.stroke(); }
+function drawProps(){
+  ctx.lineCap = "round";
+  if (props.pole > .01) { ctx.globalAlpha = props.pole; line([w * .5, 0], [w * .5, h], 7, "#8d8388"); line([w * .5 - 1.5, 0], [w * .5 - 1.5, h], 1.5, "#e6dfe2"); }
+  if (props.hammock > .01) { ctx.globalAlpha = props.hammock; ctx.beginPath(); ctx.moveTo(w * .12, 0); ctx.quadraticCurveTo(w * .5, h * .95, w * .88, 0); ctx.lineWidth = 3; ctx.strokeStyle = "#C98A9B"; ctx.stroke(); }
+  if (props.tramp > .01) { ctx.globalAlpha = props.tramp; ctx.beginPath(); ctx.moveTo(w * .1, h * .8); ctx.quadraticCurveTo(w * .5, h * .92, w * .9, h * .8); ctx.lineWidth = 3; ctx.strokeStyle = "#C98A9B"; ctx.stroke(); }
+  if (props.bungee > .01) { ctx.globalAlpha = props.bungee; const hip = P("hip"); line([w * .3, 0], hip, 1.5, "#C98A9B"); line([w * .7, 0], hip, 1.5, "#C98A9B"); }
+  ctx.globalAlpha = 1;
+}
+function frame(){
+  const target = POSES[cur];
+  J.forEach(k => { state[k][0] += (target.p[k][0] - state[k][0]) * EASE; state[k][1] += (target.p[k][1] - state[k][1]) * EASE; });
+  Object.keys(props).forEach(k => props[k] += ((target.prop === k ? 1 : 0) - props[k]) * EASE);
+  ctx.clearRect(0, 0, w, h);
+  drawProps();
+  ctx.lineCap = "round"; ctx.lineJoin = "round";
+  ctx.shadowColor = "rgba(227,203,168,.45)"; ctx.shadowBlur = 18;
+  BONES.forEach(([a, b]) => line(P(a), P(b), Math.max(6, w * .022), "#E3CBA8"));
+  const hd = P("head"); ctx.beginPath(); ctx.arc(hd[0], hd[1], Math.max(9, w * .038), 0, Math.PI * 2); ctx.fillStyle = "#E3CBA8"; ctx.fill();
+  ctx.shadowBlur = 0;
+  requestAnimationFrame(frame);
+}
+document.getElementById("list").innerHTML = POSES.map((p, i) => `<button aria-pressed="false" data-i="${i}">${p.n}<small>${p.tag}</small></button>`).join("");
+document.getElementById("list").addEventListener("pointerover", e => { const b = e.target.closest("button"); if (b) setPose(Number(b.dataset.i), true); });
+document.getElementById("list").addEventListener("click", e => { const b = e.target.closest("button"); if (b) setPose(Number(b.dataset.i), true); });
+new ResizeObserver(resize).observe(cv);
+resize(); setPose(0, false); requestAnimationFrame(frame);
+</script>
+

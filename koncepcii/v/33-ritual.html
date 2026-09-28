@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Шостакович — Ритуал</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+Display:ital,wght@0,300;0,400;1,300&family=Montserrat:wght@400;500;600&display=swap">
+<style>
+:root{
+  --bg:#F6F1F0; --card:#FFFFFF; --ink:#1E1417; --mute:#7A6970; --line:#E4D8D6; --wine:#8B2039; --blush:#EFE3E1;
+  --serif:"Noto Serif Display",Georgia,serif; --sans:"Montserrat",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.7 var(--sans)}
+a{color:inherit;text-decoration:none}
+a:focus-visible{outline:1px solid var(--wine);outline-offset:4px}
+.wrap{max-width:1280px;margin:0 auto;padding-inline:clamp(16px,5vw,64px)}
+.caps{font:600 10px/1.8 var(--sans);letter-spacing:.34em;text-transform:uppercase;color:var(--mute)}
+.btn{display:inline-flex;align-items:center;height:50px;padding:0 30px;background:var(--ink);color:#fff;font:600 11px/1 var(--sans);letter-spacing:.28em;text-transform:uppercase}
+.btn:hover{background:var(--wine)}
+nav{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding-block:22px;border-bottom:1px solid var(--line)}
+nav .logo{font:300 22px/1 var(--serif);letter-spacing:.34em;text-align:center}
+nav .r{justify-self:end}
+
+.hero{display:grid;grid-template-columns:1fr 1fr;min-height:620px;border-bottom:1px solid var(--line)}
+@media(max-width:860px){.hero{grid-template-columns:1fr}}
+.hero .txt{display:flex;flex-direction:column;justify-content:center;padding:clamp(28px,6vw,90px) clamp(16px,5vw,64px)}
+.hero h1{font:300 clamp(40px,5vw,72px)/1.05 var(--serif);margin:14px 0 18px}
+.hero h1 i{color:var(--wine)}
+.hero p{color:var(--mute);max-width:38ch;margin:0 0 28px}
+.hero .img{min-height:420px;background:#2a1018 url("photos/hero.jpg") 66% 30%/cover}
+
+.line-head{display:flex;justify-content:space-between;align-items:baseline;padding-block:56px 24px}
+.line-head h2{font:300 clamp(32px,3.6vw,50px)/1.05 var(--serif);margin:0}
+.products{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+@media(max-width:960px){.products{grid-template-columns:repeat(2,1fr)}}
+.p{background:var(--card);padding:26px 22px 24px;display:flex;flex-direction:column;gap:12px}
+.p .bottle{aspect-ratio:4/5;background:var(--blush);display:grid;place-items:center;position:relative;overflow:hidden}
+.p .bottle i{width:38%;height:62%;border-radius:40px 40px 10px 10px;background:linear-gradient(90deg,var(--c) 0%,#fff6 35%,var(--c) 60%);box-shadow:0 20px 30px rgba(30,20,23,.15)}
+.p .bottle i::before{content:"";display:block;width:40%;height:14%;margin:-14% auto 0;background:#1e1417;border-radius:4px}
+.p .bottle span{position:absolute;bottom:12px;font:600 9px/1 var(--sans);letter-spacing:.3em;color:var(--mute)}
+.p h3{font:400 22px/1.15 var(--serif);margin:0}
+.spec{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;font-size:13px;color:var(--mute)}
+.spec b{font-weight:500;color:var(--ink)}
+.p a{margin-top:auto;font:600 10px/1 var(--sans);letter-spacing:.28em;text-transform:uppercase;border-bottom:1px solid;padding-bottom:4px;align-self:flex-start}
+
+.sets{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;padding-block:24px 64px}
+@media(max-width:960px){.sets{grid-template-columns:repeat(2,1fr)}}
+.set{border:1px solid var(--line);padding:24px;text-align:center;background:var(--card)}
+.set.first{background:var(--ink);color:#fff;border-color:var(--ink)}
+.set b{display:block;font:300 36px/1.1 var(--serif);margin:10px 0 4px}
+.set.first .caps{color:#d9c3ca}
+footer{border-top:1px solid var(--line);padding-block:30px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:10px 30px;font-size:13px;color:var(--mute)}
+footer b{color:var(--ink);font-weight:600}
+</style>
+
+<nav class="wrap"><span class="caps">Пенза · 3 студии</span><span class="logo">SHOSTAKOVICH</span><a class="r btn" href="#sets">Записаться</a></nav>
+
+<header class="hero">
+  <div class="txt">
+    <span class="caps">Ритуалы движения</span>
+    <h1>Уход за собой, <i>который чувствуешь</i> телом</h1>
+    <p>Восемь ритуалов для силы, гибкости и уверенности. Каждый длится час и работает с первого раза.</p>
+    <div><a class="btn" href="#sets">Попробовать за 400 ₽</a></div>
+  </div>
+  <div class="img" role="img" aria-label="Танцовщица"></div>
+</header>
+
+<div class="wrap">
+  <div class="line-head"><h2>Линейка ритуалов</h2><span class="caps">8 форматов</span></div>
+  <div class="products">
+    <div class="p"><div class="bottle"><i style="--c:#8B2039"></i><span>№ 01</span></div><h3>Pole Dance</h3><div class="spec"><span>Эффект</span><b>сила, тонус</b><span>Для кого</span><b>для любой подготовки</b></div><a href="#sets">Выбрать</a></div>
+    <div class="p"><div class="bottle"><i style="--c:#5A0F26"></i><span>№ 02</span></div><h3>Exotic Pole</h3><div class="spec"><span>Эффект</span><b>смелость</b><span>Для кого</span><b>для тех, кто хочет ярче</b></div><a href="#sets">Выбрать</a></div>
+    <div class="p"><div class="bottle"><i style="--c:#C98A9B"></i><span>№ 03</span></div><h3>Стрип-пластика</h3><div class="spec"><span>Эффект</span><b>пластика</b><span>Для кого</span><b>для женственности</b></div><a href="#sets">Выбрать</a></div>
+    <div class="p"><div class="bottle"><i style="--c:#E9C4CF"></i><span>№ 04</span></div><h3>Растяжка</h3><div class="spec"><span>Эффект</span><b>гибкость</b><span>Для кого</span><b>для спины и осанки</b></div><a href="#sets">Выбрать</a></div>
+    <div class="p"><div class="bottle"><i style="--c:#A12A47"></i><span>№ 05</span></div><h3>Скульптор тела</h3><div class="spec"><span>Эффект</span><b>рельеф</b><span>Для кого</span><b>ягодицы и пресс</b></div><a href="#sets">Выбрать</a></div>
+    <div class="p"><div class="bottle"><i style="--c:#D4466F"></i><span>№ 06</span></div><h3>Джампинг</h3><div class="spec"><span>Эффект</span><b>энергия</b><span>Для кого</span><b>вместо бега</b></div><a href="#sets">Выбрать</a></div>
+    <div class="p"><div class="bottle"><i style="--c:#B8757F"></i><span>№ 07</span></div><h3>Банджи</h3><div class="spec"><span>Эффект</span><b>лёгкость</b><span>Для кого</span><b>для любителей полёта</b></div><a href="#sets">Выбрать</a></div>
+    <div class="p"><div class="bottle"><i style="--c:#DCC8CE"></i><span>№ 08</span></div><h3>Йога в гамаках</h3><div class="spec"><span>Эффект</span><b>спокойствие</b><span>Для кого</span><b>для отдыха спины</b></div><a href="#sets">Выбрать</a></div>
+  </div>
+
+  <div class="line-head" id="sets"><h2>Наборы</h2><span class="caps">любой ритуал · любая студия</span></div>
+  <div class="sets" style="padding-top:0">
+    <div class="set first"><span class="caps">Пробник</span><b>400 ₽</b><span>1 занятие</span></div>
+    <div class="set"><span class="caps">Мини</span><b>2 900 ₽</b><span>4 в месяц</span></div>
+    <div class="set"><span class="caps">Классика</span><b>4 500 ₽</b><span>8 в месяц</span></div>
+    <div class="set"><span class="caps">Максимум</span><b>5 500 ₽</b><span>12 в месяц</span></div>
+  </div>
+</div>
+
+<footer><div class="wrap">
+  <span><b>Слава</b> · ул. Славы, 2 · +7 (927) 093-98-98</span>
+  <span><b>Суворовский</b> · ул. Суворова, 144А · +7 (927) 091-98-98</span>
+  <span><b>Олимп</b> · пр. Строителей, 9 · +7 (927) 092-98-98</span>
+  <span>Прототип «Ритуал» (бьюти-люкс).</span>
+</div></footer>
+

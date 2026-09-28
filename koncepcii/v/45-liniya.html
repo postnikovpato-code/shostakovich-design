@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Шостакович — Линия</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap">
+<style>
+:root{
+  --bg:#F7F2F1; --ink:#1E1417; --mute:#6E5C61; --line:#E2D4D2; --wine:#8B2039; --wine-l:#B8475F; --blush:#EAD9DA; --dark:#1A1215;
+  --sans:"Montserrat",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.6 var(--sans)}
+a{color:inherit;text-decoration:none}
+a:focus-visible{outline:2px solid var(--wine);outline-offset:3px}
+.wrap{max-width:1320px;margin:0 auto;padding-inline:clamp(16px,3.5vw,48px)}
+nav{display:flex;align-items:center;gap:26px;padding-block:18px;font-size:13px;font-weight:500}
+.logo{font-weight:700;letter-spacing:.02em}
+.logo b{color:var(--wine)}
+nav .links{display:flex;gap:24px;margin-left:auto}
+nav .cta{border:1.5px solid var(--ink);border-radius:999px;padding:8px 16px}
+nav .cta:hover{background:var(--ink);color:var(--bg)}
+@media(max-width:760px){nav .links{display:none}nav .cta{margin-left:auto}}
+
+/* Заголовок с рисованной линией между словами */
+.hero{padding-block:40px 30px}
+.hero h1{margin:0;display:flex;flex-wrap:wrap;align-items:center;gap:0 22px;font:600 clamp(40px,6.4vw,96px)/1 var(--sans);letter-spacing:-.04em}
+.hero h1 .w2{color:var(--wine)}
+.scribble{flex:1 1 220px;min-width:180px;height:clamp(60px,8vw,120px)}
+.scribble path{fill:none;stroke:var(--wine);stroke-width:3;stroke-linecap:round;stroke-dasharray:1400;stroke-dashoffset:1400;animation:draw 2.4s .3s cubic-bezier(.6,0,.3,1) forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+.hero .sub{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;margin-top:22px;color:var(--mute)}
+
+/* Сетка из фото и цветных блоков */
+.grid{display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:minmax(120px,auto);gap:10px;padding-bottom:70px}
+.b{position:relative;padding:22px;overflow:hidden}
+.ph{background:#2a1018 url("photos/hero.jpg") no-repeat;background-size:var(--z,cover);background-position:var(--p,center)}
+.g1{grid-column:1/8;grid-row:span 3;--p:66% 35%;--z:auto 125%}
+.g2{grid-column:8/13;grid-row:span 2;background:var(--wine);color:#fff;display:flex;flex-direction:column;justify-content:space-between}
+.g2 h2{margin:0;font:600 clamp(28px,3.2vw,48px)/1 var(--sans);letter-spacing:-.03em}
+.g3{grid-column:8/11;--p:48% 20%;--z:auto 190%}
+.g4{grid-column:11/13;background:var(--blush);display:flex;flex-direction:column;justify-content:flex-end}
+.g4 b{font-size:40px;line-height:1;letter-spacing:-.04em;color:var(--wine)}
+.g5{grid-column:1/5;grid-row:span 2;background:var(--dark);color:#fff;display:flex;flex-direction:column;justify-content:space-between}
+.g5 ul{list-style:none;padding:0;margin:0;display:grid;gap:6px;font-size:14px}
+.g5 li::before{content:"— ";color:var(--wine-l)}
+.g6{grid-column:5/9;grid-row:span 2;--p:92% 35%;--z:auto 150%}
+.g7{grid-column:9/13;grid-row:span 2;background:var(--blush);display:flex;flex-direction:column;justify-content:space-between}
+.g7 h3{margin:0;font:600 26px/1.1 var(--sans);letter-spacing:-.02em}
+.tag{position:absolute;left:14px;bottom:14px;background:var(--bg);padding:6px 10px;font-size:12px;font-weight:600}
+@media(max-width:860px){.grid{grid-template-columns:repeat(2,1fr)}.g1,.g2,.g3,.g4,.g5,.g6,.g7{grid-column:span 2;grid-row:auto;min-height:220px}.g3,.g4{grid-column:span 1}}
+
+.prices{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;padding-bottom:70px}
+@media(max-width:860px){.prices{grid-template-columns:repeat(2,1fr)}}
+.pr{background:#fff;padding:22px;border:1px solid var(--line)}
+.pr.first{background:var(--wine);color:#fff;border-color:var(--wine)}
+.pr b{display:block;font-size:34px;letter-spacing:-.04em;margin-top:10px}
+.pr span{font-size:13px}
+h2.h{font:600 clamp(30px,4vw,56px)/1 var(--sans);letter-spacing:-.04em;margin:0 0 24px}
+footer{border-top:1px solid var(--line);padding-block:24px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:10px 30px;color:var(--mute);font-size:13px}
+footer b{color:var(--ink)}
+@media(prefers-reduced-motion:reduce){.scribble path{animation:none;stroke-dashoffset:0}}
+</style>
+
+<div class="wrap">
+  <nav><span class="logo">шостакович<b>.</b></span><span class="links"><a href="#grid">Студия</a><a href="#prices">Цены</a><a href="#addr">Адреса</a></span><a class="cta" href="#prices">Пробное 400 ₽</a></nav>
+
+  <header class="hero">
+    <h1><span>Сильнее,</span><span>пока ты</span>
+      <svg class="scribble" viewBox="0 0 400 110" preserveAspectRatio="none" aria-hidden="true"><path d="M4,70 C40,20 70,100 110,60 C140,30 150,90 185,70 C215,52 205,20 235,30 C265,40 250,95 290,80 C320,68 330,30 360,40 C380,46 388,60 396,58"/></svg>
+      <span class="w2">танцуешь.</span></h1>
+    <div class="sub"><span>Пилон, фитнес и танцы в трёх студиях Пензы</span><span>Восемь направлений · любой уровень</span></div>
+  </header>
+
+  <section class="grid" id="grid">
+    <div class="b ph g1" role="img" aria-label="Три танцовщицы"><span class="tag">Студия Слава</span></div>
+    <div class="b g2"><span style="font-size:13px;opacity:.8">Первое занятие</span><h2>Попробуй любое направление за 400 ₽</h2><a href="#prices" style="font-weight:600">Записаться →</a></div>
+    <div class="b ph g3" role="img" aria-label="Танцовщица"></div>
+    <div class="b g4"><b>3</b><span>студии</span></div>
+    <div class="b g5"><span style="font-size:13px;opacity:.7">Направления</span><ul><li>Pole Dance</li><li>Exotic Pole</li><li>Стрип-пластика</li><li>Растяжка</li><li>Скульптор тела</li><li>Джампинг</li><li>Банджи</li><li>Йога в гамаках</li></ul></div>
+    <div class="b ph g6" role="img" aria-label="Танцовщица в движении"><span class="tag">Стрип-пластика</span></div>
+    <div class="b g7"><h3>Место, где женщина становится собой</h3><p style="margin:0;color:var(--mute)">Будим черты и состояния, которые давно спали. Мягко и в своём темпе.</p></div>
+  </section>
+
+  <section id="prices">
+    <h2 class="h">Абонементы на все студии</h2>
+    <div class="prices">
+      <div class="pr first"><span>Первое занятие</span><b>400 ₽</b></div>
+      <div class="pr"><span>4 в месяц</span><b>2 900 ₽</b></div>
+      <div class="pr"><span>8 в месяц</span><b>4 500 ₽</b></div>
+      <div class="pr"><span>12 в месяц</span><b>5 500 ₽</b></div>
+    </div>
+  </section>
+</div>
+
+<footer id="addr"><div class="wrap">
+  <span><b>Слава</b> · ул. Славы, 2 · +7 (927) 093-98-98</span>
+  <span><b>Суворовский</b> · ул. Суворова, 144А · +7 (927) 091-98-98</span>
+  <span><b>Олимп</b> · пр. Строителей, 9 · +7 (927) 092-98-98</span>
+  <span>Прототип «Линия».</span>
+</div></footer>
+

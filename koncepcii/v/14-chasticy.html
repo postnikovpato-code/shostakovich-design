@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Шостакович — Частицы</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600;700&family=Raleway:wght@400;500;600&display=swap">
+<style>
+:root{
+  color-scheme:dark;
+  --bg:#150F12; --tile:#211820; --line:#34262D; --text:#F1E6E8; --mute:#A4939A;
+  --rose:#C98A9B; --champ:#E3CBA8; --wine:#9E3A58;
+  --display:"Montserrat",system-ui,sans-serif; --body:"Raleway",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 var(--body)}
+a{color:inherit;text-decoration:none}
+a:focus-visible,button:focus-visible{outline:1px solid var(--champ);outline-offset:3px}
+.wrap{max-width:1180px;margin:0 auto;padding-inline:clamp(16px,4vw,40px)}
+.btn{display:inline-block;padding:14px 24px;border-radius:999px;background:var(--champ);color:#2a1a20;font-weight:600;font-size:15px;border:0;cursor:pointer}
+.btn:hover{background:#efdbbd}
+.btn.line{background:none;color:var(--text);border:1px solid #54404a}
+
+.hero{position:relative;height:min(92vh,820px);min-height:560px;overflow:hidden;background:radial-gradient(60% 60% at 50% 45%,#2b1820,var(--bg) 75%)}
+canvas{position:absolute;inset:0;width:100%;height:100%;display:block;touch-action:pan-y}
+.hero .wrap{position:relative;z-index:2;height:100%;display:flex;flex-direction:column;pointer-events:none}
+.hero .wrap > *{pointer-events:auto}
+nav{display:flex;align-items:center;gap:24px;padding-block:22px;font-size:14px;color:var(--mute)}
+.logo{font:300 13px/1 var(--display);letter-spacing:.6em;color:var(--text)}
+nav .btn{margin-left:auto;padding:10px 18px;font-size:14px}
+.bottom{margin-top:auto;padding-bottom:40px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:20px}
+.bottom p{margin:0;max-width:40ch;color:#d4c3c9;font-size:17px}
+.bottom .actions{display:flex;flex-wrap:wrap;gap:10px}
+.words{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.words button{background:rgba(255,255,255,.04);border:1px solid var(--line);color:var(--mute);border-radius:999px;padding:6px 12px;font:500 12px/1 var(--body);cursor:pointer}
+.words button[aria-pressed="true"]{color:var(--champ);border-color:var(--champ)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+
+section{padding-block:72px;border-top:1px solid var(--line)}
+h2{font:300 clamp(26px,3.2vw,40px)/1.15 var(--display);margin:0 0 30px}
+.dirs{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+@media(max-width:860px){.dirs{grid-template-columns:repeat(2,1fr)}}
+.d{background:var(--tile);border-radius:18px;padding:22px}
+.d h3{font:600 17px/1.2 var(--display);margin:0 0 6px}
+.d p{margin:0;color:var(--mute);font-size:14px}
+.prices{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+@media(max-width:860px){.prices{grid-template-columns:repeat(2,1fr)}}
+.pr{background:var(--tile);border-radius:18px;padding:22px}
+.pr span{color:var(--mute);font-size:14px}
+.pr b{display:block;font:300 32px/1 var(--display);margin-top:14px;font-variant-numeric:tabular-nums}
+.pr.first b{color:var(--champ)}
+footer{border-top:1px solid var(--line);padding-block:26px;display:flex;flex-wrap:wrap;gap:10px 30px;font-size:14px;color:var(--mute)}
+footer b{color:var(--text)}
+.note{font-size:12px;color:#6f5d65;padding-block:0 28px}
+</style>
+
+<header class="hero">
+  <canvas id="cv" aria-hidden="true"></canvas>
+  <h1 class="sr">Шостакович — пилон, фитнес и танцы в Пензе</h1>
+  <div class="wrap">
+    <nav><div class="logo">ШОСТАКОВИЧ</div><a class="btn" href="#price">Пробное — 400 ₽</a></nav>
+    <div class="bottom">
+      <div>
+        <p>Пилон, фитнес и танцы для женщин. Три студии в Пензе. Проведите по надписи курсором.</p>
+        <div class="words" id="words"></div>
+      </div>
+      <div class="actions"><a class="btn" href="#price">Записаться на пробное</a><a class="btn line" href="#dirs">Направления</a></div>
+    </div>
+  </div>
+</header>
+
+<section id="dirs"><div class="wrap">
+  <h2>Восемь направлений</h2>
+  <div class="dirs">
+    <div class="d"><h3>Pole Dance</h3><p>Сила и все группы мышц</p></div>
+    <div class="d"><h3>Exotic Pole</h3><p>Хореография и трюки</p></div>
+    <div class="d"><h3>Стрип-пластика</h3><p>Женственность в движении</p></div>
+    <div class="d"><h3>Растяжка</h3><p>Гибкость и шпагат</p></div>
+    <div class="d"><h3>Скульптор тела</h3><p>Ягодицы и живот</p></div>
+    <div class="d"><h3>Джампинг</h3><p>Кардио без бега</p></div>
+    <div class="d"><h3>Банджи</h3><p>Мышцы и полёт</p></div>
+    <div class="d"><h3>Йога в гамаках</h3><p>Бодрость на весь день</p></div>
+  </div>
+</div></section>
+
+<section id="price"><div class="wrap">
+  <h2>Один абонемент на три студии</h2>
+  <div class="prices">
+    <div class="pr first"><span>Первое занятие</span><b>400 ₽</b></div>
+    <div class="pr"><span>4 в месяц</span><b>2 900 ₽</b></div>
+    <div class="pr"><span>8 в месяц</span><b>4 500 ₽</b></div>
+    <div class="pr"><span>12 в месяц</span><b>5 500 ₽</b></div>
+  </div>
+</div></section>
+
+<div class="wrap">
+  <footer>
+    <span><b>Слава</b> · ул. Славы, 2 · +7 (927) 093-98-98</span>
+    <span><b>Суворовский</b> · ул. Суворова, 144А · +7 (927) 091-98-98</span>
+    <span><b>Олимп</b> · пр. Строителей, 9 · +7 (927) 092-98-98</span>
+  </footer>
+  <p class="note">Прототип «Частицы». Надпись собирается из частиц кодом.</p>
+</div>
+
+<script>
+const WORDS = ["ШОСТАКОВИЧ", "СИЛА", "ПЛАСТИКА", "СВОБОДА", "400 ₽"];
+const HOLD_MS = 3800, REPEL = 90, MAX_PARTICLES = 4000;
+const COLORS = ["#E3CBA8", "#C98A9B", "#F1E6E8", "#D8A7B6", "#9E3A58"];
+const cv = document.getElementById("cv");
+const ctx = cv.getContext("2d");
+const off = document.createElement("canvas").getContext("2d", {willReadFrequently:true});
+const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+let w, h, parts = [], idx = 0, timer, mouse = {x:-999, y:-999};
+
+function targets(text){
+  off.canvas.width = w; off.canvas.height = h;
+  const size = Math.min(w * .9 / (text.length * .82), h * .32);
+  off.clearRect(0, 0, w, h);
+  off.fillStyle = "#fff"; off.textAlign = "center"; off.textBaseline = "middle";
+  off.font = `700 ${size}px Montserrat, system-ui, sans-serif`;
+  off.fillText(text, w / 2, h * .46);
+  const data = off.getImageData(0, 0, w, h).data;
+  const step = Math.max(3, Math.round(Math.sqrt((w * h) / 90000) * 2));
+  const pts = [];
+  for (let y = 0; y < h; y += step) for (let x = 0; x < w; x += step) if (data[(y * w + x) * 4 + 3] > 128) pts.push([x, y]);
+  return pts.sort(() => Math.random() - .5).slice(0, MAX_PARTICLES);
+}
+function morph(i){
+  idx = i;
+  const pts = targets(WORDS[i]);
+  while (parts.length < pts.length) parts.push({x:Math.random() * w, y:Math.random() * h, vx:0, vy:0, c:COLORS[parts.length % COLORS.length], r:Math.random() * 1.2 + 1.6});
+  parts.forEach((p, k) => {
+    if (k < pts.length) { p.tx = pts[k][0]; p.ty = pts[k][1]; p.free = false; }
+    else { p.tx = Math.random() * w; p.ty = h + 40; p.free = true; }
+  });
+  document.querySelectorAll("#words button").forEach((b, k) => b.setAttribute("aria-pressed", String(k === i)));
+  clearTimeout(timer);
+  if (!reduce) timer = setTimeout(() => morph((idx + 1) % WORDS.length), HOLD_MS);
+}
+function tick(){
+  ctx.clearRect(0, 0, w, h);
+  for (const p of parts) {
+    const dx = p.x - mouse.x, dy = p.y - mouse.y, d2 = dx * dx + dy * dy;
+    if (d2 < REPEL * REPEL) { const f = (1 - Math.sqrt(d2) / REPEL) * 3.2; const d = Math.sqrt(d2) || 1; p.vx += dx / d * f; p.vy += dy / d * f; }
+    p.vx += (p.tx - p.x) * .012; p.vy += (p.ty - p.y) * .012;
+    p.vx *= .86; p.vy *= .86; p.x += p.vx; p.y += p.vy;
+    ctx.globalAlpha = p.free ? .15 : .9;
+    ctx.fillStyle = p.c;
+    ctx.fillRect(p.x, p.y, p.r, p.r);
+  }
+  ctx.globalAlpha = 1;
+  requestAnimationFrame(tick);
+}
+function resize(){
+  const dpr = Math.min(devicePixelRatio || 1, 2);
+  w = cv.clientWidth; h = cv.clientHeight;
+  cv.width = w * dpr; cv.height = h * dpr;
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  morph(idx);
+}
+cv.parentElement.addEventListener("pointermove", e => { const r = cv.getBoundingClientRect(); mouse = {x:e.clientX - r.left, y:e.clientY - r.top}; });
+cv.parentElement.addEventListener("pointerleave", () => { mouse = {x:-999, y:-999}; });
+document.getElementById("words").innerHTML = WORDS.map((t, i) => `<button data-i="${i}" aria-pressed="false">${t}</button>`).join("");
+document.getElementById("words").addEventListener("click", e => { const b = e.target.closest("button"); if (b) morph(Number(b.dataset.i)); });
+addEventListener("resize", resize);
+document.fonts.ready.then(() => { resize(); requestAnimationFrame(tick); });
+</script>
+

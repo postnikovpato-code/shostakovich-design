@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Шостакович — Хром</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700;900&family=Press+Start+2P&family=Montserrat:wght@400;500&display=swap">
+<style>
+:root{
+  color-scheme:dark;
+  --bg:#0E090B; --text:#F6EFEF; --dim:#BFAEB4; --wine:#8B2039; --neon:#FF4F8B; --pink:#F2B6CB;
+  --chrome:linear-gradient(180deg,#ffffff 0%,#f4e6ea 22%,#9a8a90 45%,#fdf6f8 52%,#6d5c62 70%,#e8d8de 100%);
+  --display:"Unbounded",system-ui,sans-serif; --pixel:"Press Start 2P",monospace; --body:"Montserrat",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(80% 60% at 50% 0%,#2a0d18,var(--bg) 70%) fixed,var(--bg);color:var(--text);font:16px/1.6 var(--body);overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+a:focus-visible{outline:2px solid var(--neon);outline-offset:3px}
+.wrap{max-width:1280px;margin:0 auto;padding-inline:clamp(16px,4vw,48px)}
+.px{font:400 10px/1.8 var(--pixel);color:var(--pink);letter-spacing:.04em}
+.chrome{background:var(--chrome);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 0 18px rgba(255,79,139,.35))}
+.btn{display:inline-flex;align-items:center;height:54px;padding:0 30px;border-radius:999px;font:700 14px/1 var(--display);text-transform:uppercase;letter-spacing:.06em;color:#fff;
+  background:linear-gradient(180deg,#d4466f,#8B2039 55%,#5a0f26);box-shadow:inset 0 2px 0 rgba(255,255,255,.45),inset 0 -3px 8px rgba(0,0,0,.35),0 0 24px rgba(255,79,139,.45);border:1px solid rgba(255,190,210,.5)}
+.btn.chr{color:#2a1a20;background:linear-gradient(180deg,#fff,#d9c9cf 45%,#f8eef1 55%,#a8969d);box-shadow:inset 0 2px 0 #fff,0 0 20px rgba(255,255,255,.2)}
+
+nav{display:flex;align-items:center;gap:20px;padding-block:20px}
+nav .logo{font:900 18px/1 var(--display);letter-spacing:.06em}
+nav .px{margin-left:auto}
+@media(max-width:700px){nav .px{display:none}}
+
+.hero{position:relative;text-align:center;padding-block:40px 70px}
+.hero h1{font:900 clamp(30px,7.4vw,124px)/.9 var(--display);letter-spacing:-.03em;margin:0;text-transform:uppercase}
+.hero .sub{font:400 clamp(16px,1.6vw,20px)/1.5 var(--body);color:var(--dim);max-width:42ch;margin:24px auto 30px}
+.hero .row{display:flex;flex-wrap:wrap;justify-content:center;gap:14px}
+.holo{position:relative;margin:40px auto 0;max-width:980px;aspect-ratio:2.5/1;border-radius:28px;overflow:hidden;border:2px solid rgba(255,220,230,.4);box-shadow:0 0 40px rgba(255,79,139,.3)}
+.holo .img{position:absolute;inset:0;background:#1a1215 url("photos/hero.jpg") center/cover}
+.holo::after{content:"";position:absolute;inset:0;background:linear-gradient(115deg,rgba(255,79,139,.25),rgba(160,120,255,.18) 35%,rgba(120,255,230,.14) 55%,rgba(255,79,139,.25));mix-blend-mode:screen;animation:holo 6s linear infinite;background-size:200% 200%}
+@keyframes holo{to{background-position:200% 0}}
+.star{position:absolute;width:26px;height:26px;background:var(--chrome);clip-path:polygon(50% 0,60% 40%,100% 50%,60% 60%,50% 100%,40% 60%,0 50%,40% 40%);animation:tw 2.6s ease-in-out infinite}
+@keyframes tw{50%{transform:scale(.4) rotate(45deg);opacity:.5}}
+.st1{left:8%;top:14%}.st2{right:10%;top:36%;animation-delay:-1s}.st3{left:18%;bottom:26%;animation-delay:-1.8s;width:18px;height:18px}
+
+.sec{padding-block:56px}
+.sec h2{font:900 clamp(28px,4vw,56px)/1 var(--display);text-transform:uppercase;margin:0 0 28px;text-align:center}
+.dirs{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+@media(max-width:900px){.dirs{grid-template-columns:repeat(2,1fr)}}
+.d{border-radius:20px;padding:20px;background:linear-gradient(160deg,rgba(255,255,255,.08),rgba(255,255,255,.02));border:1px solid rgba(255,220,230,.22);transition:box-shadow .3s,transform .3s}
+.d:hover{transform:translateY(-4px);box-shadow:0 0 26px rgba(255,79,139,.45)}
+.d h3{font:700 17px/1.2 var(--display);margin:10px 0 0;text-transform:uppercase}
+.prices{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+@media(max-width:900px){.prices{grid-template-columns:repeat(2,1fr)}}
+.pr{border-radius:22px;padding:22px;text-align:center;background:linear-gradient(180deg,rgba(255,255,255,.1),rgba(255,255,255,.02));border:1px solid rgba(255,220,230,.25)}
+.pr.first{background:linear-gradient(180deg,#d4466f,#8B2039 60%,#5a0f26);box-shadow:0 0 30px rgba(255,79,139,.45)}
+.pr b{display:block;font:900 30px/1 var(--display);margin-top:12px}
+footer{padding-block:30px;border-top:1px solid rgba(255,220,230,.18)}
+footer .wrap{display:flex;flex-wrap:wrap;gap:10px 30px;font-size:14px;color:var(--dim)}
+footer b{color:var(--pink)}
+@media(prefers-reduced-motion:reduce){.holo::after,.star{animation:none}.d{transition:none}}
+</style>
+
+<div class="wrap">
+  <nav><span class="logo chrome">SHOSTAKOVICH</span><span class="px">★ PENZA ★ EST. STUDIO ★</span></nav>
+  <header class="hero">
+    <p class="px">&gt; пилон · фитнес · танцы_</p>
+    <h1 class="chrome">Шостакович</h1>
+    <p class="sub">Три студии в Пензе, восемь направлений и самая сияющая версия тебя. Первое занятие — 400 ₽.</p>
+    <div class="row"><a class="btn" href="#prices">Записаться ✦</a><a class="btn chr" href="#dirs">Направления</a></div>
+    <div class="holo" role="img" aria-label="Три танцовщицы">
+      <div class="img"></div>
+      <span class="star st1"></span><span class="star st2"></span><span class="star st3"></span>
+    </div>
+  </header>
+</div>
+
+<section class="sec" id="dirs"><div class="wrap">
+  <h2 class="chrome">Выбери вайб</h2>
+  <div class="dirs">
+    <div class="d"><span class="px">01 ✦ сила</span><h3>Pole Dance</h3></div>
+    <div class="d"><span class="px">02 ✦ смелость</span><h3>Exotic Pole</h3></div>
+    <div class="d"><span class="px">03 ✦ пластика</span><h3>Стрип-пластика</h3></div>
+    <div class="d"><span class="px">04 ✦ гибкость</span><h3>Растяжка</h3></div>
+    <div class="d"><span class="px">05 ✦ тонус</span><h3>Скульптор тела</h3></div>
+    <div class="d"><span class="px">06 ✦ кардио</span><h3>Джампинг</h3></div>
+    <div class="d"><span class="px">07 ✦ полёт</span><h3>Банджи</h3></div>
+    <div class="d"><span class="px">08 ✦ покой</span><h3>Гамаки</h3></div>
+  </div>
+</div></section>
+
+<section class="sec" id="prices" style="padding-top:0"><div class="wrap">
+  <h2 class="chrome">Абонементы</h2>
+  <div class="prices">
+    <div class="pr first"><span class="px" style="color:#fff">первое</span><b>400 ₽</b></div>
+    <div class="pr"><span class="px">4 / мес</span><b>2 900 ₽</b></div>
+    <div class="pr"><span class="px">8 / мес</span><b>4 500 ₽</b></div>
+    <div class="pr"><span class="px">12 / мес</span><b>5 500 ₽</b></div>
+  </div>
+</div></section>
+
+<footer><div class="wrap">
+  <span><b>Слава</b> · ул. Славы, 2 · +7 (927) 093-98-98</span>
+  <span><b>Суворовский</b> · ул. Суворова, 144А · +7 (927) 091-98-98</span>
+  <span><b>Олимп</b> · пр. Строителей, 9 · +7 (927) 092-98-98</span>
+  <span>Прототип «Хром» (Y2K).</span>
+</div></footer>
+

@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Шостакович — Нуар</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --bg:#0C0B0B; --paper:#E8E2DC; --gray:#8C8784; --dim:#B5AFAB; --wine:#9E1F3D; --line:#2A2727;
+  --serif:"Old Standard TT",Georgia,serif; --mono:"IBM Plex Mono",ui-monospace,monospace;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--paper);font:15px/1.7 var(--mono)}
+a{color:inherit;text-decoration:none}
+a:focus-visible{outline:1px solid var(--wine);outline-offset:3px}
+.wrap{max-width:1240px;margin:0 auto;padding-inline:clamp(16px,5vw,64px)}
+.stamp{display:inline-block;border:2px solid var(--wine);color:var(--wine);padding:6px 12px;font:500 12px/1 var(--mono);letter-spacing:.2em;text-transform:uppercase;transform:rotate(-4deg)}
+.btn{display:inline-flex;align-items:center;height:50px;padding:0 26px;background:var(--wine);color:#fff;font:500 13px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase}
+.btn:hover{background:#b92a4c}
+nav{display:flex;align-items:center;gap:20px;padding-block:22px;border-bottom:1px solid var(--line)}
+.logo{font:700 20px/1 var(--serif);letter-spacing:.2em}
+nav .m{margin-left:auto;color:var(--gray);font-size:12px}
+
+.hero{position:relative;min-height:640px;overflow:hidden;display:flex;align-items:center}
+.hero .img{position:absolute;inset:0;background:#111 url("photos/hero.jpg") 70% center/cover;filter:grayscale(1) contrast(1.35) brightness(.85)}
+.blinds{position:absolute;inset:-20%;background:repeating-linear-gradient(-18deg,rgba(0,0,0,.72) 0 26px,rgba(0,0,0,0) 26px 58px);transform:translateX(var(--sx,0));transition:transform .2s linear;pointer-events:none}
+.hero .fade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(12,11,11,.95),rgba(12,11,11,.4) 50%,transparent)}
+.hero .in{position:relative;z-index:2;max-width:640px}
+.hero h1{font:400 clamp(38px,5vw,70px)/1.02 var(--serif);margin:18px 0 20px}
+.hero h1 i{color:var(--wine)}
+.hero p{color:var(--dim);margin:0 0 28px}
+.case{margin-top:10px;color:var(--gray);font-size:12px}
+
+.files{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;padding-block:60px}
+@media(max-width:900px){.files{grid-template-columns:repeat(2,1fr)}}
+.file{background:var(--paper);color:#1a1616;padding:18px 18px 22px;position:relative;transform:rotate(var(--r));box-shadow:0 12px 30px rgba(0,0,0,.6)}
+.file::before{content:"";position:absolute;top:-10px;left:18px;width:70px;height:12px;background:var(--paper);border-radius:4px 4px 0 0}
+.file small{color:#6b6360;font-size:11px;letter-spacing:.14em;text-transform:uppercase}
+.file h3{font:700 22px/1.1 var(--serif);margin:6px 0 6px}
+.file p{margin:0;font-size:13px}
+.file .red{position:absolute;right:12px;bottom:10px;color:var(--wine);font-size:11px;letter-spacing:.14em;border:1.5px solid var(--wine);padding:2px 6px;transform:rotate(-6deg)}
+h2{font:400 clamp(34px,4vw,54px)/1 var(--serif);margin:0}
+.sec-h{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid var(--line);padding-bottom:12px}
+.bill{max-width:680px;padding-block:28px 64px}
+.bill .row{display:flex;justify-content:space-between;padding-block:12px;border-bottom:1px dashed #3a3636;font-variant-numeric:tabular-nums}
+.bill .row b{font:700 22px/1 var(--serif)}
+.bill .row.first b{color:var(--wine)}
+footer{border-top:1px solid var(--line);padding-block:26px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:10px 30px;font-size:12px;color:var(--gray)}
+footer b{color:var(--paper)}
+@media(prefers-reduced-motion:reduce){.blinds{transition:none}}
+</style>
+
+<div class="wrap"><nav><span class="logo">ШОСТАКОВИЧ</span><span class="m">ПЕНЗА · СЕКРЕТНО · 3 АДРЕСА</span></nav></div>
+
+<header class="hero" id="hero">
+  <div class="img" role="img" aria-label="Три танцовщицы в тени"></div>
+  <div class="blinds" aria-hidden="true"></div>
+  <div class="fade"></div>
+  <div class="wrap in">
+    <span class="stamp">Дело № 58</span>
+    <h1>Исчезновение <i>неуверенности</i></h1>
+    <p>Свидетели утверждают: после первого занятия пилоном, танцами или фитнесом в студии Шостакович женщины начинают смотреть в зеркало иначе. Следствие продолжается.</p>
+    <a class="btn" href="#bill">Явиться на пробное · 400 ₽</a>
+    <p class="case">Материалы дела: 8 направлений, 3 студии</p>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="sec-h" style="margin-top:60px"><h2>Улики</h2><span style="color:var(--gray);font-size:12px">ВОСЕМЬ ПАПОК</span></div>
+  <div class="files">
+    <div class="file" style="--r:-1.5deg"><small>Папка 01</small><h3>Pole Dance</h3><p>Сила и все мышцы</p><span class="red">ПОДТВЕРЖДЕНО</span></div>
+    <div class="file" style="--r:1deg"><small>Папка 02</small><h3>Exotic Pole</h3><p>Смелость без алиби</p></div>
+    <div class="file" style="--r:-.5deg"><small>Папка 03</small><h3>Стрип-пластика</h3><p>Опасная пластика</p></div>
+    <div class="file" style="--r:2deg"><small>Папка 04</small><h3>Растяжка</h3><p>Шпагат под подозрением</p></div>
+    <div class="file" style="--r:.5deg"><small>Папка 05</small><h3>Скульптор тела</h3><p>Ягодицы и пресс</p></div>
+    <div class="file" style="--r:-2deg"><small>Папка 06</small><h3>Джампинг</h3><p>Кардио вместо бега</p><span class="red">СРОЧНО</span></div>
+    <div class="file" style="--r:1.5deg"><small>Папка 07</small><h3>Банджи</h3><p>Побег от гравитации</p></div>
+    <div class="file" style="--r:-1deg"><small>Папка 08</small><h3>Йога в гамаках</h3><p>Алиби для спины</p></div>
+  </div>
+
+  <div class="sec-h" id="bill"><h2>Счёт</h2><span style="color:var(--gray);font-size:12px">ЛЮБАЯ СТУДИЯ</span></div>
+  <div class="bill">
+    <div class="row first"><span>Первое занятие</span><b>400 ₽</b></div>
+    <div class="row"><span>4 занятия в месяц</span><b>2 900 ₽</b></div>
+    <div class="row"><span>8 занятий в месяц</span><b>4 500 ₽</b></div>
+    <div class="row"><span>12 занятий в месяц</span><b>5 500 ₽</b></div>
+  </div>
+</div>
+
+<footer><div class="wrap">
+  <span><b>Слава</b> · ул. Славы, 2 · +7 (927) 093-98-98</span>
+  <span><b>Суворовский</b> · ул. Суворова, 144А · +7 (927) 091-98-98</span>
+  <span><b>Олимп</b> · пр. Строителей, 9 · +7 (927) 092-98-98</span>
+  <span>Прототип «Нуар».</span>
+</div></footer>
+
+<script>
+const hero = document.getElementById("hero");
+hero.addEventListener("pointermove", e => {
+  const r = hero.getBoundingClientRect();
+  hero.style.setProperty("--sx", `${((e.clientX - r.left) / r.width - .5) * 40}px`);
+});
+</script>
+

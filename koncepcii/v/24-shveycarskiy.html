@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Шостакович — Сетка</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;700&display=swap">
+<style>
+:root{
+  --bg:#F3ECEA; --ink:#141012; --wine:#8B2039; --mute:#6E5C61; --line:#141012;
+  --f:"IBM Plex Sans","Helvetica Neue",Arial,sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.45 var(--f)}
+a{color:inherit;text-decoration:none}
+a:focus-visible{outline:2px solid var(--wine);outline-offset:2px}
+.wrap{max-width:1400px;margin:0 auto;padding-inline:clamp(16px,3vw,40px)}
+.g{display:grid;grid-template-columns:repeat(12,1fr);column-gap:clamp(10px,1.6vw,24px)}
+.rule{border-top:2px solid var(--line)}
+.lbl{font:500 12px/1.3 var(--f);text-transform:uppercase;letter-spacing:.04em}
+
+nav{padding-block:18px}
+nav .g > *{align-self:start}
+.logo{grid-column:1/5;font:700 20px/1 var(--f);letter-spacing:-.01em}
+.nav-links{grid-column:5/11;display:flex;gap:24px}
+.nav-cta{grid-column:11/13;justify-self:end;background:var(--wine);color:#fff;padding:10px 16px;font:500 14px/1 var(--f)}
+@media(max-width:820px){.nav-links{display:none}.logo{grid-column:1/9}.nav-cta{grid-column:9/13}}
+
+.hero{padding-block:24px 48px}
+.hero h1{grid-column:1/13;font:700 clamp(56px,11.5vw,184px)/.86 var(--f);letter-spacing:-.055em;margin:0 0 28px}
+.hero h1 span{color:var(--wine)}
+.photo{grid-column:1/8;aspect-ratio:16/9;max-width:100%;background:#1a1215 url("photos/hero.jpg") 72% center/cover;filter:grayscale(1) contrast(1.15)}
+.hero-side{grid-column:8/13;display:flex;flex-direction:column;justify-content:space-between;gap:24px}
+.hero-side p{margin:0;font-size:clamp(18px,1.6vw,24px);line-height:1.3;font-weight:500}
+.hero-side .cta{align-self:flex-start;background:var(--ink);color:var(--bg);padding:16px 22px;font:500 16px/1 var(--f)}
+.hero-side .cta:hover{background:var(--wine)}
+@media(max-width:820px){.photo,.hero-side{grid-column:1/13}}
+
+.facts{padding-block:0 60px}
+.fact{grid-column:span 3;border-top:2px solid var(--line);padding-top:10px}
+.fact b{display:block;font:700 clamp(64px,8vw,128px)/.9 var(--f);letter-spacing:-.05em;font-variant-numeric:tabular-nums}
+.fact b.w{color:var(--wine)}
+@media(max-width:820px){.fact{grid-column:span 6;margin-bottom:24px}}
+
+.sec{padding-block:0 64px}
+.sec h2{grid-column:1/4;font:700 28px/1 var(--f);letter-spacing:-.02em;margin:0;padding-top:10px;border-top:2px solid var(--line)}
+.table{grid-column:4/13;border-top:2px solid var(--line)}
+.tr{display:grid;grid-template-columns:3fr 4fr 2fr;gap:16px;padding-block:14px;border-bottom:1px solid #cdbfbd;align-items:baseline}
+.tr b{font:500 20px/1.2 var(--f)}
+.tr span{color:var(--mute)}
+.tr em{font-style:normal;text-align:right;font-variant-numeric:tabular-nums}
+.tr.w b,.tr.w em{color:var(--wine)}
+@media(max-width:820px){.sec h2,.table{grid-column:1/13}.sec h2{margin-bottom:12px}.tr{grid-template-columns:1fr auto}.tr span{display:none}}
+
+footer{padding-block:28px 40px}
+footer .col{grid-column:span 4;border-top:2px solid var(--line);padding-top:10px;font-size:14px}
+footer b{display:block;font-weight:700}
+@media(max-width:820px){footer .col{grid-column:1/13;margin-bottom:14px}}
+</style>
+
+<nav class="wrap"><div class="g">
+  <span class="logo">Шостакович</span>
+  <span class="nav-links lbl"><a href="#dirs">Направления</a><a href="#prices">Цены</a><a href="#addr">Адреса</a></span>
+  <a class="nav-cta" href="#prices">Записаться</a>
+</div></nav>
+
+<header class="wrap hero"><div class="g">
+  <h1>Пилон<span>.</span> Фитнес<span>.</span> Танцы<span>.</span></h1>
+  <div class="photo" role="img" aria-label="Три танцовщицы"></div>
+  <div class="hero-side">
+    <p>Женская студия движения в Пензе. Восемь направлений, три адреса, один абонемент.</p>
+    <a class="cta" href="#prices">Пробное занятие — 400 ₽ →</a>
+  </div>
+</div></header>
+
+<section class="wrap facts"><div class="g">
+  <div class="fact"><b>3</b><span class="lbl">студии</span></div>
+  <div class="fact"><b>8</b><span class="lbl">направлений</span></div>
+  <div class="fact"><b class="w">400</b><span class="lbl">₽ первое занятие</span></div>
+  <div class="fact"><b>4,5</b><span class="lbl">рейтинг в ВК</span></div>
+</div></section>
+
+<section class="wrap sec" id="dirs"><div class="g">
+  <h2>Направления</h2>
+  <div class="table">
+    <div class="tr"><b>Pole Dance</b><span>Сила, все группы мышц</span><em>интенсивно</em></div>
+    <div class="tr"><b>Exotic Pole</b><span>Хореография и трюки</span><em>интенсивно</em></div>
+    <div class="tr"><b>Джампинг</b><span>Кардио вместо бега</span><em>интенсивно</em></div>
+    <div class="tr"><b>Стрип-пластика</b><span>Пластика и женственность</span><em>средне</em></div>
+    <div class="tr"><b>Скульптор тела</b><span>Ягодицы и пресс</span><em>средне</em></div>
+    <div class="tr"><b>Банджи</b><span>Мышцы и полёт</span><em>средне</em></div>
+    <div class="tr"><b>Растяжка</b><span>Гибкость и шпагат</span><em>мягко</em></div>
+    <div class="tr"><b>Йога в гамаках</b><span>Бодрость на день</span><em>мягко</em></div>
+  </div>
+</div></section>
+
+<section class="wrap sec" id="prices"><div class="g">
+  <h2>Цены</h2>
+  <div class="table">
+    <div class="tr w"><b>Первое занятие</b><span>Любое из расписания</span><em>400 ₽</em></div>
+    <div class="tr"><b>4 тренировки</b><span>725 ₽ за занятие</span><em>2 900 ₽</em></div>
+    <div class="tr"><b>8 тренировок</b><span>563 ₽ за занятие</span><em>4 500 ₽</em></div>
+    <div class="tr"><b>12 тренировок</b><span>458 ₽ за занятие</span><em>5 500 ₽</em></div>
+  </div>
+</div></section>
+
+<footer class="wrap" id="addr"><div class="g">
+  <div class="col"><b>Слава</b>ул. Славы, 2<br>+7 (927) 093-98-98</div>
+  <div class="col"><b>Суворовский</b>ул. Суворова, 144А<br>+7 (927) 091-98-98</div>
+  <div class="col"><b>Олимп</b>пр. Строителей, 9<br>+7 (927) 092-98-98<br><span style="color:var(--mute)">Прототип «Сетка» (швейцарский стиль)</span></div>
+</div></footer>
+

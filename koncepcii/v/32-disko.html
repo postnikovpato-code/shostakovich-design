@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Шостакович — Диско</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500;700&family=Montserrat:wght@400;500;600&display=swap">
+<style>
+:root{
+  --bg:#1A0A12; --bg2:#26101B; --wine:#8B2039; --amber:#F2A65A; --blush:#F3ECEA; --pink:#F2B6CB; --dim:#C9AFB9;
+  --retro:"Comfortaa",system-ui,sans-serif; --sans:"Montserrat",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(70% 50% at 50% 0%,#4a1428,var(--bg) 70%) fixed,var(--bg);color:var(--blush);font:16px/1.6 var(--sans);overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+a:focus-visible{outline:2px solid var(--amber);outline-offset:3px}
+.wrap{max-width:1240px;margin:0 auto;padding-inline:clamp(16px,5vw,64px)}
+.btn{display:inline-flex;align-items:center;height:54px;padding:0 30px;border-radius:999px;background:linear-gradient(90deg,var(--amber),#E0567E 60%,var(--wine));color:#fff;font:700 15px/1 var(--retro);box-shadow:0 0 30px rgba(242,166,90,.4)}
+/* блики от шара по всей странице */
+.spots{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.spots i{position:absolute;width:10px;height:10px;border-radius:50%;background:#fff;box-shadow:0 0 12px 4px rgba(255,220,200,.6);opacity:.6;animation:drift 9s linear infinite}
+@keyframes drift{from{transform:translate(0,0)}to{transform:translate(var(--dx),var(--dy))}}
+nav{position:relative;z-index:2;display:flex;align-items:center;gap:20px;padding-block:22px}
+.logo{font:700 22px/1 var(--retro);background:linear-gradient(90deg,var(--amber),var(--pink));-webkit-background-clip:text;background-clip:text;color:transparent}
+nav .btn{margin-left:auto;height:42px;padding:0 20px;font-size:13px}
+
+.hero{position:relative;z-index:1;display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:center;padding-block:30px 80px}
+@media(max-width:880px){.hero{grid-template-columns:1fr}}
+.hero h1{font:700 clamp(46px,6.6vw,96px)/.95 var(--retro);margin:0 0 20px;letter-spacing:-.02em}
+.hero h1 span{display:block;background:linear-gradient(90deg,var(--amber),#E0567E,var(--pink));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{font-size:18px;color:var(--dim);max-width:40ch;margin:0 0 30px}
+.stage{position:relative;aspect-ratio:1;max-width:520px;width:100%;justify-self:center}
+.ball{position:absolute;left:50%;top:0;width:44%;aspect-ratio:1;margin-left:-22%;border-radius:50%;z-index:2;
+  background:
+    radial-gradient(circle at 35% 30%,rgba(255,255,255,.95) 0 6%,transparent 18%),
+    repeating-linear-gradient(90deg,rgba(0,0,0,.35) 0 1px,transparent 1px 11px),
+    repeating-linear-gradient(0deg,rgba(0,0,0,.35) 0 1px,transparent 1px 11px),
+    radial-gradient(circle at 40% 35%,#fff,#d8c6cc 30%,#8a7880 60%,#3a2a31 100%);
+  box-shadow:0 0 60px rgba(242,166,90,.45),inset -20px -20px 40px rgba(0,0,0,.5);animation:spinb 8s linear infinite}
+@keyframes spinb{to{background-position:0 0,110px 0,0 0,0 0}}
+.ball::before{content:"";position:absolute;left:50%;top:-40%;width:2px;height:40%;background:#c9afb9}
+.photo{position:absolute;left:8%;right:8%;bottom:0;height:70%;border-radius:200px 200px 24px 24px;background:#2a1018 url("photos/hero.jpg") 66% 30%/auto 130% no-repeat;box-shadow:0 0 0 3px rgba(242,166,90,.6),0 30px 60px rgba(0,0,0,.5)}
+.rays{position:absolute;inset:-10%;background:repeating-conic-gradient(from 0deg at 50% 12%,rgba(242,166,90,.12) 0 4deg,transparent 4deg 14deg);-webkit-mask:radial-gradient(circle at 50% 12%,#000 10%,transparent 70%);mask:radial-gradient(circle at 50% 12%,#000 10%,transparent 70%);animation:sw 6s ease-in-out infinite alternate}
+@keyframes sw{to{transform:rotate(8deg)}}
+
+section{position:relative;z-index:1;padding-block:56px}
+h2{font:700 clamp(32px,4vw,54px)/1 var(--retro);margin:0 0 28px;text-align:center}
+.dirs{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+@media(max-width:900px){.dirs{grid-template-columns:repeat(2,1fr)}}
+.d{background:var(--bg2);border-radius:28px;padding:22px;border:1px solid rgba(242,166,90,.25);transition:transform .3s,box-shadow .3s}
+.d:hover{transform:translateY(-4px) rotate(-1deg);box-shadow:0 0 30px rgba(224,86,126,.4)}
+.d h3{font:700 20px/1.2 var(--retro);margin:0 0 6px;color:var(--amber)}
+.d p{margin:0;font-size:14px;color:var(--dim)}
+.prices{display:flex;flex-wrap:wrap;justify-content:center;gap:14px}
+.pr{min-width:220px;text-align:center;border-radius:999px;padding:18px 28px;background:var(--bg2);border:2px solid rgba(242,166,90,.4)}
+.pr.first{background:linear-gradient(90deg,var(--amber),#E0567E);border-color:transparent;color:#fff}
+.pr b{display:block;font:700 30px/1.1 var(--retro)}
+.pr span{font-size:13px}
+footer{position:relative;z-index:1;padding-block:30px;text-align:center;color:var(--dim);font-size:14px}
+footer span{display:inline-block;margin:4px 14px}
+footer b{color:var(--amber)}
+@media(prefers-reduced-motion:reduce){.spots i,.ball,.rays{animation:none}.d{transition:none}}
+</style>
+
+<div class="spots" id="spots" aria-hidden="true"></div>
+<div class="wrap">
+  <nav><span class="logo">шостакович</span><a class="btn" href="#prices">Записаться</a></nav>
+  <header class="hero">
+    <div>
+      <h1>Пятница<span>начинается здесь</span></h1>
+      <p>Пилон, танцы и фитнес в трёх студиях Пензы. Музыка погромче, свет потеплее, и ты в центре танцпола.</p>
+      <a class="btn" href="#prices">Первое занятие — 400 ₽</a>
+    </div>
+    <div class="stage"><div class="rays"></div><div class="ball"></div><div class="photo" role="img" aria-label="Танцовщица"></div></div>
+  </header>
+</div>
+
+<section><div class="wrap">
+  <h2>Выбери свой трек</h2>
+  <div class="dirs">
+    <div class="d"><h3>Pole Dance</h3><p>Сила и все группы мышц</p></div>
+    <div class="d"><h3>Exotic Pole</h3><p>Для смелых</p></div>
+    <div class="d"><h3>Стрип-пластика</h3><p>Женственность в движении</p></div>
+    <div class="d"><h3>Растяжка</h3><p>Гибкость и шпагат</p></div>
+    <div class="d"><h3>Скульптор тела</h3><p>Ягодицы и пресс</p></div>
+    <div class="d"><h3>Джампинг</h3><p>Кардио под музыку</p></div>
+    <div class="d"><h3>Банджи</h3><p>Полёт на тросах</p></div>
+    <div class="d"><h3>Йога в гамаках</h3><p>Бодрость на день</p></div>
+  </div>
+</div></section>
+
+<section id="prices" style="padding-top:0"><div class="wrap">
+  <h2>Абонементы</h2>
+  <div class="prices">
+    <div class="pr first"><b>400 ₽</b><span>первое занятие</span></div>
+    <div class="pr"><b>2 900 ₽</b><span>4 в месяц</span></div>
+    <div class="pr"><b>4 500 ₽</b><span>8 в месяц</span></div>
+    <div class="pr"><b>5 500 ₽</b><span>12 в месяц</span></div>
+  </div>
+</div></section>
+
+<footer>
+  <span><b>Слава</b> · ул. Славы, 2 · +7 (927) 093-98-98</span>
+  <span><b>Суворовский</b> · ул. Суворова, 144А · +7 (927) 091-98-98</span>
+  <span><b>Олимп</b> · пр. Строителей, 9 · +7 (927) 092-98-98</span><br>
+  <span style="font-size:12px">Прототип «Диско» (стиль 70-х).</span>
+</footer>
+
+<script>
+const SPOTS = 26;
+document.getElementById("spots").innerHTML = Array.from({length:SPOTS}, () => {
+  const x = Math.random() * 100, y = Math.random() * 100, dx = (Math.random() - .5) * 300, dy = (Math.random() - .5) * 200, d = -Math.random() * 9;
+  return `<i style="left:${x}%;top:${y}%;--dx:${dx}px;--dy:${dy}px;animation-delay:${d}s"></i>`;
+}).join("");
+</script>
+

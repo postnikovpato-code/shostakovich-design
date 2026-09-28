@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Шостакович — Выпуск</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+Display:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@400;500;600&display=swap">
+<style>
+:root{
+  --bg:#141012; --bg2:#1C1619; --line:#3A2E33; --text:#F3EAEC; --dim:#B3A2A8;
+  --wine:#8B2039; --pink:#E6B9C6; --blush:#F3ECEA;
+  --serif:"Noto Serif Display",Georgia,serif; --sans:"Montserrat",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:17px/1.7 var(--serif)}
+a{color:inherit;text-decoration:none}
+a:focus-visible{outline:2px solid var(--pink);outline-offset:3px}
+.wrap{max-width:1320px;margin:0 auto;padding-inline:clamp(16px,5vw,72px)}
+.kicker{font:600 11px/1.6 var(--sans);letter-spacing:.3em;text-transform:uppercase;color:var(--pink)}
+
+/* Обложка журнала */
+.cover{position:relative;margin-top:24px;aspect-ratio:16/9;max-height:88vh;width:100%;overflow:hidden;background:#120c0f url("photos/hero.jpg") 70% center/cover no-repeat}
+.cover::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(20,16,18,.85),rgba(20,16,18,.1) 50%),linear-gradient(0deg,rgba(20,16,18,.6),transparent 30%)}
+.mast{position:absolute;left:0;right:0;top:3%;z-index:2;text-align:center;font:600 clamp(40px,10.2vw,150px)/.85 var(--serif);letter-spacing:-.035em;color:var(--blush);text-shadow:0 4px 30px rgba(20,16,18,.35)}
+.issue{position:absolute;left:3%;right:3%;top:calc(3% + clamp(38px,9.2vw,136px));z-index:2;display:flex;justify-content:space-between;font:600 11px/1 var(--sans);letter-spacing:.24em;text-transform:uppercase;color:var(--blush);border-top:1px solid rgba(243,236,234,.5);padding-top:8px}
+.lines{position:absolute;left:4%;bottom:7%;z-index:2;display:grid;gap:22px;max-width:36%}
+.line b{display:block;font:400 clamp(20px,2.2vw,34px)/1.1 var(--serif)}
+.line b i{color:var(--pink)}
+.line span{font:500 12px/1.4 var(--sans);color:var(--dim)}
+.price-seal{position:absolute;right:4%;bottom:7%;z-index:2;background:var(--wine);padding:14px 18px;font:600 12px/1.3 var(--sans);letter-spacing:.14em;text-transform:uppercase;text-align:center}
+.price-seal b{display:block;font:400 34px/1 var(--serif);letter-spacing:0}
+@media(max-width:760px){.cover{aspect-ratio:3/4}.lines{max-width:80%}.issue span:nth-child(2){display:none}}
+
+/* Разворот */
+.spread{display:grid;grid-template-columns:1fr 2fr;gap:clamp(24px,4vw,64px);padding-block:clamp(56px,7vw,100px);border-bottom:1px solid var(--line)}
+@media(max-width:860px){.spread{grid-template-columns:1fr}}
+.spread h2{font:300 clamp(40px,5vw,76px)/1 var(--serif);letter-spacing:-.02em;margin:14px 0 0}
+.spread h2 i{color:var(--pink)}
+.cols{columns:2 280px;column-gap:40px;color:#DCCFD3}
+.cols p{margin:0 0 1em}
+.cols p:first-child::first-letter{float:left;font:600 5.2em/.8 var(--serif);color:var(--pink);margin:.06em .1em 0 0}
+.pull{break-inside:avoid;margin:.4em 0 1.2em;padding:18px 0;border-block:1px solid var(--wine);font:italic 400 26px/1.25 var(--serif);color:var(--text)}
+.byline{font:500 12px/1.5 var(--sans);color:var(--dim);margin-top:26px}
+
+/* Содержание = направления */
+.toc{padding-block:clamp(56px,7vw,100px)}
+.toc-head{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid var(--text);padding-bottom:12px;margin-bottom:6px}
+.toc-head h2{font:400 clamp(34px,4vw,56px)/1 var(--serif);margin:0}
+.entry{display:grid;grid-template-columns:70px 1fr auto;gap:20px;align-items:baseline;padding-block:18px;border-bottom:1px solid var(--line)}
+.entry .pg{font:400 34px/1 var(--serif);color:var(--pink);font-variant-numeric:tabular-nums}
+.entry h3{font:400 clamp(24px,2.4vw,34px)/1.1 var(--serif);margin:0}
+.entry p{margin:4px 0 0;font:400 14px/1.5 var(--sans);color:var(--dim)}
+.entry a{font:600 12px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;border-bottom:1px solid currentColor;padding-bottom:3px}
+@media(max-width:600px){.entry{grid-template-columns:48px 1fr}.entry a{grid-column:2}}
+
+.back{background:var(--blush);color:#1e1417;padding-block:clamp(48px,6vw,80px)}
+.back .wrap{display:grid;grid-template-columns:1.2fr 1fr;gap:40px}
+@media(max-width:860px){.back .wrap{grid-template-columns:1fr}}
+.back h2{font:400 clamp(34px,4vw,56px)/1 var(--serif);margin:12px 0 0}
+.back .kicker{color:var(--wine)}
+.row{display:flex;justify-content:space-between;padding-block:14px;border-bottom:1px solid #d8c8c6;font:500 15px/1.4 var(--sans);font-variant-numeric:tabular-nums}
+.row b{font:400 26px/1 var(--serif)}
+.row.first b{color:var(--wine)}
+footer{padding-block:28px;font:400 13px/1.6 var(--sans);color:var(--dim)}
+footer .wrap{display:flex;flex-wrap:wrap;gap:10px 34px}
+footer b{color:var(--text);font-weight:500}
+</style>
+
+<div class="wrap">
+  <header class="cover" role="img" aria-label="Обложка: три танцовщицы">
+    <div class="mast">SHOSTAKOVICH</div>
+    <div class="issue"><span>Выпуск № 1</span><span>Пилон · Фитнес · Танцы</span><span>Пенза · осень 2026</span></div>
+    <div class="lines">
+      <div class="line"><b>Твоё время <i>быть собой</i></b><span>Три студии, восемь направлений</span></div>
+      <div class="line"><b>Pole Dance: страшно только первые пять минут</b><span>Стр. 04</span></div>
+      <div class="line"><b>Как полюбить отражение в зеркале</b><span>Стр. 12</span></div>
+    </div>
+    <a class="price-seal" href="#back">Первое занятие<b>400 ₽</b></a>
+  </header>
+
+  <article class="spread">
+    <div>
+      <span class="kicker">Главная тема</span>
+      <h2>Место, где женщина <i>становится собой</i></h2>
+      <p class="byline">Студия Шостакович, Пенза</p>
+    </div>
+    <div class="cols">
+      <p>Каждая приходит сюда со своим. Кто-то хочет похудеть к лету, кто-то научиться танцевать, кто-то просто устал от бега по кругу и ищет место, где можно выдохнуть. Мы не спрашиваем, зачем. Мы показываем, как.</p>
+      <p>Наши занятия будят в женщинах те черты характера и состояния, которые много лет спали. Мягко, без сравнения с другими, в своём темпе.</p>
+      <div class="pull">«В жизни каждой женщины главное — здоровье. Именно в нём и заключается её красота»</div>
+      <p>Пилон даёт силу и смелость. Стрип-пластика возвращает ощущение собственного тела. Растяжка и гамаки учат отпускать напряжение. А джампинг и банджи просто заряжают на неделю вперёд.</p>
+      <p>Для первого раза не нужны ни подготовка, ни дорогая форма. Только желание и спортивная одежда.</p>
+    </div>
+  </article>
+
+  <section class="toc">
+    <div class="toc-head"><h2>Содержание</h2><span class="kicker">8 направлений</span></div>
+    <div class="entry"><span class="pg">04</span><div><h3>Pole Dance</h3><p>Силовые элементы, работают все группы мышц</p></div><a href="#back">Записаться</a></div>
+    <div class="entry"><span class="pg">06</span><div><h3>Exotic Pole</h3><p>Хореография стрипа и трюки на пилоне</p></div><a href="#back">Записаться</a></div>
+    <div class="entry"><span class="pg">08</span><div><h3>Стрип-пластика</h3><p>Чувственность и красота движения</p></div><a href="#back">Записаться</a></div>
+    <div class="entry"><span class="pg">12</span><div><h3>Растяжка</h3><p>Гибкость, осанка и путь к шпагату</p></div><a href="#back">Записаться</a></div>
+    <div class="entry"><span class="pg">14</span><div><h3>Скульптор тела</h3><p>Ягодицы и подтянутый живот</p></div><a href="#back">Записаться</a></div>
+    <div class="entry"><span class="pg">16</span><div><h3>Джампинг</h3><p>Кардио для тех, кому не подходит бег</p></div><a href="#back">Записаться</a></div>
+    <div class="entry"><span class="pg">18</span><div><h3>Банджи</h3><p>Укрепляем мышцы и учимся летать</p></div><a href="#back">Записаться</a></div>
+    <div class="entry"><span class="pg">20</span><div><h3>Йога в гамаках</h3><p>Заряд бодрости на весь день</p></div><a href="#back">Записаться</a></div>
+  </section>
+</div>
+
+<section class="back" id="back"><div class="wrap">
+  <div><span class="kicker">Подписка на выпуск</span><h2>Абонементы на три студии</h2></div>
+  <div>
+    <div class="row first"><span>Первое занятие</span><b>400 ₽</b></div>
+    <div class="row"><span>4 тренировки в месяц</span><b>2 900 ₽</b></div>
+    <div class="row"><span>8 тренировок в месяц</span><b>4 500 ₽</b></div>
+    <div class="row"><span>12 тренировок в месяц</span><b>5 500 ₽</b></div>
+  </div>
+</div></section>
+
+<footer><div class="wrap">
+  <span><b>Слава</b> · ул. Славы, 2 · +7 (927) 093-98-98</span>
+  <span><b>Суворовский</b> · ул. Суворова, 144А · +7 (927) 091-98-98</span>
+  <span><b>Олимп</b> · пр. Строителей, 9 · +7 (927) 092-98-98</span>
+  <span>Прототип «Выпуск» (журнальный стиль).</span>
+</div></footer>
+

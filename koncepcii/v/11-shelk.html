@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Шостакович — Шёлк</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Prata&family=Nunito+Sans:wght@400;600&display=swap">
+<style>
+:root{
+  color-scheme:dark;
+  --bg:#1B1417; --tile:#241B1F; --line:#382A30; --text:#F2E8EA; --mute:#A4939A;
+  --rose:#C98A9B; --champ:#E3CBA8; --wine:#7A3346;
+  --display:"Prata",Georgia,serif; --body:"Nunito Sans",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.65 var(--body)}
+a{color:inherit;text-decoration:none}
+a:focus-visible{outline:1px solid var(--champ);outline-offset:4px}
+.wrap{max-width:1160px;margin:0 auto;padding-inline:clamp(16px,4vw,40px)}
+.btn{display:inline-block;padding:14px 26px;border-radius:999px;background:var(--champ);color:#2a1a20;font-weight:600;font-size:15px}
+.btn:hover{background:#efdbbd}
+.btn.line{background:none;color:var(--text);border:1px solid #5a4450}
+
+.hero{position:relative;height:min(90vh,800px);min-height:540px;overflow:hidden}
+canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.hero .wrap{position:relative;z-index:2;height:100%;display:flex;flex-direction:column}
+nav{display:flex;align-items:center;gap:24px;padding-block:22px;font-size:14px;color:var(--mute)}
+.logo{font:400 15px/1 var(--display);letter-spacing:.4em;color:var(--text)}
+nav .links{display:flex;gap:24px;margin-left:auto}
+@media(max-width:700px){nav .links{display:none}}
+.copy{margin-top:auto;padding-bottom:clamp(32px,7vh,72px);max-width:640px}
+.copy p.k{font-size:12px;letter-spacing:.34em;text-transform:uppercase;color:var(--champ);margin:0 0 18px}
+.copy h1{font:400 clamp(36px,5.6vw,72px)/1.08 var(--display);margin:0 0 18px;text-wrap:balance;text-shadow:0 2px 30px rgba(27,20,23,.8)}
+.copy p.l{color:#dccbd1;margin:0 0 28px;max-width:44ch;font-size:17px}
+.copy .actions{display:flex;flex-wrap:wrap;gap:12px}
+
+section{padding-block:80px;border-top:1px solid var(--line)}
+.eyebrow{font-size:12px;letter-spacing:.34em;text-transform:uppercase;color:var(--champ);margin:0 0 16px}
+h2{font:400 clamp(28px,3.4vw,42px)/1.15 var(--display);margin:0 0 36px;text-wrap:balance}
+.list{border-top:1px solid var(--line)}
+.item{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr) 120px;gap:24px;align-items:center;padding-block:18px;border-bottom:1px solid var(--line);position:relative}
+.item h3{font:400 clamp(22px,2.4vw,30px)/1.1 var(--display);margin:0}
+.item p{margin:0;color:var(--mute);font-size:15px}
+.item .sw{height:44px;border-radius:999px;background:linear-gradient(100deg,var(--c1),var(--c2),var(--c1));background-size:200% 100%;transition:background-position .8s}
+.item:hover .sw{background-position:100% 0}
+@media(max-width:700px){.item{grid-template-columns:1fr 70px}.item p{grid-column:1/-1;grid-row:2}}
+
+.price{display:grid;grid-template-columns:1fr 1.2fr;gap:40px}
+@media(max-width:820px){.price{grid-template-columns:1fr}}
+.row{display:flex;justify-content:space-between;align-items:baseline;padding-block:18px;border-bottom:1px solid var(--line);font-variant-numeric:tabular-nums}
+.row b{font:400 26px/1 var(--display)}
+.row.first b{color:var(--champ)}
+footer{border-top:1px solid var(--line);padding-block:36px;display:grid;grid-template-columns:repeat(3,1fr);gap:24px;font-size:14px;color:var(--mute)}
+footer b{display:block;font:400 20px/1.2 var(--display);color:var(--text);margin-bottom:4px}
+@media(max-width:700px){footer{grid-template-columns:1fr}}
+.note{font-size:12px;color:#7d6a71;padding-block:0 28px}
+</style>
+
+<header class="hero">
+  <canvas id="silk" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <nav><div class="logo">ШОСТАКОВИЧ</div><div class="links"><a href="#dirs">Направления</a><a href="#price">Тарифы</a></div></nav>
+    <div class="copy">
+      <p class="k">Пилон · Фитнес · Танцы · Пенза</p>
+      <h1>Место, где женщина становится собой</h1>
+      <p class="l">Мягкая сила, пластика и уверенность. Восемь направлений в трёх студиях города.</p>
+      <div class="actions"><a class="btn" href="#price">Пробное — 400 ₽</a><a class="btn line" href="#dirs">Направления</a></div>
+    </div>
+  </div>
+</header>
+
+<section id="dirs"><div class="wrap">
+  <p class="eyebrow">Направления</p>
+  <h2>У каждого занятия свой оттенок</h2>
+  <div class="list">
+    <div class="item" style="--c1:#7a3448;--c2:#d8a7b6"><h3>Pole Dance</h3><p>Силовые элементы, работают все группы мышц</p><div class="sw"></div></div>
+    <div class="item" style="--c1:#6a2238;--c2:#c98a9b"><h3>Exotic Pole</h3><p>Хореография стрипа и трюки на пилоне</p><div class="sw"></div></div>
+    <div class="item" style="--c1:#5d3847;--c2:#e3cba8"><h3>Стрип-пластика</h3><p>Чувственность и красота движения</p><div class="sw"></div></div>
+    <div class="item" style="--c1:#4f3a48;--c2:#b9a3c0"><h3>Растяжка</h3><p>Гибкость, осанка и путь к шпагату</p><div class="sw"></div></div>
+    <div class="item" style="--c1:#6a4040;--c2:#e0b3a0"><h3>Банджи</h3><p>Укрепляем мышцы и учимся летать</p><div class="sw"></div></div>
+    <div class="item" style="--c1:#744252;--c2:#f0c2cf"><h3>Джампинг</h3><p>Кардио для тех, кому не подходит бег</p><div class="sw"></div></div>
+    <div class="item" style="--c1:#5a3a3c;--c2:#d9b8a4"><h3>Скульптор тела</h3><p>Ягодицы и подтянутый живот</p><div class="sw"></div></div>
+    <div class="item" style="--c1:#4a3b4a;--c2:#c7bcd6"><h3>Йога в гамаках</h3><p>Бодрость на весь день</p><div class="sw"></div></div>
+  </div>
+</div></section>
+
+<section id="price"><div class="wrap price">
+  <div><p class="eyebrow">Тарифы</p><h2>Один абонемент на три студии</h2></div>
+  <div>
+    <div class="row first"><span>Первое занятие</span><b>400 ₽</b></div>
+    <div class="row"><span>4 тренировки в месяц</span><b>2 900 ₽</b></div>
+    <div class="row"><span>8 тренировок в месяц</span><b>4 500 ₽</b></div>
+    <div class="row"><span>12 тренировок в месяц</span><b>5 500 ₽</b></div>
+  </div>
+</div></section>
+
+<div class="wrap">
+  <footer>
+    <div><b>Слава</b>ул. Славы, 2<br>+7 (927) 093-98-98</div>
+    <div><b>Суворовский</b>ул. Суворова, 144А<br>+7 (927) 091-98-98</div>
+    <div><b>Олимп</b>пр. Строителей, 9<br>+7 (927) 092-98-98</div>
+  </footer>
+  <p class="note">Прототип «Шёлк». Ткань на первом экране рисуется кодом, фото не нужно.</p>
+</div>
+
+<script>
+const LINES = 70;
+const canvas = document.getElementById("silk");
+const ctx = canvas.getContext("2d");
+const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+let w = 0, h = 0, mx = .7, my = .4, tmx = .7, tmy = .4;
+
+function resize(){
+  const dpr = Math.min(devicePixelRatio || 1, 2);
+  w = canvas.clientWidth; h = canvas.clientHeight;
+  canvas.width = w * dpr; canvas.height = h * dpr;
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+}
+function draw(t){
+  mx += (tmx - mx) * .04; my += (tmy - my) * .04;
+  ctx.fillStyle = "#1B1417"; ctx.fillRect(0, 0, w, h);
+  for (let i = 0; i < LINES; i++) {
+    const k = i / LINES;
+    const light = Math.pow(Math.sin(k * Math.PI), 2);
+    ctx.beginPath();
+    for (let x = -20; x <= w + 20; x += 12) {
+      const u = x / w;
+      const pull = Math.exp(-((u - mx) ** 2) * 8) * (my - .5) * 160;
+      const y = h * (.15 + k * .8)
+        + Math.sin(u * 3.2 + t * .00035 + k * 2.4) * 60
+        + Math.sin(u * 7 - t * .0005 + k * 5) * 18
+        + pull * (1 - k * .6);
+      x === -20 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+    }
+    const a = .06 + light * .22;
+    ctx.strokeStyle = i % 5 === 0 ? `rgba(227,203,168,${a})` : `rgba(201,138,155,${a})`;
+    ctx.lineWidth = 1 + light * 1.4;
+    ctx.stroke();
+  }
+  const g = ctx.createLinearGradient(0, 0, w * .7, 0);
+  g.addColorStop(0, "rgba(27,20,23,.85)"); g.addColorStop(1, "rgba(27,20,23,0)");
+  ctx.fillStyle = g; ctx.fillRect(0, 0, w, h);
+  if (!reduce) requestAnimationFrame(draw);
+}
+canvas.parentElement.addEventListener("pointermove", e => {
+  const r = canvas.getBoundingClientRect();
+  tmx = (e.clientX - r.left) / r.width; tmy = (e.clientY - r.top) / r.height;
+});
+addEventListener("resize", resize);
+resize(); requestAnimationFrame(draw);
+</script>
+

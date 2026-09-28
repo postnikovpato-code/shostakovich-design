@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Шостакович — концепции дизайна</title>
+<meta property="og:title" content="Шостакович — концепции дизайна">
+<meta property="og:description" content="Варианты главной страницы нового сайта студии. Отметьте понравившиеся.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://postnikovpato-code.github.io/shostakovich-design/koncepcii/thumbs/18-bordo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+Display:ital,wght@0,300;0,400;1,300&family=Montserrat:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="../assets/base.css">
+<style>
+header.top{padding-block:24px;border-bottom:1px solid var(--line)}
+header.top .wrap{display:flex;align-items:center;gap:20px}
+header.top a.back{margin-left:auto;color:var(--dim);font-size:13px}
+.intro{padding-block:56px 30px;display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:end}
+@media(max-width:860px){.intro{grid-template-columns:1fr}}
+.intro h1{font:400 clamp(40px,5vw,72px)/1 var(--serif);letter-spacing:-.02em;margin:12px 0 0}
+.intro h1 i{font-weight:300;color:var(--pink)}
+.intro p{margin:0 0 10px;color:#DCCFD3;max-width:52ch}
+
+.bar{position:sticky;top:0;z-index:20;background:rgba(20,16,18,.92);backdrop-filter:blur(10px);border-block:1px solid var(--line)}
+.bar .wrap{display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;padding-block:12px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{background:none;border:1px solid var(--line);border-radius:999px;padding:7px 14px;font-size:13px;cursor:pointer;color:var(--dim)}
+.chip[aria-pressed="true"]{background:var(--wine);border-color:var(--wine);color:#fff}
+.picked{margin-left:auto;display:flex;align-items:center;gap:10px;font-size:13px}
+.copy{background:var(--text);color:var(--bg);border:0;border-radius:999px;padding:9px 16px;font-weight:600;cursor:pointer}
+.copy:disabled{opacity:.4;cursor:default}
+.toast{font-size:12px;color:var(--pink)}
+
+section.group{padding-top:46px}
+.group-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin-bottom:18px;border-bottom:1px solid var(--line);padding-bottom:10px}
+.group-head h2{font:400 clamp(26px,2.6vw,36px)/1.1 var(--serif);margin:0}
+.group-head p{margin:0;color:var(--dim);font-size:13px;max-width:60ch;text-align:right}
+@media(max-width:700px){.group-head{flex-direction:column}.group-head p{text-align:left}}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+@media(max-width:1000px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.grid{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;transition:border-color .2s,transform .2s}
+.card:hover{border-color:#5a3f4a;transform:translateY(-2px)}
+.card.fav{border-color:var(--wine-hi)}
+.thumb{position:relative;display:block;aspect-ratio:16/10;background:var(--card2)}
+.thumb img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+.thumb .rec{position:absolute;left:10px;top:10px;background:var(--wine);color:#fff;font:600 10px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;padding:6px 8px;border-radius:4px}
+.body{padding:14px 16px 16px;display:flex;flex-direction:column;gap:6px;flex:1}
+.row1{display:flex;align-items:baseline;gap:10px}
+.num{color:var(--dim);font-size:12px;font-variant-numeric:tabular-nums}
+.body h3{font:400 22px/1.15 var(--serif);margin:0}
+.body p{margin:0;color:var(--dim);font-size:13.5px}
+.acts{display:flex;align-items:center;gap:10px;margin-top:auto;padding-top:10px}
+.open{font-weight:600;font-size:13px;border-bottom:1px solid currentColor}
+.heart{margin-left:auto;background:none;border:1px solid var(--line);border-radius:999px;padding:6px 12px;cursor:pointer;font-size:13px;color:var(--dim)}
+.heart[aria-pressed="true"]{background:var(--wine);border-color:var(--wine);color:#fff}
+.card[hidden]{display:none}
+footer{margin-top:70px;border-top:1px solid var(--line);padding-block:26px;color:var(--dim);font-size:13px}
+@media(prefers-reduced-motion:reduce){.card{transition:none}}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap"><div class="mark"><b>SHOSTAKOVICH</b><span>Концепции дизайна</span></div><a class="back" href="../">← Все материалы</a></div></header>
+
+<div class="wrap intro">
+  <div><span class="caps" style="color:var(--pink)">Новый сайт студии</span><h1>Варианты <i>главной страницы</i></h1></div>
+  <div>
+    <p>Здесь собраны варианты оформления главной. Это прототипы: они показывают стиль, настроение и эффекты. Фото и время занятий в них временные, тексты и механику доработаем после выбора.</p>
+    <p>Отметьте сердечком то, что нравится, и нажмите «Скопировать выбор». Список скопируется, пришлите его мне в мессенджер. Лучше смотреть с компьютера: многие эффекты реагируют на мышь.</p>
+  </div>
+</div>
+
+<div class="bar"><div class="wrap">
+  <div class="chips" id="chips"></div>
+  <div class="picked"><span id="count">Выбрано: 0</span><button class="copy" id="copy" disabled>Скопировать выбор</button><span class="toast" id="toast" role="status"></span></div>
+</div></div>
+
+<main class="wrap" id="groups"></main>
+
+<footer><div class="wrap">Студия Шостакович · Пенза · концепции дизайна, сентябрь 2026</div></footer>
+
+<script>
+const GROUPS = [
+  {id:"base", t:"Основа в стиле обложки", d:"Тёмная гамма и настроение обложки группы ВКонтакте."},
+  {id:"ref", t:"Кинематографичный стиль", d:"Большое фото, крупный шрифт с засечками, бархат. Самое близкое к фирменному стилю."},
+  {id:"wow", t:"Эффекты", d:"Каждый вариант построен вокруг одного запоминающегося эффекта. Эффект можно встроить в любой стиль."},
+  {id:"style", t:"Стили", d:"Разные визуальные подходы в той же палитре."},
+  {id:"concept", t:"Концепты", d:"Сайт как метафора или необычная подача."}
+];
+const ITEMS = [
+  ["1-scena","Сцена","base","Главная, собранная из обложки: бегущая строка, название в разрядку, фото команды."],
+  ["5b-barhat-2","Бархат","base","Приглушённое бордо и шампань: тренеры, расписание, отзывы, вопросы, заявка.",1],
+  ["5-barhat","Бархат, короткий","base","Первая версия «Бархата»: главный экран и основные блоки."],
+  ["6b-grafit-2","Графит","base","Спокойная графитовая гамма, плитка направлений, филиалы с расписанием."],
+  ["6-grafit","Графит, короткий","base","Первая версия «Графита»: плитка разного размера."],
+  ["2-podbor","Подбор","base","Главная начинается с вопроса о цели и сразу предлагает направления."],
+  ["3-afisha","Афиша","base","Сайт как концертная афиша: программа, репертуар, билет на пробное."],
+  ["4-raspisanie","Расписание","base","На первом экране занятия по студиям и дням с записью в одно касание."],
+  ["18-bordo","Бордо","ref","Кинематографичная главная: три девушки на бархате, «Твоё время быть собой».",1],
+  ["47-bordo-parallax","Бордо с параллаксом","ref","Слои первого экрана двигаются от прокрутки и мыши, шторы разъезжаются, фото раскрывается.",1],
+  ["21-scena-istoriya","История","ref","Главная рассказывает историю в пяти актах: от двери зала до сцены.",1],
+  ["9-zanaves","Занавес","wow","При загрузке раздвигается занавес, курсор работает как софит."],
+  ["10-pilon","Пилон","wow","Через страницу идёт пилон и наполняется светом при прокрутке."],
+  ["11-shelk","Шёлк","wow","Живая переливающаяся ткань тянется за курсором."],
+  ["12-zerkalo","Зеркало","wow","Запотевшее зеркало гримёрки, его можно протереть курсором."],
+  ["13-rastyazhka","Растяжка","wow","Буквы названия тянутся за курсором, как тело на растяжке."],
+  ["14-chasticy","Частицы","wow","Название из тысяч частиц разлетается от курсора и складывается в слова.",1],
+  ["15-pozy","Позы","wow","Линейная фигурка принимает позу выбранного направления."],
+  ["16-lenta","Лента","wow","Курсор оставляет гимнастическую ленту, которая закручивается и тает."],
+  ["17-noty","Ноты","wow","Буквы звучат как клавиши, сайт играет музыкальную подпись композитора."],
+  ["19-kollazh","Коллаж","style","Фэшн-коллаж: вырезки фото, скотч, рукописные пометки, ценники."],
+  ["20-plenka","Плёнка","style","Бэкстейдж: плёночное зерно, контактный лист, один вечер в студии."],
+  ["22-zhurnal-dark","Выпуск","style","Тёмная обложка журнала, разворот с колонками, направления как содержание."],
+  ["23-tihaya-roskosh","Тишина","style","Тихая роскошь: много воздуха, мелкий текст, одно фото."],
+  ["24-shveycarskiy","Сетка","style","Строгая модульная сетка, крупный гротеск и цифры."],
+  ["25-steklo","Стекло","style","Матовые стеклянные панели поверх фото."],
+  ["37-liquid-glass","Жидкое стекло","style","Панели как капли воды и стеклянная линза за курсором."],
+  ["26-myagkie-formy","Капля","style","Мягкие формы: фото в живой капле, скруглённые элементы."],
+  ["29-kabare","Кабаре","style","Ар-деко: золото и бордо, веер лучей, арка с лампочками.",1],
+  ["32-disko","Диско","style","Семидесятые: зеркальный шар и блики по странице."],
+  ["33-ritual","Ритуал","style","Как сайт косметического бренда: направления как линейка продуктов."],
+  ["34-sport","Рывок","style","Спортивный бренд: наклонный шрифт, диагонали, «Не жди лета»."],
+  ["35-modern","Модерн","style","Ар-нуво: резная рама, плавные линии, декоративный шрифт."],
+  ["36-nuar","Нуар","style","Чёрно-белое кино, тени жалюзи и «Дело № 58»."],
+  ["38-taktil","Ткани","style","Бархат, атлас и пайетки, кнопки как ткань."],
+  ["27-brutal","Брутал","style","Толстые рамки, жёсткие тени и стикеры."],
+  ["28-y2k","Хром","style","Стиль 2000-х: хромированные буквы и голограмма."],
+  ["43-sostav","Состав","concept","Три кадра во весь экран, моноширинный шрифт, фото выплывает за курсором.",1],
+  ["44-krupno","Крупно","concept","Огромные узкие слова и портрет между строк."],
+  ["45-liniya","Линия","concept","Рисованная линия в заголовке и сетка из фото и бордовых блоков."],
+  ["46-tvoyo-dvizhenie","Твоё движение","concept","Толстая линия рисуется через всю страницу при прокрутке."],
+  ["30-storis","Сторис","concept","Сайт листается как сторис в соцсетях."],
+  ["31-chat","Чат","concept","Подбор занятия в переписке с администратором."],
+  ["39-urovni","Уровни","concept","Путь от новичка до флага на пилоне: уровни и награды."],
+  ["40-lukbuk","Лукбук","concept","Направления как образы модной коллекции."],
+  ["41-karta","Карта","concept","Тёмная схема Пензы, три студии светятся на карте."],
+  ["42-grimerka","Гримёрка","concept","Зеркало с лампами и столик с программкой, билетом и запиской."]
+];
+const STORE_KEY = "shostakovich-picks";
+const COPY_MS = 2500;
+
+function loadPicks(){ try { return new Set(JSON.parse(localStorage.getItem(STORE_KEY) || "[]")); } catch { return new Set(); } }
+function savePicks(set){ try { localStorage.setItem(STORE_KEY, JSON.stringify([...set])); } catch {} }
+let picks = loadPicks();
+const numOf = file => file.split("-")[0];
+
+document.getElementById("groups").innerHTML = GROUPS.map(g => `
+  <section class="group" data-group="${g.id}">
+    <div class="group-head"><h2>${g.t}</h2><p>${g.d}</p></div>
+    <div class="grid">${ITEMS.filter(i => i[2] === g.id).map(([file, name, , desc, rec]) => `
+      <article class="card${picks.has(file) ? " fav" : ""}" data-file="${file}">
+        <a class="thumb" href="v/${file}.html" target="_blank" rel="noopener"><img src="thumbs/${file}.jpg" alt="${name}" loading="lazy">${rec ? '<span class="rec">Рекомендую</span>' : ""}</a>
+        <div class="body">
+          <div class="row1"><span class="num">№ ${numOf(file)}</span><h3>${name}</h3></div>
+          <p>${desc}</p>
+          <div class="acts"><a class="open" href="v/${file}.html" target="_blank" rel="noopener">Открыть →</a>
+          <button class="heart" aria-pressed="${picks.has(file)}" data-file="${file}">♡ Нравится</button></div>
+        </div>
+      </article>`).join("")}</div>
+  </section>`).join("");
+
+document.getElementById("chips").innerHTML = [{id:"all", t:"Все"}, {id:"fav", t:"Мой выбор"}, ...GROUPS].map((g, i) =>
+  `<button class="chip" data-f="${g.id}" aria-pressed="${i === 0}">${g.t}</button>`).join("");
+
+function refreshCount(){
+  document.getElementById("count").textContent = "Выбрано: " + picks.size;
+  document.getElementById("copy").disabled = picks.size === 0;
+}
+function applyFilter(f){
+  document.querySelectorAll(".chip").forEach(c => c.setAttribute("aria-pressed", String(c.dataset.f === f)));
+  document.querySelectorAll("section.group").forEach(sec => {
+    const cards = [...sec.querySelectorAll(".card")];
+    cards.forEach(c => c.hidden = f === "fav" ? !picks.has(c.dataset.file) : false);
+    sec.hidden = f !== "all" && f !== "fav" ? sec.dataset.group !== f : cards.every(c => c.hidden);
+  });
+}
+document.getElementById("chips").addEventListener("click", e => { const c = e.target.closest(".chip"); if (c) applyFilter(c.dataset.f); });
+document.getElementById("groups").addEventListener("click", e => {
+  const b = e.target.closest(".heart"); if (!b) return;
+  const f = b.dataset.file;
+  picks.has(f) ? picks.delete(f) : picks.add(f);
+  savePicks(picks);
+  b.setAttribute("aria-pressed", String(picks.has(f)));
+  b.closest(".card").classList.toggle("fav", picks.has(f));
+  refreshCount();
+});
+document.getElementById("copy").addEventListener("click", async () => {
+  const list = ITEMS.filter(i => picks.has(i[0])).map(i => `№ ${numOf(i[0])} ${i[1]}`);
+  const text = "Понравились варианты:\n" + list.join("\n");
+  const toast = document.getElementById("toast");
+  try { await navigator.clipboard.writeText(text); toast.textContent = "Скопировано"; }
+  catch { toast.textContent = list.join(", "); }
+  setTimeout(() => { toast.textContent = ""; }, COPY_MS);
+});
+refreshCount();
+</script>
+</body>
+</html>
