@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Шостакович — палитры</title>
+<meta property="og:title" content="Шостакович — варианты палитры">
+<meta property="og:description" content="Цветовые решения для нового сайта студии. Нажмите на палитру, чтобы примерить её на главную.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://postnikovpato-code.github.io/shostakovich-design/palitry/preview.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+Display:ital,wght@0,300;0,400;1,300&family=Montserrat:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="../assets/base.css">
+<style>
+header.top{padding-block:24px;border-bottom:1px solid var(--line)}
+header.top .wrap{display:flex;align-items:center;gap:20px}
+header.top a.back{margin-left:auto;color:var(--dim);font-size:13px}
+.intro{padding-block:48px 26px;display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:end}
+@media(max-width:860px){.intro{grid-template-columns:1fr}}
+.intro h1{font:400 clamp(38px,4.6vw,66px)/1 var(--serif);letter-spacing:-.02em;margin:12px 0 0}
+.intro h1 i{font-weight:300;color:var(--pink)}
+.intro p{margin:0 0 10px;color:#DCCFD3;max-width:52ch}
+
+/* Примерочная: макет главной, который красится палитрой */
+.stage{position:sticky;top:0;z-index:10;background:var(--bg);padding-block:14px;border-bottom:1px solid var(--line)}
+.picker{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;scrollbar-width:thin}
+.pick{flex:none;display:flex;align-items:center;gap:8px;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:6px 14px 6px 6px;cursor:pointer;font-size:13px;color:var(--dim)}
+.pick i{display:flex;width:44px;height:22px;border-radius:999px;overflow:hidden}
+.pick i b{flex:1}
+.pick[aria-pressed="true"]{border-color:var(--pink);color:var(--text)}
+
+.mock{--m-bg:#141012;--m-surface:#1C1619;--m-text:#F6EFEF;--m-dim:#B8A7AC;--m-acc:#8B2039;--m-on:#FFFFFF;--m-soft:#F3ECEA;--m-soft-text:#1E1417;--m-tint:transparent;
+  margin-top:26px;border-radius:18px;overflow:hidden;border:1px solid var(--line);background:var(--m-bg);color:var(--m-text);transition:background .5s,color .5s}
+.m-hero{position:relative;min-height:440px;display:flex;align-items:center;overflow:hidden}
+.m-photo{position:absolute;inset:0;background:url("../koncepcii/v/photos/hero.jpg") 72% center/cover}
+.m-photo::before{content:"";position:absolute;inset:0;background:var(--m-tint);mix-blend-mode:color;transition:background .5s}
+.m-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--m-bg) 8%,color-mix(in srgb,var(--m-bg) 60%,transparent) 42%,transparent 70%);transition:background .5s}
+.m-nav{position:absolute;top:0;left:0;right:0;display:flex;align-items:center;padding:18px 28px;z-index:2}
+.m-nav b{font:300 18px/1 var(--serif);letter-spacing:.2em}
+.m-nav span{margin-left:auto;border:1px solid var(--m-text);border-radius:999px;padding:7px 18px;font-size:12px}
+.m-copy{position:relative;z-index:2;padding:80px 28px 40px;max-width:520px}
+.m-copy h2{font:400 clamp(38px,4.4vw,64px)/.92 var(--serif);margin:0 0 16px;letter-spacing:-.02em}
+.m-copy h2 i{font-weight:300;color:var(--m-acc-text,var(--m-acc))}
+.m-copy p{color:var(--m-dim);margin:0 0 22px}
+.m-btn{display:inline-flex;align-items:center;height:48px;padding:0 26px;border-radius:6px;background:var(--m-acc);color:var(--m-on);font-weight:600;transition:background .5s,color .5s}
+.m-soft{background:var(--m-soft);color:var(--m-soft-text);padding:30px 28px;transition:background .5s,color .5s}
+.m-soft h3{font:400 32px/1.05 var(--serif);margin:0 0 18px}
+.m-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.m-card{height:130px;border-radius:6px;position:relative;overflow:hidden;background:url("../koncepcii/v/photos/hero.jpg") var(--p)/auto 170% no-repeat;display:flex;align-items:flex-end;padding:12px;color:#fff;font:400 22px/1 var(--serif)}
+.m-card::before{content:"";position:absolute;inset:0;background:var(--m-tint);mix-blend-mode:color}
+.m-card::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 40%,rgba(0,0,0,.7))}
+.m-card span{position:relative;z-index:1}
+.m-prices{display:grid;grid-template-columns:repeat(4,1fr);gap:0;background:var(--m-surface);transition:background .5s}
+.m-prices div{padding:18px 20px;border-right:1px solid color-mix(in srgb,var(--m-text) 12%,transparent)}
+.m-prices div:first-child{background:var(--m-acc);color:var(--m-on)}
+.m-prices small{display:block;opacity:.75;font-size:12px}
+.m-prices b{font:400 28px/1.2 var(--serif)}
+@media(max-width:700px){.m-cards{grid-template-columns:1fr}.m-prices{grid-template-columns:1fr 1fr}}
+
+/* Карточки палитр */
+section.list{padding-block:50px}
+.list h2{font:400 clamp(28px,3vw,40px)/1.1 var(--serif);margin:0 0 22px}
+.pals{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+@media(max-width:900px){.pals{grid-template-columns:1fr}}
+.pal{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;cursor:pointer;text-align:left;padding:0;display:flex;flex-direction:column}
+.pal[aria-pressed="true"]{border-color:var(--pink)}
+.sw{display:flex;height:96px}
+.sw div{flex:1;display:flex;align-items:flex-end;padding:8px;font:500 11px/1.2 var(--sans)}
+.sw div:first-child{flex:1.6}
+.pal .in{padding:16px 18px 18px;display:flex;flex-direction:column;gap:6px}
+.pal .top{display:flex;align-items:baseline;gap:10px}
+.pal .n{color:var(--dim);font-size:12px}
+.pal h3{font:400 24px/1.1 var(--serif);margin:0}
+.pal .rec{margin-left:auto;background:var(--wine);color:#fff;font:600 10px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;padding:5px 8px;border-radius:4px}
+.pal p{margin:0;color:var(--dim);font-size:14px}
+.pal .aa{font-size:12px;color:#9fd1b4}
+.pal .aa.bad{color:#f2b25c}
+.note{color:var(--dim);font-size:13px;margin-top:22px;max-width:70ch}
+footer{margin-top:40px;border-top:1px solid var(--line);padding-block:26px;color:var(--dim);font-size:13px}
+@media(prefers-reduced-motion:reduce){.mock,.m-photo::before,.m-photo::after,.m-btn,.m-soft,.m-prices{transition:none}}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap"><div class="mark"><b>SHOSTAKOVICH</b><span>Варианты палитры</span></div><a class="back" href="../">← Все материалы</a></div></header>
+
+<div class="wrap intro">
+  <div><span class="caps" style="color:var(--pink)">Цвет нового сайта</span><h1>Примерьте <i>палитру</i></h1></div>
+  <div>
+    <p>Я подобрал несколько цветовых решений. Нажмите на палитру, и макет главной сразу перекрасится: фон, кнопки, акценты и оттенок фото.</p>
+    <p>Первая палитра — текущая, в стиле обложки. Остальные — альтернативы разного характера: от дорогой и спокойной до яркой и спортивной.</p>
+  </div>
+</div>
+
+<div class="stage"><div class="wrap"><div class="picker" id="picker"></div></div></div>
+
+<div class="wrap">
+  <div class="mock" id="mock">
+    <div class="m-hero">
+      <div class="m-photo" role="img" aria-label="Три танцовщицы"></div>
+      <div class="m-nav"><b>SHOSTAKOVICH</b><span>Записаться</span></div>
+      <div class="m-copy"><h2>Твоё время<br><i>быть собой</i></h2><p>Танцы, фитнес и пилон в трёх студиях Пензы.</p><span class="m-btn">Первое занятие — 400 ₽</span></div>
+    </div>
+    <div class="m-soft"><h3>Какое движение — твоё?</h3>
+      <div class="m-cards"><div class="m-card" style="--p:48% 20%"><span>Танцы</span></div><div class="m-card" style="--p:66% 60%"><span>Фитнес</span></div><div class="m-card" style="--p:92% 30%"><span>Растяжка</span></div></div>
+    </div>
+    <div class="m-prices"><div><small>Первое занятие</small><b>400 ₽</b></div><div><small>4 в месяц</small><b>2 900 ₽</b></div><div><small>8 в месяц</small><b>4 500 ₽</b></div><div><small>12 в месяц</small><b>5 500 ₽</b></div></div>
+  </div>
+</div>
+
+<section class="wrap list">
+  <h2>Все палитры</h2>
+  <div class="pals" id="pals"></div>
+  <p class="note">Под каждой палитрой указана контрастность текста на фоне и на кнопке. Норма для удобного чтения — от 4,5. Цвет фото подстраивается под палитру только в этом макете. На сайте фото можно снять или обработать в нужной гамме.</p>
+</section>
+
+<footer><div class="wrap">Студия Шостакович · Пенза · варианты палитры, сентябрь 2026</div></footer>
+
+<script>
+// bg, surface, text, dim, accent, onAccent, soft, softText, tint (окраска фото), accentText (акцент в тексте)
+const PALETTES = [
+  {n:"Бордо", d:"Текущая. Почти чёрный, бордо и светлая пудра, как на обложке ВК. Дорого и дерзко, узнаваемо для тех, кто знает студию.", c:{bg:"#141012",surface:"#1C1619",text:"#F6EFEF",dim:"#B8A7AC",acc:"#8B2039",on:"#FFFFFF",soft:"#F3ECEA",softText:"#1E1417",tint:"transparent",accText:"#E6B9C6"}, rec:1},
+  {n:"Шампань", d:"Тёплый чёрный с золотом шампанского. Самая «дорогая» палитра: вечер, сцена, кабаре. Хорошо ложится на фото с бархатом.", c:{bg:"#121010",surface:"#1C1916",text:"#F5EFE6",dim:"#B9AE9F",acc:"#C9A86A",on:"#1A1510",soft:"#EFE7DA",softText:"#231C14",tint:"rgba(201,168,106,.75)",accText:"#D9BE8A"}, rec:1},
+  {n:"Ночная малина", d:"Тёмный фон и яркая малина. Моложе и энергичнее текущей, хорошо заметна в рекламе и сторис.", c:{bg:"#120B11",surface:"#1D121B",text:"#FBEFF5",dim:"#C6A9B9",acc:"#E0457F",on:"#FFFFFF",soft:"#FBE3EE",softText:"#3A0F24",tint:"rgba(224,69,127,.6)",accText:"#FF7BAC"}},
+  {n:"Пудра", d:"Светлая бьюти-гамма: пудровый фон, глубокая слива в тексте, малиновые кнопки. Нежно и женственно, как сайт салона красоты.", c:{bg:"#F8EEF1",surface:"#F1E1E7",text:"#3B1025",dim:"#7D5A68",acc:"#B8165A",on:"#FFFFFF",soft:"#FFFFFF",softText:"#3B1025",tint:"rgba(232,160,190,.6)",accText:"#B8165A"}},
+  {n:"Слива и лаванда", d:"Глубокий сливовый фон и лавандовые акценты. Мягко, загадочно, чуть мистично. Отлично для растяжки и гамаков, пилон тоже смотрится.", c:{bg:"#1A1224",surface:"#241933",text:"#F4EEFA",dim:"#B8A8CC",acc:"#B48DE6",on:"#1A1224",soft:"#EDE3F7",softText:"#271A38",tint:"rgba(150,110,210,.75)",accText:"#D2B6F2"}},
+  {n:"Изумруд", d:"Глубокий изумруд, золото и пудра. Неожиданно для танцев, поэтому запоминается и выделяется среди конкурентов в Пензе.", c:{bg:"#0E211C",surface:"#143029",text:"#F2EEE6",dim:"#A9BDB4",acc:"#C9A86A",on:"#10201B",soft:"#EFE4DC",softText:"#15261F",tint:"rgba(30,120,95,.8)",accText:"#E3C99A"}},
+  {n:"Графит и алый", d:"Чёрно-белая основа и один алый цвет. Строго, современно, спортивно. Фото воспринимаются почти как чёрно-белые с красным акцентом.", c:{bg:"#0F0F10",surface:"#1A1A1C",text:"#F2F2F2",dim:"#A4A4A8",acc:"#E0253A",on:"#FFFFFF",soft:"#EDEDEB",softText:"#141414",tint:"rgba(128,128,128,1)",accText:"#FF5A6B"}},
+  {n:"Энергия", d:"Тёмный фон и коралловый. Спортивно и тепло, делает упор на фитнес: джампинг, банджи, скульптор.", c:{bg:"#141013",surface:"#1F1719",text:"#FFF4EF",dim:"#C9ADA4",acc:"#FF6A45",on:"#1A0F0B",soft:"#FFE8DE",softText:"#3A1A10",tint:"rgba(255,106,69,.6)",accText:"#FF9C80"}},
+  {n:"Шалфей", d:"Светлый шалфей, графит и винный акцент. Спокойная «велнес»-гамма про здоровье и заботу о себе. Самая мягкая из всех.", c:{bg:"#E9ECE6",surface:"#DDE3DA",text:"#1E2522",dim:"#5E6B65",acc:"#7A2436",on:"#FFFFFF",soft:"#F7F8F4",softText:"#1E2522",tint:"rgba(120,150,130,.7)",accText:"#7A2436"}}
+];
+
+// Контраст по WCAG
+function lum(hex){ const v = [1,3,5].map(i => parseInt(hex.slice(i, i + 2), 16) / 255).map(c => c <= .03928 ? c / 12.92 : ((c + .055) / 1.055) ** 2.4); return .2126 * v[0] + .7152 * v[1] + .0722 * v[2]; }
+function ratio(a, b){ const [x, y] = [lum(a), lum(b)].sort((p, q) => q - p); return (x + .05) / (y + .05); }
+const fmt = r => r.toFixed(1).replace(".", ",");
+const MIN_AA = 4.5;
+
+function apply(i){
+  const c = PALETTES[i].c, m = document.getElementById("mock");
+  const map = {bg:"--m-bg",surface:"--m-surface",text:"--m-text",dim:"--m-dim",acc:"--m-acc",on:"--m-on",soft:"--m-soft",softText:"--m-soft-text",tint:"--m-tint",accText:"--m-acc-text"};
+  Object.entries(map).forEach(([k, v]) => m.style.setProperty(v, c[k]));
+  document.querySelectorAll(".pick, .pal").forEach(el => el.setAttribute("aria-pressed", String(Number(el.dataset.i) === i)));
+}
+const stripe = c => [c.bg, c.surface, c.acc, c.soft, c.text];
+document.getElementById("picker").innerHTML = PALETTES.map((p, i) =>
+  `<button class="pick" data-i="${i}" aria-pressed="${i === 0}"><i>${stripe(p.c).map(h => `<b style="background:${h}"></b>`).join("")}</i>${p.n}</button>`).join("");
+document.getElementById("pals").innerHTML = PALETTES.map((p, i) => {
+  const c = p.c, t = ratio(c.text, c.bg), b = ratio(c.on, c.acc);
+  const sw = [["Фон", c.bg, c.text], ["Акцент", c.acc, c.on], ["Светлый блок", c.soft, c.softText], ["Текст", c.text, c.bg]];
+  return `<button class="pal" data-i="${i}" aria-pressed="${i === 0}">
+    <div class="sw">${sw.map(([l, h, fg]) => `<div style="background:${h};color:${fg}">${l}<br>${h}</div>`).join("")}</div>
+    <div class="in"><div class="top"><span class="n">${String(i + 1).padStart(2, "0")}</span><h3>${p.n}</h3>${p.rec ? '<span class="rec">Рекомендую</span>' : ""}</div>
+    <p>${p.d}</p>
+    <span class="aa${t < MIN_AA || b < MIN_AA ? " bad" : ""}">Контраст: текст ${fmt(t)} · кнопка ${fmt(b)}</span></div>
+  </button>`;
+}).join("");
+document.addEventListener("click", e => {
+  const el = e.target.closest(".pick, .pal"); if (!el) return;
+  apply(Number(el.dataset.i));
+  history.replaceState(null, "", "#p" + (Number(el.dataset.i) + 1));
+  if (el.classList.contains("pal")) document.getElementById("mock").scrollIntoView({behavior:"smooth", block:"start"});
+});
+const fromHash = (location.hash.match(/^#p(\d+)$/) || [])[1];
+apply(fromHash && PALETTES[fromHash - 1] ? fromHash - 1 : 0);
+</script>
+</body>
+</html>
