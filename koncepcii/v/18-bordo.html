@@ -13,6 +13,7 @@
   --blush:#F3ECEA; --blush2:#EADFDD; --line-l:#D8C8C6;
   --wine:#8B2039; --wine-hi:#A12A47; --velvet:#5A0F26;
   --t-dark:#F6EFEF; --t-dim:#B8A7AC; --t-ink:#1E1417; --t-mute:#6E5C61;
+  --on-wine:#FFFFFF; --acc-text:#E6B9C6; --tint:transparent;
   --serif:"Noto Serif Display",Georgia,serif; --sans:"Montserrat",system-ui,sans-serif;
 }
 *{box-sizing:border-box}
@@ -20,21 +21,22 @@ body{margin:0;background:var(--ink);color:var(--t-dark);font:16px/1.6 var(--sans
 a{color:inherit;text-decoration:none}
 a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--wine-hi);outline-offset:3px}
 .wrap{max-width:1536px;margin:0 auto;padding-inline:clamp(16px,5.47vw,84px)}
-.btn{display:inline-flex;align-items:center;justify-content:center;height:54px;padding:0 36px;border-radius:6px;background:var(--wine);color:#fff;font:500 18px/1 var(--sans);border:0;cursor:pointer}
+.btn{display:inline-flex;align-items:center;justify-content:center;height:54px;padding:0 36px;border-radius:6px;background:var(--wine);color:var(--on-wine);font:500 18px/1 var(--sans);border:0;cursor:pointer}
 .btn:hover{background:var(--wine-hi)}
-.btn.out{background:none;border:1px solid rgba(255,255,255,.75);border-radius:999px;height:42px;padding:0 42px;font-size:14px}
-.btn.out:hover{background:rgba(255,255,255,.08)}
+.btn.out{background:none;color:var(--t-dark);border:1px solid color-mix(in srgb,var(--t-dark) 75%,transparent);border-radius:999px;height:42px;padding:0 42px;font-size:14px}
+.btn.out:hover{background:color-mix(in srgb,var(--t-dark) 8%,transparent)}
 .arrow-link{display:inline-flex;align-items:center;gap:10px;font-size:16px;border-bottom:1px solid currentColor;padding-bottom:2px}
 .tiny{font:500 10px/2 var(--sans);letter-spacing:.38em;text-transform:uppercase}
 
 /* Фото-слоты: если файла нет, остаётся бархатный градиент и подпись */
-.photo{position:relative;background-size:cover;background-position:center;background-color:var(--velvet)}
+.photo{position:relative;isolation:isolate;background-size:cover;background-position:center;background-color:var(--velvet)}
 .hero-ph{position:absolute;right:clamp(16px,5vw,80px);bottom:18px;z-index:2;font:500 10px/1.4 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.4)}
+.photo::before{content:"";position:absolute;inset:0;background:var(--tint);mix-blend-mode:color;pointer-events:none;z-index:0}
 .photo .ph{position:absolute;inset:auto 14px 14px auto;font:500 10px/1.4 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.5);text-align:right;pointer-events:none}
 
 /* HERO */
 .hero{position:relative;min-height:clamp(560px,40.5vw,760px);overflow:hidden;display:flex;flex-direction:column}
-.hero .photo{position:absolute;inset:0;background-color:#120C0F;background-position:72% center;
+.hero .photo{position:absolute;inset:0;background-color:var(--ink);background-position:72% center;
   background-image:url("photos/hero.jpg"),
     radial-gradient(ellipse 34% 55% at 70% 48%,rgba(150,70,80,.28),transparent 70%),
     radial-gradient(ellipse 60% 40% at 55% 20%,rgba(90,70,80,.18),transparent 70%),
@@ -55,23 +57,23 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
 .figs i:nth-child(1){left:6%;width:26%;height:66%}
 .figs i:nth-child(2){left:36%;width:30%;height:84%}
 .figs i:nth-child(3){left:70%;width:26%;height:70%}
-.hero .shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(18,12,15,.55) 0%,rgba(18,12,15,.25) 32%,rgba(18,12,15,0) 50%),linear-gradient(0deg,rgba(18,12,15,.45),rgba(18,12,15,0) 22%)}
-@media(max-width:860px){.hero .shade{background:linear-gradient(90deg,rgba(18,12,15,.88),rgba(18,12,15,.5))}}
+.hero .shade{position:absolute;inset:0;background:linear-gradient(180deg,var(--shade-top,transparent),transparent 22%),linear-gradient(90deg,color-mix(in srgb,var(--ink) var(--shade-a,55%),transparent) 0%,color-mix(in srgb,var(--ink) calc(var(--shade-a,55%) / 2),transparent) 32%,transparent 50%),linear-gradient(0deg,color-mix(in srgb,var(--ink) 45%,transparent),transparent 22%)}
+@media(max-width:860px){.hero .shade{background:linear-gradient(90deg,color-mix(in srgb,var(--ink) 88%,transparent),color-mix(in srgb,var(--ink) 50%,transparent))}}
 .hero header{position:relative;z-index:2;display:flex;align-items:center;gap:clamp(20px,5.8vw,90px);padding-block:20px 0}
 .mark{text-align:center}
 .mark b{display:block;font:300 clamp(20px,2.1vw,32px)/1 var(--serif);letter-spacing:.2em;margin-right:-.2em}
 .mark span{display:block;margin-top:12px;color:var(--t-dim);font:500 9.5px/1 var(--sans);letter-spacing:.42em;text-transform:uppercase;margin-right:-.42em}
 .menu{display:flex;gap:clamp(20px,3.1vw,48px);font-size:15px;font-weight:500;align-self:flex-start;padding-top:10px}
-.menu a:hover{color:#fff;text-decoration:underline;text-underline-offset:6px}
+.menu a:hover{color:var(--t-dark);text-decoration:underline;text-underline-offset:6px}
 .hero header .btn{margin-left:auto}
 @media(max-width:860px){.menu{display:none}}
 @media(max-width:520px){.hero header .btn{padding:10px 18px}}
 .hero .body{position:relative;z-index:2;flex:1;display:flex;flex-direction:column;justify-content:flex-start;padding-block:clamp(36px,3.8vw,60px) 90px;max-width:640px}
 .hero h1{font:400 clamp(52px,6.8vw,106px)/.88 var(--serif);letter-spacing:-.025em;margin:0 0 30px}
-.hero p{font-size:clamp(17px,1.5vw,23px);line-height:1.38;margin:0 0 32px;color:#F3EAEC;padding-left:.45em}
+.hero p{font-size:clamp(17px,1.5vw,23px);line-height:1.38;margin:0 0 32px;color:var(--t-dark);padding-left:.45em}
 .cta-row{display:flex;flex-wrap:wrap;align-items:center;gap:18px 32px;padding-left:.4em}
-.price-note{margin-top:22px;font-size:15px;color:#D9CCD0;padding-left:.5em}
-.vert{position:absolute;z-index:2;border-left:1px solid rgba(255,255,255,.35);padding-left:18px;color:var(--t-dim)}
+.price-note{margin-top:22px;font-size:15px;color:var(--t-dim);padding-left:.5em}
+.vert{position:absolute;z-index:2;border-left:1px solid color-mix(in srgb,var(--t-dark) 35%,transparent);padding-left:18px;color:var(--t-dim)}
 .vert.l{left:clamp(16px,2.6vw,40px);bottom:28px}
 .vert.r{right:clamp(16px,5.5vw,84px);top:112px}
 @media(max-width:860px){.vert{display:none}}
@@ -112,7 +114,7 @@ h2{font:400 clamp(36px,3.8vw,58px)/1.05 var(--serif);letter-spacing:-.02em;margi
 .move:hover ul,.move:focus-within ul{max-height:90px;opacity:1}
 @media(hover:none){.move ul{max-height:none;opacity:1}}
 .move .go{position:absolute;right:22px;bottom:20px;z-index:2;width:36px;height:36px;border-radius:50%;border:1px solid rgba(255,255,255,.8);display:grid;place-items:center;font-size:16px}
-.move:hover .go{background:#fff;color:var(--wine)}
+.move:hover .go{background:#fff;color:var(--wine-deep,var(--wine))}
 
 /* Первое занятие */
 .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(20px,3vw,48px);counter-reset:s}
@@ -130,7 +132,7 @@ h2{font:400 clamp(36px,3.8vw,58px)/1.05 var(--serif);letter-spacing:-.02em;margi
 @media(max-width:860px){.tabs{flex-direction:row;flex-wrap:wrap}}
 .tab{text-align:left;background:none;border:1px solid var(--line-d);color:var(--t-dark);border-radius:6px;padding:16px 18px;font:500 16px/1.3 var(--sans);cursor:pointer}
 .tab small{display:block;color:var(--t-dim);font-size:13px;font-weight:400;margin-top:2px}
-.tab[aria-pressed="true"]{border-color:var(--wine-hi);background:rgba(142,34,64,.18)}
+.tab[aria-pressed="true"]{border-color:var(--wine-hi);background:color-mix(in srgb,var(--wine) 18%,transparent)}
 .slot{display:grid;grid-template-columns:90px 1fr auto;gap:18px;align-items:center;padding-block:16px;border-bottom:1px solid var(--line-d)}
 .slot time{font:400 26px/1 var(--serif);font-variant-numeric:tabular-nums}
 .slot b{font-weight:500;display:block}
@@ -155,22 +157,22 @@ h2{font:400 clamp(36px,3.8vw,58px)/1.05 var(--serif);letter-spacing:-.02em;margi
 @media(max-width:900px){.pr{border-bottom:1px solid var(--line-d)}}
 .pr.first{background:var(--wine)}
 .pr small{color:var(--t-dim);font-size:14px}
-.pr.first small{color:#F2CFD9}
+.pr.first small{color:color-mix(in srgb,var(--on-wine) 78%,var(--wine))}
 .pr b{font:400 44px/1 var(--serif);margin-top:18px;font-variant-numeric:tabular-nums}
 .pr span{font-size:13px;color:var(--t-dim)}
-.pr.first span{color:#F2CFD9}
+.pr.first span{color:color-mix(in srgb,var(--on-wine) 78%,var(--wine))}
 
 /* Финальная заявка */
 .final{display:grid;grid-template-columns:1fr 1fr;min-height:520px}
 @media(max-width:900px){.final{grid-template-columns:1fr}}
-.final .photo{min-height:360px;background-image:url("photos/final.jpg"),repeating-linear-gradient(90deg,#3d0a1b 0 22px,#5a1027 40px,#2e0714 62px,#4a0c20 80px)}
+.final .photo{min-height:360px;background-image:url("photos/final.jpg"),linear-gradient(160deg,var(--wine),var(--ink2))}
 .final form{padding:clamp(28px,5vw,72px);display:grid;gap:14px;align-content:center;background:var(--ink)}
 .final h2{margin-bottom:6px}
 .final p{margin:0 0 10px;color:var(--t-dim)}
 label{display:grid;gap:6px;font-size:13px;color:var(--t-dim)}
 input,select{font:inherit;color:var(--t-dark);background:transparent;border:0;border-bottom:1px solid var(--line-d);padding:10px 2px;border-radius:0}
 select option{color:#000}
-.ok{margin:0;color:#E6B9C6;font-size:14px}
+.ok{margin:0;color:var(--acc-text);font-size:14px}
 
 footer{background:var(--ink);border-top:1px solid var(--line-d)}
 footer .wrap{display:flex;flex-wrap:wrap;gap:14px 40px;align-items:baseline;padding-block:30px;font-size:14px;color:var(--t-dim)}
@@ -212,15 +214,15 @@ footer .note{margin-left:auto;font-size:12px;color:#6f6166}
   <div class="sec-head"><h2>Какое движение — твоё?</h2><span class="tiny">Тело&nbsp;&nbsp;•&nbsp;&nbsp;Гармония&nbsp;&nbsp;•&nbsp;&nbsp;Ты</span></div>
   <div class="moves">
     <a class="move" href="#final">
-      <div class="photo" style="background-image:url('photos/move-dance.jpg'),linear-gradient(160deg,#5a1a38,#24101a)"><span class="ph">photos/move-dance.jpg</span></div>
+      <div class="photo" style="background-image:url('photos/move-dance.jpg'),linear-gradient(160deg,var(--wine),var(--ink2))"><span class="ph">photos/move-dance.jpg</span></div>
       <h3>Танцы</h3><div class="u"></div><ul><li>Pole Dance · Exotic Pole</li><li>Стрип-пластика</li></ul><span class="go" aria-hidden="true">›</span>
     </a>
     <a class="move" href="#final">
-      <div class="photo" style="background-image:url('photos/move-fitness.jpg'),linear-gradient(160deg,#6a2230,#24101a)"><span class="ph">photos/move-fitness.jpg</span></div>
+      <div class="photo" style="background-image:url('photos/move-fitness.jpg'),linear-gradient(160deg,var(--wine),var(--ink2))"><span class="ph">photos/move-fitness.jpg</span></div>
       <h3>Фитнес</h3><div class="u"></div><ul><li>Скульптор тела · Джампинг</li><li>Банджи</li></ul><span class="go" aria-hidden="true">›</span>
     </a>
     <a class="move" href="#final">
-      <div class="photo" style="background-image:url('photos/move-stretch.jpg'),linear-gradient(160deg,#4f2038,#24101a)"><span class="ph">photos/move-stretch.jpg</span></div>
+      <div class="photo" style="background-image:url('photos/move-stretch.jpg'),linear-gradient(160deg,var(--wine),var(--ink2))"><span class="ph">photos/move-stretch.jpg</span></div>
       <h3>Растяжка</h3><div class="u"></div><ul><li>Растяжка</li><li>Йога в гамаках</li></ul><span class="go" aria-hidden="true">›</span>
     </a>
   </div>
@@ -253,9 +255,9 @@ footer .note{margin-left:auto;font-size:12px;color:#6f6166}
 <section class="light" id="studios"><div class="wrap sec">
   <div class="sec-head"><h2>Три студии в Пензе</h2><span class="tiny">Центр · Арбеково</span></div>
   <div class="studios">
-    <div class="studio"><div class="photo" style="background-image:url('photos/studio-slava.jpg'),linear-gradient(160deg,#5a1a2e,#24101a)"><span class="ph">photos/studio-slava.jpg</span></div><h3>Слава</h3><p>ул. Славы, 2, напротив площади Ленина</p><p class="tel">+7 (927) 093-98-98</p></div>
-    <div class="studio"><div class="photo" style="background-image:url('photos/studio-suvorov.jpg'),linear-gradient(160deg,#5a1a2e,#24101a)"><span class="ph">photos/studio-suvorov.jpg</span></div><h3>Суворовский</h3><p>ТЦ Суворовский, ул. Суворова, 144А</p><p class="tel">+7 (927) 091-98-98</p></div>
-    <div class="studio"><div class="photo" style="background-image:url('photos/studio-olimp.jpg'),linear-gradient(160deg,#5a1a2e,#24101a)"><span class="ph">photos/studio-olimp.jpg</span></div><h3>Олимп</h3><p>ТЦ Олимп, пр. Строителей, 9, Арбеково</p><p class="tel">+7 (927) 092-98-98</p></div>
+    <div class="studio"><div class="photo" style="background-image:url('photos/studio-slava.jpg'),linear-gradient(160deg,var(--wine),var(--ink2))"><span class="ph">photos/studio-slava.jpg</span></div><h3>Слава</h3><p>ул. Славы, 2, напротив площади Ленина</p><p class="tel">+7 (927) 093-98-98</p></div>
+    <div class="studio"><div class="photo" style="background-image:url('photos/studio-suvorov.jpg'),linear-gradient(160deg,var(--wine),var(--ink2))"><span class="ph">photos/studio-suvorov.jpg</span></div><h3>Суворовский</h3><p>ТЦ Суворовский, ул. Суворова, 144А</p><p class="tel">+7 (927) 091-98-98</p></div>
+    <div class="studio"><div class="photo" style="background-image:url('photos/studio-olimp.jpg'),linear-gradient(160deg,var(--wine),var(--ink2))"><span class="ph">photos/studio-olimp.jpg</span></div><h3>Олимп</h3><p>ТЦ Олимп, пр. Строителей, 9, Арбеково</p><p class="tel">+7 (927) 092-98-98</p></div>
   </div>
 </div></section>
 
@@ -312,3 +314,85 @@ document.getElementById("form").addEventListener("submit", e => {
 render(0);
 </script>
 
+
+<style>
+.pal-panel{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:100;font:500 13px/1.3 var(--sans);color:#F6EFEF}
+.pal-toggle{display:flex;align-items:center;gap:10px;background:rgba(20,16,18,.9);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:8px 16px 8px 8px;cursor:pointer;color:inherit;font:inherit;box-shadow:0 10px 30px rgba(0,0,0,.35)}
+.pal-toggle i{display:flex;width:40px;height:22px;border-radius:999px;overflow:hidden}
+.pal-toggle i b{flex:1}
+.pal-box{position:absolute;right:0;bottom:calc(100% + 10px);width:min(320px,calc(100vw - 32px));background:rgba(20,16,18,.95);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.14);border-radius:16px;padding:14px;box-shadow:0 20px 50px rgba(0,0,0,.45)}
+.pal-box p{margin:0 0 10px;color:#B8A7AC;font-size:12px}
+.pal-list{display:grid;gap:6px}
+.pal-opt{display:flex;align-items:center;gap:10px;width:100%;background:none;border:1px solid transparent;border-radius:10px;padding:6px 8px;cursor:pointer;color:inherit;font:inherit;text-align:left}
+.pal-opt:hover{background:rgba(255,255,255,.06)}
+.pal-opt[aria-pressed="true"]{border-color:#E6B9C6;background:rgba(255,255,255,.06)}
+.pal-opt i{display:flex;width:56px;height:20px;border-radius:6px;overflow:hidden;flex:none}
+.pal-opt i b{flex:1}
+.pal-opt small{margin-left:auto;color:#8f7e85;font-size:11px}
+.pal-panel button:focus-visible{outline:2px solid #E6B9C6;outline-offset:2px}
+body.pal-anim,body.pal-anim *{transition:background-color .45s,color .45s,border-color .45s!important}
+</style>
+
+<div class="pal-panel" id="palPanel">
+  <div class="pal-box" id="palBox" hidden>
+    <p>Выберите палитру, страница перекрасится целиком. Выбор сохранится.</p>
+    <div class="pal-list" id="palList"></div>
+  </div>
+  <button class="pal-toggle" id="palToggle" aria-expanded="false" aria-controls="palBox"><i id="palCur"></i><span>Палитра: <b id="palName">Бордо</b></span></button>
+</div>
+
+<script>
+(() => {
+  const STORE = "shostakovich-palette";
+  // bg, surface, text, dim, acc, on, soft, softText, tint, accText, light — те же палитры, что на странице «Варианты палитры»
+  const P = [
+    {n:"Бордо", c:["#141012","#1C1619","#F6EFEF","#B8A7AC","#8B2039","#FFFFFF","#F3ECEA","#1E1417","transparent","#E6B9C6"]},
+    {n:"Шампань", c:["#121010","#1C1916","#F5EFE6","#B9AE9F","#C9A86A","#1A1510","#EFE7DA","#231C14","rgba(201,168,106,.75)","#D9BE8A"]},
+    {n:"Ночная малина", c:["#120B11","#1D121B","#FBEFF5","#C6A9B9","#D0386F","#FFFFFF","#FBE3EE","#3A0F24","rgba(224,69,127,.6)","#FF7BAC"]},
+    {n:"Пудра", c:["#F8EEF1","#F1E1E7","#3B1025","#7D5A68","#B8165A","#FFFFFF","#FFFFFF","#3B1025","rgba(232,160,190,.6)","#B8165A"], light:1},
+    {n:"Слива и лаванда", c:["#1A1224","#241933","#F4EEFA","#B8A8CC","#B48DE6","#1A1224","#EDE3F7","#271A38","rgba(150,110,210,.75)","#D2B6F2"]},
+    {n:"Изумруд", c:["#0E211C","#143029","#F2EEE6","#A9BDB4","#C9A86A","#10201B","#EFE4DC","#15261F","rgba(30,120,95,.8)","#E3C99A"]},
+    {n:"Графит и алый", c:["#0F0F10","#1A1A1C","#F2F2F2","#A4A4A8","#E0253A","#FFFFFF","#EDEDEB","#141414","rgba(128,128,128,1)","#FF5A6B"]},
+    {n:"Энергия", c:["#141013","#1F1719","#FFF4EF","#C9ADA4","#FF6A45","#1A0F0B","#FFE8DE","#3A1A10","rgba(255,106,69,.6)","#FF9C80"]},
+    {n:"Шалфей", c:["#E9ECE6","#DDE3DA","#1E2522","#5E6B65","#7A2436","#FFFFFF","#F7F8F4","#1E2522","rgba(120,150,130,.7)","#7A2436"], light:1}
+  ];
+  const root = document.documentElement;
+  const sw = c => [c[0], c[1], c[4], c[6], c[2]].map(h => `<b style="background:${h}"></b>`).join("");
+
+  function apply(i, animate){
+    const p = P[i], [bg, surface, text, dim, acc, on, soft, softText, tint, accText] = p.c;
+    const mix = (a, b, k) => `color-mix(in srgb, ${a} ${k}%, ${b})`;
+    const vars = {
+      "--ink": bg, "--ink2": surface, "--strip": surface, "--line-d": mix(text, bg, 16),
+      "--t-dark": text, "--t-dim": dim, "--wine": acc, "--wine-hi": mix(acc, "#ffffff", 85), "--wine-deep": p.light ? acc : mix(acc, "#000000", 80),
+      "--on-wine": on, "--blush": soft, "--blush2": mix(softText, soft, 8), "--line-l": mix(softText, soft, 16),
+      "--t-ink": softText, "--t-mute": mix(softText, soft, 62), "--acc-text": accText, "--tint": tint,
+      "--shade-a": p.light ? "80%" : "55%", "--shade-top": p.light ? mix(bg, "transparent", 88) : "transparent"
+    };
+    if (animate) { document.body.classList.add("pal-anim"); setTimeout(() => document.body.classList.remove("pal-anim"), 600); }
+    Object.entries(vars).forEach(([k, v]) => root.style.setProperty(k, v));
+    root.style.colorScheme = p.light ? "light" : "dark";
+    document.getElementById("palName").textContent = p.n;
+    document.getElementById("palCur").innerHTML = sw(p.c);
+    document.querySelectorAll(".pal-opt").forEach(b => b.setAttribute("aria-pressed", String(Number(b.dataset.i) === i)));
+    try { localStorage.setItem(STORE, String(i)); } catch {}
+  }
+
+  document.getElementById("palList").innerHTML = P.map((p, i) =>
+    `<button class="pal-opt" data-i="${i}" aria-pressed="false"><i>${sw(p.c)}</i>${p.n}<small>${String(i + 1).padStart(2, "0")}</small></button>`).join("");
+  const box = document.getElementById("palBox"), tog = document.getElementById("palToggle");
+  tog.addEventListener("click", () => { box.hidden = !box.hidden; tog.setAttribute("aria-expanded", String(!box.hidden)); });
+  document.getElementById("palList").addEventListener("click", e => {
+    const b = e.target.closest(".pal-opt"); if (!b) return;
+    const i = Number(b.dataset.i);
+    apply(i, true);
+    history.replaceState(null, "", "#p" + (i + 1));
+  });
+  document.addEventListener("keydown", e => { if (e.key === "Escape" && !box.hidden) { box.hidden = true; tog.setAttribute("aria-expanded", "false"); tog.focus(); } });
+
+  const fromHash = (location.hash.match(/^#p(\d+)$/) || [])[1];
+  let saved = null; try { saved = localStorage.getItem(STORE); } catch {}
+  const start = fromHash && P[fromHash - 1] ? fromHash - 1 : (saved !== null && P[saved] ? Number(saved) : 0);
+  apply(start, false);
+})();
+</script>
