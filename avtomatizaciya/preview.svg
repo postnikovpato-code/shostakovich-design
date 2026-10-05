@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" width="640" height="400" role="img" aria-label="Автоматизация: схема из четырёх слоёв">
+  <rect width="640" height="400" fill="#1C1619"/>
+  <g font-family="Montserrat, sans-serif">
+    <text x="40" y="60" fill="#A12A47" font-size="12" font-weight="600" letter-spacing="3.4">АВТОМАТИЗАЦИЯ</text>
+    <text x="40" y="104" fill="#F6EFEF" font-size="30" font-family="Noto Serif Display, Georgia, serif">В дополнение к 365 и ВК</text>
+
+    <g>
+      <rect x="40" y="146" width="178" height="44" rx="8" fill="#241C20" stroke="#3A2E33"/>
+      <text x="58" y="173" fill="#B3A2A8" font-size="13">Сайт и ВКонтакте</text>
+      <rect x="231" y="146" width="178" height="44" rx="8" fill="#241C20" stroke="#3A2E33"/>
+      <text x="249" y="173" fill="#B3A2A8" font-size="13">Fitness 365</text>
+      <rect x="422" y="146" width="178" height="44" rx="8" fill="#241C20" stroke="#3A2E33"/>
+      <text x="440" y="173" fill="#B3A2A8" font-size="13">Приёмная</text>
+    </g>
+
+    <g stroke="#3A2E33" stroke-width="1.5">
+      <path d="M129 190 V214"/><path d="M320 190 V214"/><path d="M511 190 V214"/>
+    </g>
+
+    <rect x="40" y="214" width="560" height="52" rx="9" fill="#2A1A20" stroke="#8B2039"/>
+    <text x="58" y="239" fill="#F6EFEF" font-size="14" font-weight="500">Общая база</text>
+    <text x="58" y="257" fill="#B3A2A8" font-size="11.5">заявки · клиенты · переписка · посещения · база знаний</text>
+
+    <g stroke="#3A2E33" stroke-width="1.5">
+      <path d="M129 266 V290"/><path d="M320 266 V290"/><path d="M511 266 V290"/>
+    </g>
+
+    <g>
+      <rect x="40" y="290" width="178" height="44" rx="8" fill="#241C20" stroke="#3A2E33"/>
+      <text x="58" y="317" fill="#E6B9C6" font-size="13">ИИ-администратор</text>
+      <rect x="231" y="290" width="178" height="44" rx="8" fill="#241C20" stroke="#3A2E33"/>
+      <text x="249" y="317" fill="#E6B9C6" font-size="13">Наставник</text>
+      <rect x="422" y="290" width="178" height="44" rx="8" fill="#241C20" stroke="#3A2E33"/>
+      <text x="440" y="317" fill="#E6B9C6" font-size="13">Пульс</text>
+    </g>
+
+    <text x="40" y="370" fill="#B3A2A8" font-size="12.5">Шесть этапов · начать можно с бесплатного</text>
+  </g>
+</svg>

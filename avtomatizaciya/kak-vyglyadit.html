@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Как это выглядит — Шостакович, автоматизация</title>
+<meta property="og:title" content="Как это выглядит">
+<meta property="og:description" content="Экраны: заявка у администратора, подсказка, переписка бота, дашборд, сообщение новичку">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+Display:wght@300;400&family=Montserrat:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="../assets/base.css">
+<link rel="stylesheet" href="assets/doc.css">
+</head>
+<body>
+
+<header class="top"><div class="wrap">
+  <div class="mark"><b>SHOSTAKOVICH</b><span>Автоматизация</span></div>
+  <nav class="nav">
+    <a href="index.html">Начало</a>
+    <a href="boli.html">Что болит</a>
+    <a href="sistema.html">Как устроено</a>
+    <a href="etapy.html">Этапы и цены</a>
+    <a href="kak-vyglyadit.html" aria-current="page">Как выглядит</a>
+    <a href="tehnika.html">Техника и вопросы</a>
+  </nav>
+</div></header>
+
+<main class="wrap">
+
+  <span class="caps eyebrow">04 · Как это выглядит</span>
+  <h1>Пять экранов</h1>
+
+  <p class="lead measure">Чтобы разговор был предметным, я собрал макеты — по одному на каждый этап. Содержимое в них ваше: направления, филиалы, цены и абонементы настоящие.</p>
+
+  <div class="flag">
+    <p><b>Это макеты, а не снимки работающей системы.</b> Так я вижу результат, и так он будет выглядеть, если мы ничего не поменяем по дороге. Поменять по дороге можно почти всё — для того и показываю заранее.</p>
+  </div>
+
+  <h2>Этап 1. Заявка у администратора</h2>
+
+  <figure class="shot">
+    <div class="tg">
+      <div class="bar">
+        <span class="dot">ШТ</span>
+        <span><b>Заявки · Шостакович</b><i>тема: #248 Алина · ВКонтакте</i></span>
+      </div>
+      <div class="feed">
+        <div class="card">
+          <div class="t">Заявка #248 · ВКонтакте</div>
+          <dl>
+            <dt>Кто</dt><dd>Алина Р.</dd>
+            <dt>Интерес</dt><dd>Exotic Pole, без опыта</dd>
+            <dt>Филиал</dt><dd>не определён</dd>
+            <dt>Пришла</dt><dd>вчера, 22:41</dd>
+            <dt>Статус</dt><dd>В работе · Марина</dd>
+          </dl>
+          <div class="btns">
+            <span class="hot">Взяла себе</span><span>Не дозвонились</span><span>Перезвонить</span><span>Записана</span><span>Отказ</span>
+          </div>
+        </div>
+        <div class="msg"><span class="who">Алина</span>Добрый вечер! Хочу попробовать пилон, но я совсем новичок. Это очень сложно?<time>22:41</time></div>
+        <div class="sys">Марина взяла в работу · 09:12</div>
+        <div class="msg out">Доброе утро, Алина! Совсем не сложно — у нас почти все начинают с нуля. Есть пробное за 400 ₽, можно просто прийти и попробовать. Вам удобнее на Славе, в Суворовском или в Олимпе?<time>09:14</time></div>
+        <div class="msg"><span class="who">Алина</span>Олимп, я в Арбеково живу<time>09:31</time></div>
+        <div class="sys">Марина → Записана · 09:48</div>
+      </div>
+    </div>
+    <figcaption>Каждая заявка — отдельная тема в рабочем чате. Сверху карточка с кнопками, которую бот переписывает на месте при каждом изменении, под ней живая переписка. Марина отвечает прямо здесь, а Алина получает ответ во ВКонтакте от имени сообщества и ни о каком Telegram не знает. Строчки «взяла в работу» и «→ Записана» пишутся сами — по ним потом считается, кто сколько взял и за сколько ответил.</figcaption>
+  </figure>
+
+  <h2>Этап 2. Подсказка, которую отправляет человек</h2>
+
+  <figure class="shot">
+    <div class="tg">
+      <div class="bar">
+        <span class="dot">ШТ</span>
+        <span><b>Заявки · Шостакович</b><i>тема: #251 Ольга · ВКонтакте</i></span>
+      </div>
+      <div class="feed">
+        <div class="msg"><span class="who">Ольга</span>Здравствуйте, а сколько стоит абонемент и есть ли что-то для начинающих после 40?<time>19:08</time></div>
+        <div class="card">
+          <div class="t">Предлагаю ответить так</div>
+          <div style="line-height:1.5;color:#C8D3DE">Здравствуйте, Ольга! Конечно есть — возраст тут вообще не помеха, у нас занимаются очень по-разному. Для начала советую растяжку или скульптор тела, там спокойный темп. Абонемент на 4 занятия в месяц — 2 900 ₽, на 8 — 4 500 ₽, он действует во всех трёх студиях. Можно сначала прийти на пробное за 400 ₽ и посмотреть. В каком районе вам удобнее?</div>
+          <div class="btns">
+            <span class="hot">Отправить</span><span>Поправить</span><span>Отвечу сам</span>
+          </div>
+          <div style="color:#7C94A8;font-size:12px;margin-top:10px">Цены и направления взяты из базы знаний студии</div>
+        </div>
+      </div>
+    </div>
+    <figcaption>На этом этапе система не разговаривает с клиентом — она разговаривает с администратором. Ответ готов через несколько секунд после сообщения, администратор читает и решает. Если он восемь раз из десяти нажимает «Отправить» не правя, значит системе можно доверить отвечать самой. Если правит — я дорабатываю базу знаний, и это входит в обслуживание.</figcaption>
+  </figure>
+
+  <h2>Этап 3. Как это видит клиент</h2>
+
+  <figure class="shot">
+    <div class="vk">
+      <div class="bar">Шостакович | Фитнес и Танцы<i>сообщество отвечает обычно за минуту</i></div>
+      <div class="feed">
+        <div class="msg">Привет! Дочке 14, хочет на пилон. Можно в таком возрасте? И где у вас ближе к центру?<time>23:17</time></div>
+        <div class="msg out">Здравствуйте! Да, в 14 уже можно — на начальном уровне работаем мягко, без силовых перегрузок. Ближе к центру это студия на Славе, улица Славы, 2.<time>23:17</time></div>
+        <div class="msg out">Для первого раза советую пробное за 400 ₽, чтобы дочка посмотрела, её ли это. На этой неделе на Славе есть вторник в 17:30 и четверг в 18:00. Какой день удобнее?<time>23:18</time></div>
+        <div class="msg">Давайте четверг<time>23:24</time></div>
+        <div class="msg out">Отлично, записала на четверг, 18:00, Слава, улица Славы, 2. Подскажите имя и телефон, чтобы администратор мог связаться, если что-то изменится в расписании.<time>23:24</time></div>
+      </div>
+    </div>
+    <figcaption>Ночь, администраторов нет, и именно эти заявки сейчас остывают до утра. Система отвечает за полминуты: цены, адреса и свободное время она берёт из вашей базы, а не выдумывает. Как только администратор напишет в этот диалог сам, система в нём замолкает. Запускаем сначала только на ночь — днём включаем, когда вы посмотрите, как она разговаривает.</figcaption>
+  </figure>
+
+  <h2>Этап 4. Пульс для руководителя</h2>
+
+  <figure class="shot">
+    <div class="dash">
+      <div class="hd"><b>Пульс студии · сентябрь</b><i>обновлено 10 минут назад</i></div>
+      <div class="tiles">
+        <div class="tile"><div class="k">Посещений</div><div class="v">2 184</div><div class="d up">+12% к августу</div></div>
+        <div class="tile"><div class="k">Заполняемость</div><div class="v">71%</div><div class="d down">−6% к августу</div></div>
+        <div class="tile"><div class="k">Новых клиентов</div><div class="v">64</div><div class="d up">+28% к августу</div></div>
+        <div class="tile"><div class="k">На грани ухода</div><div class="v">19</div><div class="d">не ходили 14 дней</div></div>
+      </div>
+
+      <div class="dlab">По студиям</div>
+      <div class="brs">
+        <div class="br"><b>Слава</b><dl><dt>Посещений</dt><dd>912 <span class="up">+8%</span></dd><dt>Заполняемость</dt><dd>78%</dd><dt>Новых</dt><dd>27</dd><dt>Перестали ходить</dt><dd>4</dd></dl></div>
+        <div class="br"><b>Суворовский</b><dl><dt>Посещений</dt><dd>648 <span class="down">−4%</span></dd><dt>Заполняемость</dt><dd>61%</dd><dt>Новых</dt><dd>19</dd><dt>Перестали ходить</dt><dd>9</dd></dl></div>
+        <div class="br"><b>Олимп</b><dl><dt>Посещений</dt><dd>624 <span class="up">+21%</span></dd><dt>Заполняемость</dt><dd>73%</dd><dt>Новых</dt><dd>18</dd><dt>Перестали ходить</dt><dd>6</dd></dl></div>
+      </div>
+
+      <div class="dlab">Загруженность по часам, все студии</div>
+      <div class="heat">
+        <span></span>
+        <span>10</span>
+        <span>11</span>
+        <span>12</span>
+        <span>13</span>
+        <span>14</span>
+        <span>15</span>
+        <span>16</span>
+        <span>17</span>
+        <span>18</span>
+        <span>19</span>
+        <span>20</span>
+        <span>21</span>
+        <b>Пн</b>
+        <i style="--v:0.15"></i>
+        <i style="--v:0.10"></i>
+        <i style="--v:0.05"></i>
+        <i style="--v:0.00"></i>
+        <i style="--v:0.10"></i>
+        <i style="--v:0.20"></i>
+        <i style="--v:0.35"></i>
+        <i style="--v:0.55"></i>
+        <i style="--v:0.80"></i>
+        <i style="--v:0.90"></i>
+        <i style="--v:0.75"></i>
+        <i style="--v:0.40"></i>
+        <b>Вт</b>
+        <i style="--v:0.20"></i>
+        <i style="--v:0.15"></i>
+        <i style="--v:0.10"></i>
+        <i style="--v:0.05"></i>
+        <i style="--v:0.10"></i>
+        <i style="--v:0.25"></i>
+        <i style="--v:0.40"></i>
+        <i style="--v:0.60"></i>
+        <i style="--v:0.90"></i>
+        <i style="--v:1.00"></i>
+        <i style="--v:0.85"></i>
+        <i style="--v:0.50"></i>
+        <b>Ср</b>
+        <i style="--v:0.10"></i>
+        <i style="--v:0.10"></i>
+        <i style="--v:0.05"></i>
+        <i style="--v:0.00"></i>
+        <i style="--v:0.10"></i>
+        <i style="--v:0.20"></i>
+        <i style="--v:0.30"></i>
+        <i style="--v:0.50"></i>
+        <i style="--v:0.70"></i>
+        <i style="--v:0.80"></i>
+        <i style="--v:0.65"></i>
+        <i style="--v:0.35"></i>
+        <b>Чт</b>
+        <i style="--v:0.20"></i>
+        <i style="--v:0.15"></i>
+        <i style="--v:0.10"></i>
+        <i style="--v:0.05"></i>
+        <i style="--v:0.15"></i>
+        <i style="--v:0.25"></i>
+        <i style="--v:0.45"></i>
+        <i style="--v:0.65"></i>
+        <i style="--v:0.95"></i>
+        <i style="--v:1.00"></i>
+        <i style="--v:0.90"></i>
+        <i style="--v:0.50"></i>
+        <b>Пт</b>
+        <i style="--v:0.15"></i>
+        <i style="--v:0.10"></i>
+        <i style="--v:0.05"></i>
+        <i style="--v:0.00"></i>
+        <i style="--v:0.10"></i>
+        <i style="--v:0.20"></i>
+        <i style="--v:0.30"></i>
+        <i style="--v:0.45"></i>
+        <i style="--v:0.60"></i>
+        <i style="--v:0.70"></i>
+        <i style="--v:0.50"></i>
+        <i style="--v:0.25"></i>
+        <b>Сб</b>
+        <i style="--v:0.30"></i>
+        <i style="--v:0.40"></i>
+        <i style="--v:0.45"></i>
+        <i style="--v:0.35"></i>
+        <i style="--v:0.25"></i>
+        <i style="--v:0.20"></i>
+        <i style="--v:0.15"></i>
+        <i style="--v:0.10"></i>
+        <i style="--v:0.10"></i>
+        <i style="--v:0.05"></i>
+        <i style="--v:0.00"></i>
+        <i style="--v:0.00"></i>
+        <b>Вс</b>
+        <i style="--v:0.20"></i>
+        <i style="--v:0.25"></i>
+        <i style="--v:0.30"></i>
+        <i style="--v:0.20"></i>
+        <i style="--v:0.15"></i>
+        <i style="--v:0.10"></i>
+        <i style="--v:0.05"></i>
+        <i style="--v:0.00"></i>
+        <i style="--v:0.00"></i>
+        <i style="--v:0.00"></i>
+        <i style="--v:0.00"></i>
+        <i style="--v:0.00"></i>
+      </div>
+
+      <div class="dlab">Кому написать сегодня · 19</div>
+      <div class="rows">
+        <div><span>Алина Р. · Олимп<em>не была 16 дней, осталось 3 занятия</em></span><u>Написать</u></div>
+        <div><span>Марина К. · Слава<em>не была 21 день, абонемент закончился</em></span><u>Написать</u></div>
+        <div><span>Ольга Д. · Суворовский<em>не была 14 дней, осталось 7 занятий</em></span><u>Написать</u></div>
+        <div class="more">ещё 16</div>
+      </div>
+
+      <div class="dlab">Абонементы заканчиваются на этой неделе · 11</div>
+      <div class="rows">
+        <div><span>Екатерина П. · Слава<em>осталось 1 занятие, срок до 9 октября</em></span><u>Напомнить</u></div>
+        <div><span>Светлана Б. · Олимп<em>осталось 2 занятия, срок до 11 октября</em></span><u>Напомнить</u></div>
+        <div class="more">ещё 9</div>
+      </div>
+
+      <div class="dlab">Путь абонементов, новички сентября</div>
+      <div class="funnel">
+        <div style="--w:100%"><span>Первый абонемент</span><span>64 человека</span></div>
+        <div style="--w:58%"><span>Второй абонемент</span><span>37 · 58%</span></div>
+        <div style="--w:33%"><span>Третий абонемент</span><span>21 · 33%</span></div>
+      </div>
+
+      <div class="risk">
+        <b>Разбор за неделю</b>
+        <p>Суббота и воскресенье на Суворовском почти пустые: 18% и 11% заполняемости против 71% в среднем. Два месяца подряд одна и та же картина.</p>
+        <p>Из 64 новичков сентября до второго абонемента дошли 37. Основной отрыв — между третьей и четвёртой неделей, 15 человек перестали ходить именно там.</p>
+        <p>Йога в гамаках на Олимпе второй месяц набирает меньше половины группы, при этом на Славе то же направление заполнено.</p>
+      </div>
+    </div>
+    <figcaption>Открывается с телефона. Цифры придуманы — настоящие появятся после нулевого этапа. Списки внизу важнее верхних плиток: плитки показывают, что происходит, а списки говорят, что делать сегодня, поимённо и с кнопкой. Нижний блок система пишет сама: читает цифры и формулирует текстом, что изменилось. Набор блоков обсуждаем на четвёртом этапе — что окажется ненужным, уберём, чего не хватит, добавим.</figcaption>
+  </figure>
+
+  <h2>Этап 5. Конверт и наставник</h2>
+
+  <div class="grid g2">
+
+    <figure class="shot">
+      <div class="envelope">
+        <svg class="qr" viewBox="0 0 29 29" shape-rendering="crispEdges" role="img" aria-label="Условный QR-код">
+          <rect width="29" height="29" fill="#fff"/>
+          <g fill="#141012">
+            <path d="M0 0h7v7H0zM22 0h7v7h-7zM0 22h7v7H0z" />
+          </g>
+          <g fill="#fff">
+            <path d="M1 1h5v5H1zM23 1h5v5h-5zM1 23h5v5H1z"/>
+          </g>
+          <g fill="#141012">
+            <path d="M2 2h3v3H2zM24 2h3v3h-3zM2 24h3v3H2z"/>
+            <path d="M9 0h1v1H9zM11 0h2v1h-2zM8 2h1v2H8zM10 2h1v1h-1zM12 1h1v3h-1zM9 4h2v1H9zM13 3h1v2h-1zM8 6h3v1H8zM12 6h2v1h-2z"/>
+            <path d="M0 9h1v1H0zM2 8h1v2H2zM4 9h2v1H4zM1 11h1v1H1zM3 11h2v1H3zM6 10h1v3H6zM0 13h2v1H0zM3 13h1v1H3zM5 14h1v1H5zM1 15h2v1H1zM4 16h2v1H4zM0 18h1v2H0zM2 17h1v1H2zM3 19h2v1H3zM6 18h1v1H6zM1 20h1v1H1z"/>
+            <path d="M9 8h2v2H9zM12 8h1v1h-1zM14 9h1v2h-1zM8 11h1v1H8zM10 11h3v1h-3zM9 13h1v2H9zM11 13h1v1h-1zM13 12h2v1h-2zM8 15h2v1H8zM12 14h1v2h-1zM14 15h1v1h-1zM10 16h1v2h-1zM13 17h2v1h-2zM8 18h1v2H8zM11 18h1v1h-1zM9 20h3v1H9zM13 19h1v2h-1z"/>
+            <path d="M16 8h1v1h-1zM18 8h2v1h-2zM21 9h1v1h-1zM23 8h1v2h-1zM25 9h2v1h-2zM28 8h1v2h-1zM16 10h2v1h-2zM19 11h1v1h-1zM22 10h1v2h-1zM24 11h2v1h-2zM27 11h1v1h-1zM17 12h1v2h-1zM20 12h2v1h-2zM23 13h2v1h-2zM26 12h1v2h-1zM28 13h1v1h-1zM16 14h1v1h-1zM19 14h2v1h-2zM22 15h2v1h-2zM25 14h1v2h-1zM27 15h2v1h-2z"/>
+            <path d="M8 22h1v1H8zM10 22h2v1h-2zM13 22h1v2h-1zM9 24h2v1H9zM12 23h1v1h-1zM8 26h1v2H8zM10 26h1v1h-1zM12 25h2v1h-2zM11 27h3v1h-3z"/>
+            <path d="M16 17h2v1h-2zM19 16h1v2h-1zM21 17h2v1h-2zM24 16h1v2h-1zM26 17h2v1h-2zM16 19h1v2h-1zM18 19h2v1h-2zM21 20h1v1h-1zM23 19h2v1h-2zM26 19h1v2h-1zM28 20h1v1h-1zM17 21h2v1h-2zM20 22h2v1h-2zM23 21h1v2h-1zM25 22h2v1h-2zM28 22h1v1h-1zM16 23h1v1h-1zM18 23h1v2h-1zM20 24h3v1h-3zM24 24h2v1h-2zM27 23h1v2h-1zM16 25h2v1h-2zM19 26h2v1h-2zM22 25h1v2h-1zM24 26h1v1h-1zM26 26h2v1h-2zM17 27h3v1h-3zM21 27h1v1h-1zM25 27h1v1h-1zM28 26h1v2h-1z"/>
+          </g>
+        </svg>
+        <div class="t">Начало твоего пути</div>
+        <p>Наведи камеру — и я расскажу, что будет дальше. А ещё подарю занятие за рассказ о себе.</p>
+      </div>
+      <figcaption>Конверт с письмом от Анастасии и кодом внутри. Это не украшение, а единственный способ попасть в бота: Telegram не разрешает боту написать человеку первым. Поэтому от текста письма и от того, что обещано внутри, напрямую зависит, какая доля новичков вообще дойдёт до наставника.</figcaption>
+    </figure>
+
+    <figure class="shot">
+      <div class="tg">
+        <div class="bar">
+          <span class="dot">А</span>
+          <span><b>Аня из Шостаковича</b><i>онлайн</i></span>
+        </div>
+        <div class="feed">
+          <div class="sys">третья неделя</div>
+          <div class="msg">Привет! Ну что, была на этой неделе? Куда ходила?</div>
+          <div class="msg out">Была один раз, на растяжке. На пилон не пошла, если честно испугалась<time>20:12</time></div>
+          <div class="msg">Ой, это нормально вообще-то, почти все так на второй-третьей неделе. А чего именно испугалась — что не получится или что больно?</div>
+          <div class="msg out">Что я одна такая неспортивная буду<time>20:15</time></div>
+          <div class="msg">Поверь, не будешь. У Лены в четверг на Славе как раз группа, где половина пришла с нуля в этом месяце. Хочешь, подскажу время, чтобы прийти вместе с такими же новенькими?</div>
+          <div class="sys">бот сообщил администратору: сомневается, нужен человек</div>
+        </div>
+      </div>
+      <figcaption>Касания привязаны к посещениям из 365: той, кто ходит исправно, пишут иначе, чем той, кто пропала. Бот помнит, что человек рассказал раньше, и через неделю спрашивает именно об этом — от этого и возникает ощущение живого разговора. Как только появляется сомнение, жалоба или разговор о деньгах, приходит администратор.</figcaption>
+    </figure>
+
+  </div>
+
+</main>
+
+<footer class="foot"><div class="wrap">
+  <a href="etapy.html">← Этапы и цены</a>
+  <a href="tehnika.html">Дальше: техника и вопросы →</a>
+</div></footer>
+
+</body>
+</html>
